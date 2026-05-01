@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { WhatsAppProvider } from "@/contexts/WhatsAppContext";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { LeadPopup } from "@/components/LeadPopup";
 import SiteLayout from "@/components/layout/SiteLayout";
@@ -25,6 +26,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <ThemeProvider>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -52,6 +54,7 @@ const App = () => (
         </WhatsAppProvider>
       </BrowserRouter>
     </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
