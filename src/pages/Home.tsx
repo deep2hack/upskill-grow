@@ -8,6 +8,8 @@ import SEO from "@/components/SEO";
 import { courses, formatINR } from "@/data/courses";
 import { SITE } from "@/data/site";
 import { buildWhatsAppUrl, courseEnquiryMessage } from "@/lib/whatsapp";
+import HeroScene from "@/components/three/HeroScene";
+import AmbientBackdrop from "@/components/three/AmbientBackdrop";
 
 const stats = [
   { k: "10,000+", v: "Learners trained" },
@@ -44,6 +46,9 @@ const Home = () => {
       {/* HERO */}
       <section className="relative overflow-hidden bg-hero text-primary-foreground">
         <div className="absolute inset-0 opacity-30 [background:radial-gradient(70%_60%_at_80%_10%,hsl(var(--gold)/0.35),transparent_60%),radial-gradient(50%_50%_at_10%_90%,hsl(var(--primary-glow)/0.5),transparent_60%)]" />
+        <div className="absolute inset-0 hidden lg:block opacity-70">
+          <HeroScene />
+        </div>
         <div className="container relative py-20 lg:py-28 grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="space-y-6 animate-fade-up">
             <Badge className="bg-gold/20 text-gold border-gold/30 hover:bg-gold/20">
@@ -263,6 +268,7 @@ const Home = () => {
       {/* Final CTA */}
       <section className="container pb-20">
         <div className="rounded-2xl bg-hero text-primary-foreground p-8 sm:p-12 shadow-elegant relative overflow-hidden">
+          <AmbientBackdrop className="opacity-60" />
           <div className="absolute inset-0 opacity-30 [background:radial-gradient(60%_60%_at_80%_20%,hsl(var(--gold)/0.4),transparent_60%)]" />
           <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
