@@ -4,6 +4,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
@@ -71,6 +72,7 @@ export const Navbar = () => {
             <Phone className="h-4 w-4" />
             {SITE.phone}
           </a>
+          <ThemeToggle />
           <Button asChild variant="premium" size="sm">
             <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">
               Enroll on WhatsApp
@@ -78,13 +80,16 @@ export const Navbar = () => {
           </Button>
         </div>
 
-        <button
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-border"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {open && (
