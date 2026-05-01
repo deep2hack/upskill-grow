@@ -10,6 +10,8 @@ import { SITE } from "@/data/site";
 import { buildWhatsAppUrl, courseEnquiryMessage } from "@/lib/whatsapp";
 import HeroScene from "@/components/three/HeroScene";
 import AmbientBackdrop from "@/components/three/AmbientBackdrop";
+import PlacementCompanies from "@/components/PlacementCompanies";
+import Reveal from "@/components/Reveal";
 
 const stats = [
   { k: "10,000+", v: "Learners trained" },
