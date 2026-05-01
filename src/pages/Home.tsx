@@ -161,7 +161,7 @@ const Home = () => {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((c) => (
-              <Card key={c.slug} className="group flex flex-col border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all">
+              <Card key={c.slug} className="group flex flex-col border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all tilt-3d">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/10">{c.level}</Badge>
