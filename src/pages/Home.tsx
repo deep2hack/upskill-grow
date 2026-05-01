@@ -10,6 +10,8 @@ import { SITE } from "@/data/site";
 import { buildWhatsAppUrl, courseEnquiryMessage } from "@/lib/whatsapp";
 import HeroScene from "@/components/three/HeroScene";
 import AmbientBackdrop from "@/components/three/AmbientBackdrop";
+import PlacementCompanies from "@/components/PlacementCompanies";
+import Reveal from "@/components/Reveal";
 
 const stats = [
   { k: "10,000+", v: "Learners trained" },
@@ -127,27 +129,32 @@ const Home = () => {
 
       {/* USPs */}
       <section className="container py-20">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Why Upskiller</p>
           <h2 className="mt-2 font-display text-3xl sm:text-4xl">A serious place to learn markets.</h2>
           <p className="mt-3 text-muted-foreground">
             We're not an info-product factory. We're a coaching house — small cohorts, real mentors, structured outcomes.
           </p>
-        </div>
+        </Reveal>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {usps.map(({ icon: I, title, desc }) => (
-            <Card key={title} className="border-border/60 hover:border-gold/60 hover:shadow-card-soft transition-all">
-              <CardHeader>
-                <div className="grid h-11 w-11 place-items-center rounded-md bg-primary text-primary-foreground">
-                  <I className="h-5 w-5" />
-                </div>
-                <CardTitle className="font-display text-lg mt-3">{title}</CardTitle>
-                <CardDescription>{desc}</CardDescription>
-              </CardHeader>
-            </Card>
+          {usps.map(({ icon: I, title, desc }, i) => (
+            <Reveal key={title} delay={i * 110}>
+              <Card className="h-full border-border/60 hover:border-gold/60 hover:shadow-card-soft transition-all">
+                <CardHeader>
+                  <div className="grid h-11 w-11 place-items-center rounded-md bg-gold-gradient text-secondary shadow-gold">
+                    <I className="h-5 w-5" />
+                  </div>
+                  <CardTitle className="font-display text-lg mt-3">{title}</CardTitle>
+                  <CardDescription>{desc}</CardDescription>
+                </CardHeader>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </section>
+
+      {/* Placement Companies */}
+      <PlacementCompanies />
 
       {/* Featured Courses */}
       <section className="bg-muted/40 py-20">
@@ -160,32 +167,34 @@ const Home = () => {
             <Button asChild variant="outlineGold"><Link to="/courses">View all courses <ArrowRight /></Link></Button>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featured.map((c) => (
-              <Card key={c.slug} className="group flex flex-col border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all tilt-3d">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/10">{c.level}</Badge>
-                    <Badge className="bg-gold text-secondary hover:bg-gold">Live Cohort</Badge>
-                  </div>
-                  <CardTitle className="font-display text-xl mt-3">{c.title}</CardTitle>
-                  <CardDescription className="line-clamp-3">{c.tagline}</CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                    <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {c.duration}</span>
-                    <span className="inline-flex items-center gap-1"><BookOpen className="h-3.5 w-3.5" /> {c.mode}</span>
-                  </div>
-                  <div className="mt-4 flex items-end justify-between">
-                    <div>
-                      <p className="text-xs text-muted-foreground line-through">{formatINR(c.mrp)}</p>
-                      <p className="font-display text-2xl text-primary">{formatINR(c.price)}</p>
+            {featured.map((c, i) => (
+              <Reveal key={c.slug} delay={i * 130}>
+                <Card className="group flex h-full flex-col border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all tilt-3d">
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/10">{c.level}</Badge>
+                      <Badge className="bg-gold text-secondary hover:bg-gold">Live Cohort</Badge>
                     </div>
-                    <Button asChild variant="premium" size="sm">
-                      <Link to={`/courses/${c.slug}`}>Details</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                    <CardTitle className="font-display text-xl mt-3">{c.title}</CardTitle>
+                    <CardDescription className="line-clamp-3">{c.tagline}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="mt-auto">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                      <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {c.duration}</span>
+                      <span className="inline-flex items-center gap-1"><BookOpen className="h-3.5 w-3.5" /> {c.mode}</span>
+                    </div>
+                    <div className="mt-4 flex items-end justify-between">
+                      <div>
+                        <p className="text-xs text-muted-foreground line-through">{formatINR(c.mrp)}</p>
+                        <p className="font-display text-2xl text-gold-deep">{formatINR(c.price)}</p>
+                      </div>
+                      <Button asChild variant="premium" size="sm">
+                        <Link to={`/courses/${c.slug}`}>Details</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -201,14 +210,16 @@ const Home = () => {
             { n: "02", t: "Counselling", d: "Free advisor call to map your goals to the right program." },
             { n: "03", t: "Learn Live", d: "Join the cohort — live mentor sessions, drills, journals." },
             { n: "04", t: "Get Certified", d: "Complete capstone & receive your industry certification." },
-          ].map((s) => (
-            <Card key={s.n} className="border-border/60">
-              <CardHeader>
-                <span className="font-display text-3xl text-gold">{s.n}</span>
-                <CardTitle className="font-display text-lg mt-2">{s.t}</CardTitle>
-                <CardDescription>{s.d}</CardDescription>
-              </CardHeader>
-            </Card>
+          ].map((s, i) => (
+            <Reveal key={s.n} delay={i * 110}>
+              <Card className="h-full border-border/60 hover:border-gold/60 transition-all">
+                <CardHeader>
+                  <span className="font-display text-3xl bg-gold-gradient bg-clip-text text-transparent">{s.n}</span>
+                  <CardTitle className="font-display text-lg mt-2">{s.t}</CardTitle>
+                  <CardDescription>{s.d}</CardDescription>
+                </CardHeader>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -216,25 +227,27 @@ const Home = () => {
       {/* Testimonials preview */}
       <section className="bg-muted/40 py-20">
         <div className="container">
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Testimonials</p>
             <h2 className="mt-2 font-display text-3xl sm:text-4xl">Trusted by learners across India.</h2>
-          </div>
+          </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
               { n: "Rohit S.", r: "The Pro Trader Program completely changed my approach. Risk-first, process-led — finally consistent." },
               { n: "Aisha K.", r: "I cracked an analyst role within 3 months of finishing the Financial Analysis certification." },
               { n: "Vikram P.", r: "Mentors are real practitioners. Their live trade rooms are pure gold." },
-            ].map((t) => (
-              <Card key={t.n} className="border-border/60">
-                <CardContent className="p-6">
-                  <div className="flex gap-0.5 text-gold">
-                    {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-foreground/85">"{t.r}"</p>
-                  <p className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">{t.n}</p>
-                </CardContent>
-              </Card>
+            ].map((t, i) => (
+              <Reveal key={t.n} delay={i * 130}>
+                <Card className="h-full border-border/60">
+                  <CardContent className="p-6">
+                    <div className="flex gap-0.5 text-gold">
+                      {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-foreground/85">"{t.r}"</p>
+                    <p className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">{t.n}</p>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
           <div className="mt-8">
