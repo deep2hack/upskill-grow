@@ -30,11 +30,13 @@
     --muted: 220 14% 96%;
     --muted-foreground: 220 10% 40%;
 
-    /* Gold — accent (use sparingly) */
-    --accent: 42 55% 52%;
+    /* Gold — primary accent (warm, premium yellow-gold) */
+    --accent: 44 92% 56%;
     --accent-foreground: 222 33% 8%;
-    --gold: 42 65% 55%;
-    --gold-soft: 42 55% 90%;
+    --gold: 44 95% 58%;
+    --gold-deep: 38 88% 48%;
+    --gold-soft: 46 95% 92%;
+    --gold-glow: 48 100% 70%;
 
     --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 100%;
@@ -45,13 +47,15 @@
 
     --radius: 0.5rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(220 18% 10%) 0%, hsl(222 60% 18%) 60%, hsl(222 70% 28%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(42 65% 60%) 0%, hsl(38 70% 48%) 100%);
-    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 97%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 18% 8%) 0%, hsl(222 55% 16%) 55%, hsl(44 70% 30%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(48 100% 68%) 0%, hsl(44 95% 58%) 50%, hsl(38 88% 48%) 100%);
+    --gradient-placements: radial-gradient(120% 80% at 50% 0%, hsl(44 80% 18% / 0.45) 0%, transparent 60%), linear-gradient(180deg, hsl(220 22% 6%) 0%, hsl(220 22% 4%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(46 60% 98%) 100%);
 
     --shadow-elegant: 0 24px 60px -24px hsl(222 70% 22% / 0.35);
     --shadow-card: 0 12px 32px -16px hsl(220 18% 14% / 0.18);
-    --shadow-gold: 0 18px 40px -18px hsl(42 65% 55% / 0.55);
+    --shadow-gold: 0 18px 40px -18px hsl(44 95% 58% / 0.6);
+    --shadow-bubble: 0 10px 30px -10px hsl(48 100% 70% / 0.35), 0 0 0 1px hsl(0 0% 100% / 0.08) inset;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -109,4 +113,74 @@
   .shadow-gold { box-shadow: var(--shadow-gold); }
   .tilt-3d { transform-style: preserve-3d; transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
   .tilt-3d:hover { transform: perspective(900px) rotateX(4deg) rotateY(-6deg) translateY(-4px); }
+
+  .text-gold-deep { color: hsl(var(--gold-deep)); }
+  .bg-gold-deep { background-color: hsl(var(--gold-deep)); }
+  .bg-placements { background-image: var(--gradient-placements); }
+  .shadow-bubble { box-shadow: var(--shadow-bubble); }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition:
+      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* Placement bubbles */
+  .bubble-glass {
+    background: linear-gradient(160deg, hsl(0 0% 100% / 0.96) 0%, hsl(46 60% 96% / 0.92) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid hsl(48 100% 75% / 0.35);
+    box-shadow:
+      0 12px 30px -12px hsl(44 95% 50% / 0.35),
+      0 0 0 1px hsl(0 0% 100% / 0.08) inset,
+      0 0 40px -10px hsl(48 100% 70% / 0.25);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  }
+  .bubble-glass:hover {
+    transform: translateY(-6px) scale(1.06);
+    box-shadow:
+      0 18px 40px -12px hsl(44 95% 50% / 0.55),
+      0 0 0 1px hsl(48 100% 75% / 0.5) inset,
+      0 0 60px -8px hsl(48 100% 70% / 0.55);
+  }
+
+  .bubble-float-a { animation: bubble-float-a 6s ease-in-out infinite; }
+  .bubble-float-b { animation: bubble-float-b 7.5s ease-in-out infinite; }
+  .bubble-float-c { animation: bubble-float-c 5.5s ease-in-out infinite; }
+
+  .marquee-track { animation: marquee 28s linear infinite; }
+  .marquee-track-slow { animation: marquee 44s linear infinite; }
+  .marquee-track-reverse { animation: marquee-reverse 36s linear infinite; }
+  .marquee-row:hover .marquee-track,
+  .marquee-row:hover .marquee-track-slow,
+  .marquee-row:hover .marquee-track-reverse { animation-play-state: paused; }
+}
+
+@keyframes bubble-float-a {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes bubble-float-b {
+  0%, 100% { transform: translateY(-4px); }
+  50% { transform: translateY(6px); }
+}
+@keyframes bubble-float-c {
+  0%, 100% { transform: translateY(3px); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
