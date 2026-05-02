@@ -19,6 +19,7 @@ export const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/courses", label: "Courses" },
   { to: "/about", label: "About" },
+  { to: "/founder", label: "Founder" },
   { to: "/mentors", label: "Mentors" },
   { to: "/testimonials", label: "Testimonials" },
   { to: "/blog", label: "Blog" },
