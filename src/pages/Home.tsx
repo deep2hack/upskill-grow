@@ -11,6 +11,7 @@ import { buildWhatsAppUrl, courseEnquiryMessage } from "@/lib/whatsapp";
 import HeroScene from "@/components/three/HeroScene";
 import AmbientBackdrop from "@/components/three/AmbientBackdrop";
 import PlacementCompanies from "@/components/PlacementCompanies";
+import FounderSection from "@/components/FounderSection";
 import Reveal from "@/components/Reveal";
 
 const stats = [
@@ -152,6 +153,9 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      {/* About Founder */}
+      <FounderSection />
 
       {/* Placement Companies */}
       <PlacementCompanies />
