@@ -72,24 +72,24 @@ type Pos = {
 };
 
 const POSITIONS: Pos[] = [
-  { top: "8%",  left: "6%",  size: 132, drift: "drift-a", duration: 14, delay: 0 },
-  { top: "18%", left: "32%", size: 112, drift: "drift-c", duration: 18, delay: 1.2 },
-  { top: "4%",  left: "58%", size: 124, drift: "drift-b", duration: 16, delay: 0.6 },
-  { top: "14%", left: "82%", size: 116, drift: "drift-d", duration: 20, delay: 2.1 },
-  { top: "44%", left: "16%", size: 128, drift: "drift-e", duration: 17, delay: 0.9 },
-  { top: "52%", left: "46%", size: 144, drift: "drift-a", duration: 22, delay: 1.6 },
-  { top: "48%", left: "74%", size: 120, drift: "drift-b", duration: 15, delay: 0.3 },
-  { top: "76%", left: "26%", size: 118, drift: "drift-d", duration: 19, delay: 2.4 },
-  { top: "78%", left: "62%", size: 134, drift: "drift-c", duration: 21, delay: 1.0 },
+  { top: "6%",  left: "4%",  size: 104, drift: "drift-a", duration: 9,  delay: 0 },
+  { top: "16%", left: "30%", size: 92,  drift: "drift-c", duration: 11, delay: 0.6 },
+  { top: "2%",  left: "55%", size: 100, drift: "drift-b", duration: 10, delay: 0.3 },
+  { top: "12%", left: "82%", size: 94,  drift: "drift-d", duration: 12, delay: 1.1 },
+  { top: "44%", left: "14%", size: 100, drift: "drift-e", duration: 10, delay: 0.5 },
+  { top: "50%", left: "44%", size: 116, drift: "drift-a", duration: 13, delay: 0.9 },
+  { top: "46%", left: "72%", size: 96,  drift: "drift-b", duration: 9,  delay: 0.2 },
+  { top: "76%", left: "24%", size: 96,  drift: "drift-d", duration: 11, delay: 1.4 },
+  { top: "78%", left: "60%", size: 108, drift: "drift-c", duration: 12, delay: 0.7 },
 ];
 
 // Mobile-friendly subset (5 bubbles, less overlap)
 const MOBILE_POSITIONS: Pos[] = [
-  { top: "6%",  left: "8%",  size: 96,  drift: "drift-a", duration: 16, delay: 0 },
-  { top: "20%", left: "55%", size: 104, drift: "drift-c", duration: 18, delay: 0.8 },
-  { top: "44%", left: "18%", size: 100, drift: "drift-b", duration: 17, delay: 1.4 },
-  { top: "52%", left: "60%", size: 108, drift: "drift-d", duration: 20, delay: 0.5 },
-  { top: "76%", left: "32%", size: 110, drift: "drift-e", duration: 19, delay: 1.9 },
+  { top: "4%",  left: "6%",  size: 80, drift: "drift-a", duration: 10, delay: 0 },
+  { top: "18%", left: "55%", size: 86, drift: "drift-c", duration: 11, delay: 0.5 },
+  { top: "42%", left: "16%", size: 84, drift: "drift-b", duration: 10, delay: 0.8 },
+  { top: "50%", left: "58%", size: 90, drift: "drift-d", duration: 12, delay: 0.3 },
+  { top: "74%", left: "30%", size: 92, drift: "drift-e", duration: 11, delay: 1.1 },
 ];
 
 const Bubble = ({ logo, pos, className = "" }: { logo: Logo; pos: Pos; className?: string }) => {
@@ -111,7 +111,7 @@ const Bubble = ({ logo, pos, className = "" }: { logo: Logo; pos: Pos; className
 
 export const PlacementCompanies = () => {
   return (
-    <section className="relative overflow-hidden bg-placements py-20 sm:py-24 text-white">
+    <section className="relative overflow-hidden bg-placements py-14 sm:py-16 text-white">
       <div className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[80%] -translate-x-1/2 rounded-full bg-[hsl(48_100%_60%/0.18)] blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[hsl(44_95%_55%/0.12)] blur-3xl" />
 
@@ -128,7 +128,7 @@ export const PlacementCompanies = () => {
 
         {/* Floating bubbles canvas */}
         <Reveal delay={150}>
-          <div className="relative mx-auto mt-14 h-[680px] sm:h-[620px] w-full max-w-6xl">
+          <div className="relative mx-auto mt-8 h-[460px] sm:h-[440px] w-full max-w-5xl">
             {/* Desktop / tablet scatter */}
             <div className="absolute inset-0 hidden sm:block">
               {LOGOS.map((logo, i) => (
