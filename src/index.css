@@ -156,31 +156,45 @@
       0 0 60px -8px hsl(48 100% 70% / 0.55);
   }
 
-  .bubble-float-a { animation: bubble-float-a 6s ease-in-out infinite; }
-  .bubble-float-b { animation: bubble-float-b 7.5s ease-in-out infinite; }
-  .bubble-float-c { animation: bubble-float-c 5.5s ease-in-out infinite; }
-
-  .marquee-track { animation: marquee 28s linear infinite; }
-  .marquee-track-slow { animation: marquee 44s linear infinite; }
-  .marquee-track-reverse { animation: marquee-reverse 36s linear infinite; }
-  .marquee-row:hover .marquee-track,
-  .marquee-row:hover .marquee-track-slow,
-  .marquee-row:hover .marquee-track-reverse { animation-play-state: paused; }
+  .bubble-float-wrap:hover { z-index: 10; }
+  .bubble-float-wrap:hover .bubble-glass {
+    transform: scale(1.12);
+    box-shadow:
+      0 22px 50px -12px hsl(44 95% 50% / 0.6),
+      0 0 0 1px hsl(48 100% 75% / 0.6) inset,
+      0 0 70px -8px hsl(48 100% 70% / 0.65);
+  }
 }
 
-@keyframes bubble-float-a {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+@media (prefers-reduced-motion: reduce) {
+  .bubble-float-wrap { animation: none !important; }
 }
-@keyframes bubble-float-b {
-  0%, 100% { transform: translateY(-4px); }
-  50% { transform: translateY(6px); }
+
+@keyframes drift-a {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(14px, -18px) rotate(2deg); }
+  50% { transform: translate(-10px, -10px) rotate(-1deg); }
+  75% { transform: translate(8px, 14px) rotate(1.5deg); }
 }
-@keyframes bubble-float-c {
-  0%, 100% { transform: translateY(3px); }
-  50% { transform: translateY(-7px); }
+@keyframes drift-b {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-16px, 12px) rotate(-2deg); }
+  66% { transform: translate(12px, -14px) rotate(2deg); }
 }
-@keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+@keyframes drift-c {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(10px, 16px) rotate(1deg); }
+  50% { transform: translate(-14px, -8px) rotate(-2deg); }
+  80% { transform: translate(6px, -16px) rotate(1deg); }
+}
+@keyframes drift-d {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  40% { transform: translate(18px, 8px) rotate(2deg); }
+  70% { transform: translate(-8px, -16px) rotate(-1.5deg); }
+}
+@keyframes drift-e {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  30% { transform: translate(-12px, -14px) rotate(-2deg); }
+  60% { transform: translate(16px, 6px) rotate(1.5deg); }
+  85% { transform: translate(-6px, 12px) rotate(-1deg); }
 }
