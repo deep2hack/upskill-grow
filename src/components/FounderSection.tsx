@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import bookCover from "@/assets/mind-over-markets-book.png";
+import founderPortrait from "@/assets/founder-prabjot.webp";
 
 const cards = [
   { icon: Briefcase, title: "Entrepreneur", desc: "Building ventures since 2008" },
@@ -32,31 +33,45 @@ export const FounderSection = () => {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[420px_1fr] lg:items-center">
-          {/* Book showcase */}
+        <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+          {/* Founder portrait + book */}
           <Reveal delay={120}>
-            <div className="relative mx-auto max-w-sm">
-              <div className="absolute -inset-6 rounded-3xl bg-gold-gradient opacity-30 blur-2xl" />
-              <div className="relative rounded-2xl border border-gold/30 bg-primary-foreground/5 p-6 backdrop-blur-sm shadow-elegant">
-                <img
-                  src={bookCover}
-                  alt="Mind Over Markets — book by Prabjot Singh"
-                  loading="lazy"
-                  className="w-full rounded-lg shadow-gold transition-transform duration-500 hover:scale-[1.03]"
-                />
-                <div className="mt-5 text-center">
-                  <p className="text-xs uppercase tracking-[0.2em] text-gold">Authored Book</p>
-                  <h3 className="mt-1 font-display text-2xl">Mind Over Markets</h3>
-                  <p className="mt-1 text-sm text-primary-foreground/70 italic">
-                    "No one is born a great trader, one learns by trading."
-                  </p>
+            <div className="relative mx-auto max-w-xl">
+              <div className="absolute -inset-8 rounded-[2rem] bg-gold-gradient opacity-25 blur-3xl animate-pulse" />
+              <div className="relative grid grid-cols-5 gap-4">
+                {/* Portrait */}
+                <div className="col-span-3 group relative overflow-hidden rounded-2xl border border-gold/30 shadow-elegant float-y">
+                  <img
+                    src={founderPortrait}
+                    alt="Prabjot Singh — Founder, Upskiller Academy"
+                    loading="lazy"
+                    className="h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/85 via-secondary/10 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-xs uppercase tracking-[0.2em] text-gold">Founder</p>
+                    <p className="mt-1 font-display text-lg">Prabjot Singh</p>
+                  </div>
+                </div>
+                {/* Book */}
+                <div className="col-span-2 flex flex-col items-center justify-center rounded-2xl border border-gold/30 bg-primary-foreground/5 p-4 backdrop-blur-sm shadow-gold float-y-slow">
+                  <img
+                    src={bookCover}
+                    alt="Mind Over Markets — book by Prabjot Singh"
+                    loading="lazy"
+                    className="w-full max-w-[220px] rounded-md shadow-gold transition-transform duration-500 hover:scale-[1.06]"
+                  />
+                  <div className="mt-3 text-center">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-gold">Authored</p>
+                    <h3 className="mt-1 font-display text-base leading-tight">Mind Over Markets</h3>
+                  </div>
                 </div>
               </div>
             </div>
           </Reveal>
 
           {/* Cards grid */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2">
             {cards.map(({ icon: I, title, desc }, i) => (
               <Reveal key={title} delay={i * 90}>
                 <Card className="group h-full border-primary-foreground/10 bg-primary-foreground/[0.04] backdrop-blur-sm transition-all duration-500 hover:scale-[1.04] hover:border-gold/50 hover:shadow-gold hover:bg-primary-foreground/[0.07]">
@@ -73,11 +88,14 @@ export const FounderSection = () => {
           </div>
         </div>
 
-        <Reveal delay={200} className="mt-12 text-center">
+        <Reveal delay={200} className="mt-12 flex flex-wrap items-center justify-center gap-3">
           <Button asChild variant="premium" size="lg">
-            <Link to="/courses">
-              Explore Courses <ArrowRight className="ml-1" />
+            <Link to="/founder">
+              Meet the Founder <ArrowRight className="ml-1" />
             </Link>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground">
+            <Link to="/courses">Explore Courses</Link>
           </Button>
         </Reveal>
       </div>
