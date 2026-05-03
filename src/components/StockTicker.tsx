@@ -64,8 +64,8 @@ const StockTicker = () => {
         const up = t.change >= 0;
         return (
           <div key={`${key}-${i}`} className="flex items-center gap-2 text-sm whitespace-nowrap">
-            <span className="font-semibold text-white tracking-wide">{t.symbol}</span>
-            <span className="text-white/90 tabular-nums">{formatPrice(t.price)}</span>
+            <span className="font-semibold tracking-wide text-gold">{t.symbol}</span>
+            <span className="tabular-nums text-white/90">{formatPrice(t.price)}</span>
             <span
               className={`inline-flex items-center gap-0.5 tabular-nums font-medium ${
                 up ? "text-emerald-400" : "text-red-400"
@@ -76,7 +76,7 @@ const StockTicker = () => {
               {formatPrice(t.change)} ({up ? "+" : ""}
               {t.pct.toFixed(2)}%)
             </span>
-            <span className="text-white/20">|</span>
+            <span className="text-gold/30">◆</span>
           </div>
         );
       })}
@@ -84,13 +84,14 @@ const StockTicker = () => {
   );
 
   return (
-    <div className="relative w-full overflow-hidden border-y border-white/10 bg-black">
-      <div className="absolute left-0 top-0 z-10 hidden h-full items-center gap-2 bg-gradient-to-r from-black via-black/95 to-transparent px-4 sm:flex">
+    <div className="relative w-full overflow-hidden border-y border-gold/20 bg-[hsl(220_22%_4%)]">
+      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(40%_120%_at_50%_50%,hsl(44_95%_50%/0.08),transparent_70%)]" />
+      <div className="absolute left-0 top-0 z-10 hidden h-full items-center gap-2 bg-gradient-to-r from-[hsl(220_22%_4%)] via-[hsl(220_22%_4%)]/95 to-transparent pl-4 pr-6 sm:flex">
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
         </span>
-        <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white">Live Market</span>
+        <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-gold">Live Market</span>
       </div>
 
       <div className="flex py-2.5 ticker-track">
