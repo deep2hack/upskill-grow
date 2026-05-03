@@ -11,6 +11,7 @@ import { buildWhatsAppUrl, courseEnquiryMessage } from "@/lib/whatsapp";
 import HeroScene from "@/components/three/HeroScene";
 import AmbientBackdrop from "@/components/three/AmbientBackdrop";
 import PlacementCompanies from "@/components/PlacementCompanies";
+import StockTicker from "@/components/StockTicker";
 import FounderSection from "@/components/FounderSection";
 import Reveal from "@/components/Reveal";
 
@@ -45,6 +46,9 @@ const Home = () => {
         description="Mentor-led certifications in trading, derivatives, financial analysis and market research. Live online classes, lifetime access, WhatsApp enrollment."
         canonical="https://www.upskilleracademy.com/"
       />
+
+      {/* LIVE TICKER */}
+      <StockTicker />
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-hero text-primary-foreground">
