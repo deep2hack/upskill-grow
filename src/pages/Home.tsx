@@ -13,6 +13,8 @@ import AmbientBackdrop from "@/components/three/AmbientBackdrop";
 import PlacementCompanies from "@/components/PlacementCompanies";
 import StockTicker from "@/components/StockTicker";
 import FounderSection from "@/components/FounderSection";
+import MarketInsights from "@/components/MarketInsights";
+import SectionDivider from "@/components/SectionDivider";
 import Reveal from "@/components/Reveal";
 
 const stats = [
@@ -161,8 +163,12 @@ const Home = () => {
       {/* About Founder */}
       <FounderSection />
 
+      {/* Live Market Insights */}
+      <MarketInsights />
+
       {/* Placement Companies */}
       <PlacementCompanies />
+      <SectionDivider fill="hsl(var(--muted) / 0.4)" />
 
       {/* Featured Courses */}
       <section className="bg-muted/40 py-20">
