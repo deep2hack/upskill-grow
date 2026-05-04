@@ -15,6 +15,9 @@ import StockTicker from "@/components/StockTicker";
 import FounderSection from "@/components/FounderSection";
 import MarketInsights from "@/components/MarketInsights";
 import SectionDivider from "@/components/SectionDivider";
+import BooksByFounder from "@/components/BooksByFounder";
+import LimitedTimeOffer from "@/components/LimitedTimeOffer";
+import CareerPath from "@/components/CareerPath";
 import Reveal from "@/components/Reveal";
 
 const stats = [
@@ -165,6 +168,15 @@ const Home = () => {
 
       {/* Live Market Insights */}
       <MarketInsights />
+
+      {/* Books by Founder */}
+      <BooksByFounder />
+
+      {/* Career Path */}
+      <CareerPath />
+
+      {/* Limited Time Offer */}
+      <LimitedTimeOffer />
 
       {/* Placement Companies */}
       <PlacementCompanies />
