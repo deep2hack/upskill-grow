@@ -128,7 +128,7 @@ export const PlacementCompanies = () => {
 
         {/* Floating bubbles canvas */}
         <Reveal delay={150}>
-          <div className="relative mx-auto mt-6 h-[340px] sm:h-[320px] w-full max-w-4xl">
+          <div className="relative mx-auto mt-6 h-[420px] sm:h-[440px] w-full max-w-4xl">
             {/* Desktop / tablet scatter */}
             <div className="absolute inset-0 hidden sm:block">
               {LOGOS.map((logo, i) => (
