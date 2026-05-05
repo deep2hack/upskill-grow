@@ -17,48 +17,48 @@ const Word = ({ children, className = "", weight = 800 }: { children: React.Reac
 
 const LOGOS: Logo[] = [
   { name: "WNS", render: () => (
-    <div className="flex items-baseline justify-center">
-      <Word className="text-[1.05rem] text-neutral-900">WNS</Word>
-      <span className="ml-0.5 inline-block h-1.5 w-1.5 rounded-sm bg-red-600" />
+    <div className="flex items-baseline">
+      <Word className="text-[1.4rem] text-neutral-900">WNS</Word>
+      <span className="ml-0.5 inline-block h-2 w-2 rounded-sm bg-red-600" />
     </div>
   )},
   { name: "MQUBE", render: () => (
-    <div className="flex items-center justify-center gap-1">
-      <span className="grid h-5 w-5 place-items-center rounded-md border-2 border-red-500 text-red-500 font-black text-[0.6rem]">M</span>
-      <Word className="text-[0.85rem] text-neutral-900">QUBE</Word>
+    <div className="flex items-center gap-1">
+      <span className="grid h-6 w-6 place-items-center rounded-md border-2 border-red-500 text-red-500 font-black text-xs">M</span>
+      <Word className="text-[1.1rem] text-neutral-900">QUBE</Word>
     </div>
   )},
   { name: "Protiviti", render: () => (
-    <Word weight={400} className="text-[0.95rem] italic text-neutral-900">protiviti</Word>
+    <Word weight={400} className="text-[1.15rem] italic text-neutral-900">protiviti</Word>
   )},
   { name: "Nasdaq", render: () => (
-    <div className="flex items-center justify-center gap-1">
-      <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden><path d="M4 18 L12 4 L20 18 Z" fill="#00B4E5" /></svg>
-      <Word className="text-[0.9rem] text-[#0e7ea8]">Nasdaq</Word>
+    <div className="flex items-center gap-1">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden><path d="M4 18 L12 4 L20 18 Z" fill="#00B4E5" /></svg>
+      <Word className="text-[1.15rem] text-[#0e7ea8]">Nasdaq</Word>
     </div>
   )},
   { name: "LSE", render: () => (
     <div className="flex flex-col items-center leading-tight">
-      <div className="grid h-5 w-5 place-items-center rounded-sm bg-[#1d2a5b] text-white text-[0.45rem] font-bold">LSE</div>
-      <span className="mt-0.5 text-[0.45rem] font-bold uppercase text-[#1d2a5b]">London</span>
+      <div className="grid h-6 w-6 place-items-center rounded-sm bg-[#1d2a5b] text-white text-[0.5rem] font-bold">LSE</div>
+      <span className="mt-0.5 text-[0.5rem] font-bold uppercase text-[#1d2a5b]">London</span>
     </div>
   )},
   { name: "Jasper", render: () => (
-    <Word className="text-[1rem] italic text-[#6c7ae0]">JASPER</Word>
+    <Word className="text-[1.3rem] italic text-[#6c7ae0]">JASPER</Word>
   )},
   { name: "Barclays", render: () => (
-    <div className="flex flex-col items-center justify-center gap-0.5">
-      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden><path d="M12 3 C7 7 4 12 3 21 C8 18 12 16 21 21 C18 12 17 7 12 3 Z" fill="#00AEEF" /></svg>
-      <Word className="text-[0.7rem] text-[#00AEEF]">BARCLAYS</Word>
+    <div className="flex items-center gap-1">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden><path d="M12 3 C7 7 4 12 3 21 C8 18 12 16 21 21 C18 12 17 7 12 3 Z" fill="#00AEEF" /></svg>
+      <Word className="text-[1.05rem] text-[#00AEEF]">BARCLAYS</Word>
     </div>
   )},
   { name: "Goldman", render: () => (
-    <Word className="text-[0.7rem] text-neutral-900 text-center leading-tight">GOLDMAN<br/><span className="text-gold-deep">SACHS</span></Word>
+    <Word className="text-[0.95rem] text-neutral-900 text-center leading-tight">GOLDMAN<br/><span className="text-gold-deep">SACHS</span></Word>
   )},
   { name: "Deloitte", render: () => (
-    <div className="flex items-baseline justify-center">
-      <Word className="text-[0.95rem] text-neutral-900">Deloitte</Word>
-      <span className="ml-0.5 h-1 w-1 rounded-full bg-green-500" />
+    <div className="flex items-baseline">
+      <Word className="text-[1.25rem] text-neutral-900">Deloitte</Word>
+      <span className="ml-0.5 h-1.5 w-1.5 rounded-full bg-green-500" />
     </div>
   )},
 ];
@@ -102,8 +102,8 @@ const Bubble = ({ logo, pos, className = "" }: { logo: Logo; pos: Pos; className
   };
   return (
     <div className={`bubble-float-wrap absolute ${className}`} style={style} title={logo.name} aria-label={logo.name}>
-      <div className="bubble-glass grid h-full w-full place-items-center overflow-hidden rounded-full">
-        <div className="px-3 text-center max-w-full">{logo.render()}</div>
+      <div className="bubble-glass grid h-full w-full place-items-center rounded-full">
+        <div className="px-2 text-center">{logo.render()}</div>
       </div>
     </div>
   );

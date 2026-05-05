@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -31,7 +31,7 @@ export const Navbar = () => {
     >
       <div className="container flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 group">
-          <span className="grid h-10 w-10 place-items-center rounded-md bg-gold-gradient text-secondary font-display font-bold shadow-gold">
+          <span className="grid h-9 w-9 place-items-center rounded-md bg-hero text-primary-foreground font-display font-bold shadow-elegant">
             U
           </span>
           <span className="hidden sm:block">
@@ -65,6 +65,13 @@ export const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
+          <a
+            href={SITE.phoneHref}
+            className="inline-flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary"
+          >
+            <Phone className="h-4 w-4" />
+            {SITE.phone}
+          </a>
           <ThemeToggle />
           <Button asChild variant="premium" size="sm">
             <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">
@@ -104,6 +111,12 @@ export const Navbar = () => {
               </NavLink>
             ))}
             <div className="grid gap-2 pt-2">
+              <a
+                href={SITE.phoneHref}
+                className="inline-flex items-center gap-2 px-3 py-2 text-sm text-foreground/80"
+              >
+                <Phone className="h-4 w-4" /> {SITE.phone}
+              </a>
               <Button asChild variant="premium">
                 <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">
                   Enroll on WhatsApp
