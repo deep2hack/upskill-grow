@@ -38,14 +38,14 @@ export const FounderSection = () => {
           <Reveal delay={120}>
             <div className="relative mx-auto max-w-xl">
               <div className="absolute -inset-8 rounded-[2rem] bg-gold-gradient opacity-25 blur-3xl animate-pulse" />
-              <div className="relative grid grid-cols-5 gap-4">
+              <div className="relative flex flex-col sm:flex-row items-stretch gap-4">
                 {/* Portrait */}
-                <div className="col-span-3 group relative overflow-hidden rounded-2xl border border-gold/30 shadow-elegant float-y">
+                <div className="group relative flex-1 overflow-hidden rounded-2xl border border-gold/30 shadow-elegant float-y">
                   <img
                     src={founderPortrait}
                     alt="Prabjot Singh — Founder, Upskiller Academy"
                     loading="lazy"
-                    className="h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="h-[380px] sm:h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary/85 via-secondary/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -54,7 +54,7 @@ export const FounderSection = () => {
                   </div>
                 </div>
                 {/* Book */}
-                <div className="col-span-2 flex flex-col items-center justify-center rounded-2xl border border-gold/30 bg-primary-foreground/5 p-4 backdrop-blur-sm shadow-gold float-y-slow">
+                <div className="flex flex-1 flex-col items-center justify-center rounded-2xl border border-gold/30 bg-primary-foreground/5 p-4 backdrop-blur-sm shadow-gold float-y-slow">
                   <img
                     src={bookCover}
                     alt="Mind Over Markets — book by Prabjot Singh"
