@@ -102,8 +102,15 @@ const Bubble = ({ logo, pos, className = "" }: { logo: Logo; pos: Pos; className
   };
   return (
     <div className={`bubble-float-wrap absolute ${className}`} style={style} title={logo.name} aria-label={logo.name}>
-      <div className="bubble-glass grid h-full w-full place-items-center rounded-full">
-        <div className="px-2 text-center">{logo.render()}</div>
+      <div className="bubble-glass grid h-full w-full place-items-center overflow-hidden rounded-full">
+        <div
+          className="flex h-full w-full items-center justify-center text-center"
+          style={{ padding: `${pos.size * 0.18}px` }}
+        >
+          <div className="flex max-h-full max-w-full items-center justify-center [&_svg]:max-h-full [&_svg]:max-w-full [&_img]:max-h-full [&_img]:max-w-full [&_img]:object-contain">
+            {logo.render()}
+          </div>
+        </div>
       </div>
     </div>
   );
