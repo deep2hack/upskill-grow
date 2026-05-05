@@ -19,6 +19,17 @@ import BooksByFounder from "@/components/BooksByFounder";
 import LimitedTimeOffer from "@/components/LimitedTimeOffer";
 import CareerPath from "@/components/CareerPath";
 import Reveal from "@/components/Reveal";
+import courseBgTrader from "@/assets/course-bg-trader.jpg";
+import courseBgAnalysis from "@/assets/course-bg-analysis.jpg";
+import courseBgFinancial from "@/assets/course-bg-financial.jpg";
+import courseBgResearch from "@/assets/course-bg-research.jpg";
+
+const COURSE_BG: Record<string, string> = {
+  "pro-trader-program": courseBgTrader,
+  "chartered-stock-analysis-program": courseBgAnalysis,
+  "financial-analysis-certifications": courseBgFinancial,
+  "certification-finance-market-research": courseBgResearch,
+};
 
 const stats = [
   { k: "10,000+", v: "Learners trained" },
@@ -195,23 +206,37 @@ const Home = () => {
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((c, i) => (
               <Reveal key={c.slug} delay={i * 130}>
-                <Card className="group flex h-full flex-col border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all tilt-3d">
-                  <CardHeader>
+                <Card className="group relative flex h-full flex-col overflow-hidden border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all tilt-3d">
+                  {COURSE_BG[c.slug] && (
+                    <>
+                      <img
+                        src={COURSE_BG[c.slug]}
+                        alt=""
+                        aria-hidden
+                        loading="lazy"
+                        width={1024}
+                        height={640}
+                        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25 transition-opacity duration-500 group-hover:opacity-35"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/70" />
+                    </>
+                  )}
+                  <CardHeader className="relative">
                     <div className="flex items-center justify-between">
                       <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/10">{c.level}</Badge>
                       <Badge className="bg-gold text-secondary hover:bg-gold">Live Cohort</Badge>
                     </div>
-                    <CardTitle className="font-display text-xl mt-3">{c.title}</CardTitle>
-                    <CardDescription className="line-clamp-3">{c.tagline}</CardDescription>
+                    <CardTitle className="font-display text-xl mt-3 text-foreground">{c.title}</CardTitle>
+                    <CardDescription className="line-clamp-3 text-foreground/75">{c.tagline}</CardDescription>
                   </CardHeader>
-                  <CardContent className="mt-auto">
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <CardContent className="relative mt-auto">
+                    <div className="flex items-center gap-3 text-xs text-foreground/70">
                       <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {c.duration}</span>
                       <span className="inline-flex items-center gap-1"><BookOpen className="h-3.5 w-3.5" /> {c.mode}</span>
                     </div>
                     <div className="mt-4 flex items-end justify-between">
                       <div>
-                        <p className="text-xs text-muted-foreground line-through">{formatINR(c.mrp)}</p>
+                        <p className="text-xs text-foreground/60 line-through">{formatINR(c.mrp)}</p>
                         <p className="font-display text-2xl text-gold-deep">{formatINR(c.price)}</p>
                       </div>
                       <Button asChild variant="premium" size="sm">
