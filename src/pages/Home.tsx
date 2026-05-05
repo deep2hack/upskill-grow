@@ -192,7 +192,7 @@ const Home = () => {
             </div>
             <Button asChild variant="outlineGold"><Link to="/courses">View all courses <ArrowRight /></Link></Button>
           </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch auto-rows-fr">
             {featured.map((c, i) => (
               <Reveal key={c.slug} delay={i * 130}>
                 <Card className="group flex h-full flex-col border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all tilt-3d">
