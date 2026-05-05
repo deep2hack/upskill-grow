@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
-import bookCover from "@/assets/mind-over-markets-book.png";
 import founderPortrait from "@/assets/founder-prabjot.webp";
 
 const cards = [
@@ -36,35 +35,19 @@ export const FounderSection = () => {
         <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           {/* Founder portrait + book */}
           <Reveal delay={120}>
-            <div className="relative mx-auto max-w-xl">
+            <div className="relative mx-auto max-w-md">
               <div className="absolute -inset-8 rounded-[2rem] bg-gold-gradient opacity-25 blur-3xl animate-pulse" />
-              <div className="relative grid grid-cols-5 gap-4">
-                {/* Portrait */}
-                <div className="col-span-3 group relative overflow-hidden rounded-2xl border border-gold/30 shadow-elegant float-y">
-                  <img
-                    src={founderPortrait}
-                    alt="Prabjot Singh — Founder, Upskiller Academy"
-                    loading="lazy"
-                    className="h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/85 via-secondary/10 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <p className="text-xs uppercase tracking-[0.2em] text-gold">Founder</p>
-                    <p className="mt-1 font-display text-lg">Prabjot Singh</p>
-                  </div>
-                </div>
-                {/* Book */}
-                <div className="col-span-2 flex flex-col items-center justify-center rounded-2xl border border-gold/30 bg-primary-foreground/5 p-4 backdrop-blur-sm shadow-gold float-y-slow">
-                  <img
-                    src={bookCover}
-                    alt="Mind Over Markets — book by Prabjot Singh"
-                    loading="lazy"
-                    className="w-full max-w-[220px] rounded-md shadow-gold transition-transform duration-500 hover:scale-[1.06]"
-                  />
-                  <div className="mt-3 text-center">
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-gold">Authored</p>
-                    <h3 className="mt-1 font-display text-base leading-tight">Mind Over Markets</h3>
-                  </div>
+              <div className="group relative overflow-hidden rounded-2xl border border-gold/30 shadow-elegant float-y">
+                <img
+                  src={founderPortrait}
+                  alt="Prabjot Singh — Founder, Upskiller Academy"
+                  loading="lazy"
+                  className="h-[460px] w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/85 via-secondary/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-xs uppercase tracking-[0.2em] text-gold">Founder</p>
+                  <p className="mt-1 font-display text-xl">Prabjot Singh</p>
                 </div>
               </div>
             </div>
