@@ -330,22 +330,22 @@ const Home = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="container pb-20">
-        <div className="rounded-2xl bg-hero text-primary-foreground p-8 sm:p-12 shadow-elegant relative overflow-hidden">
+      <section className="container pb-16 sm:pb-20">
+        <div className="rounded-2xl bg-hero text-primary-foreground p-6 sm:p-10 lg:p-12 shadow-elegant relative overflow-hidden">
           <AmbientBackdrop className="opacity-60" />
           <div className="absolute inset-0 opacity-30 [background:radial-gradient(60%_60%_at_80%_20%,hsl(var(--gold)/0.4),transparent_60%)]" />
-          <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+          <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center text-center md:text-left">
             <div>
-              <h3 className="font-display text-3xl sm:text-4xl">Ready to upskill?</h3>
-              <p className="mt-2 text-primary-foreground/80 max-w-xl">
+              <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl">Ready to upskill?</h3>
+              <p className="mt-2 text-sm sm:text-base text-primary-foreground/80 max-w-xl mx-auto md:mx-0">
                 Get the brochure, fees and next batch dates instantly on WhatsApp.
               </p>
             </div>
-            <div className="flex gap-3">
-              <Button asChild variant="premium" size="lg">
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+              <Button asChild variant="premium" size="lg" className="w-full sm:w-auto">
                 <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">Enroll on WhatsApp</a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground">
                 <a href={SITE.phoneHref}>Call Us</a>
               </Button>
             </div>
