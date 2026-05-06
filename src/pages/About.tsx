@@ -98,17 +98,22 @@ const About = () => (
         </svg>
       </div>
 
-      <div className="container py-16 sm:py-20 text-center relative">
-        <p className="text-xs uppercase tracking-[0.28em] text-gold font-semibold">Get Started</p>
-        <h2 className="mt-3 font-display text-3xl sm:text-4xl">Ready to start your journey?</h2>
-        <p className="mt-3 text-secondary-foreground/75 max-w-xl mx-auto">
-          Speak to our advisor on WhatsApp — we'll help you choose the right program for your goals.
-        </p>
-        <div className="mt-7 flex flex-wrap gap-3 justify-center">
-          <Button asChild variant="premium" size="lg">
-            <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
-          </Button>
-          <Button asChild variant="outlineGold" size="lg"><Link to="/courses">View Courses</Link></Button>
+      <div className="container py-16 sm:py-20 relative">
+        <div className="relative mx-auto max-w-3xl rounded-3xl border border-gold/30 bg-[hsl(225_45%_10%/0.85)] backdrop-blur-md p-8 sm:p-12 text-center shadow-elegant">
+          <div aria-hidden className="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-br from-gold/20 via-transparent to-primary-glow/20 opacity-60 blur-sm" />
+          <div className="relative">
+            <p className="text-xs uppercase tracking-[0.28em] text-gold font-semibold">Get Started</p>
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl">Ready to start your journey?</h2>
+            <p className="mt-3 text-secondary-foreground/75 max-w-xl mx-auto">
+              Speak to our advisor on WhatsApp — we'll help you choose the right program for your goals.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3 justify-center">
+              <Button asChild variant="premium" size="lg">
+                <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
+              </Button>
+              <Button asChild variant="outlineGold" size="lg"><Link to="/courses">View Courses</Link></Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
