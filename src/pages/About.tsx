@@ -75,16 +75,41 @@ const About = () => (
       </div>
     </section>
 
-    <section className="container py-16 text-center">
-      <h2 className="font-display text-3xl">Ready to start your journey?</h2>
-      <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-        Speak to our advisor on WhatsApp — we'll help you choose the right program for your goals.
-      </p>
-      <div className="mt-6 flex flex-wrap gap-3 justify-center">
-        <Button asChild variant="premium" size="lg">
-          <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
-        </Button>
-        <Button asChild variant="outlineGold" size="lg"><Link to="/courses">View Courses</Link></Button>
+    <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
+      {/* Background ornaments */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 left-1/2 h-72 w-[80%] -translate-x-1/2 rounded-full bg-[hsl(var(--gold)/0.18)] blur-3xl" />
+        <div className="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-[hsl(var(--primary-glow)/0.25)] blur-3xl" />
+        <div className="absolute -bottom-24 -right-20 h-72 w-72 rounded-full bg-[hsl(var(--gold)/0.15)] blur-3xl" />
+        <svg className="absolute inset-x-0 top-0 h-full w-full opacity-[0.18]" viewBox="0 0 1440 400" fill="none" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="aboutCordA" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stopColor="hsl(var(--gold))" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="hsl(var(--primary-glow))" stopOpacity="0.2" />
+            </linearGradient>
+            <linearGradient id="aboutCordB" x1="1" x2="0" y1="0" y2="1">
+              <stop offset="0%" stopColor="hsl(var(--primary-glow))" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="hsl(var(--gold))" stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+          <path d="M0,260 C320,120 720,360 1440,140" stroke="url(#aboutCordA)" strokeWidth="1.5" fill="none" />
+          <path d="M0,320 C400,200 900,420 1440,220" stroke="url(#aboutCordB)" strokeWidth="1" fill="none" />
+          <path d="M0,180 C480,40 960,300 1440,80" stroke="url(#aboutCordA)" strokeWidth="0.75" fill="none" />
+        </svg>
+      </div>
+
+      <div className="container py-16 sm:py-20 text-center relative">
+        <p className="text-xs uppercase tracking-[0.28em] text-gold font-semibold">Get Started</p>
+        <h2 className="mt-3 font-display text-3xl sm:text-4xl">Ready to start your journey?</h2>
+        <p className="mt-3 text-secondary-foreground/75 max-w-xl mx-auto">
+          Speak to our advisor on WhatsApp — we'll help you choose the right program for your goals.
+        </p>
+        <div className="mt-7 flex flex-wrap gap-3 justify-center">
+          <Button asChild variant="premium" size="lg">
+            <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
+          </Button>
+          <Button asChild variant="outlineGold" size="lg"><Link to="/courses">View Courses</Link></Button>
+        </div>
       </div>
     </section>
   </>
