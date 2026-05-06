@@ -135,19 +135,43 @@ export const PlacementCompanies = () => {
 
         {/* Floating bubbles canvas */}
         <Reveal delay={150}>
-          <div className="relative mx-auto mt-6 h-[420px] sm:h-[440px] w-full max-w-4xl">
-            {/* Desktop / tablet scatter */}
-            <div className="absolute inset-0 hidden sm:block">
+          {/* Desktop / tablet floating scatter */}
+          <div className="relative mx-auto mt-6 hidden h-[440px] w-full max-w-4xl sm:block">
+            <div className="absolute inset-0">
               {LOGOS.map((logo, i) => (
                 <Bubble key={`d-${logo.name}`} logo={logo} pos={POSITIONS[i]} />
               ))}
             </div>
-            {/* Mobile reduced set */}
-            <div className="absolute inset-0 sm:hidden">
-              {LOGOS.slice(0, MOBILE_POSITIONS.length).map((logo, i) => (
-                <Bubble key={`m-${logo.name}`} logo={logo} pos={MOBILE_POSITIONS[i]} />
-              ))}
+          </div>
+
+          {/* Mobile: horizontal scroll of bubbles */}
+          <div className="sm:hidden -mx-4 mt-6">
+            <div className="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {LOGOS.map((logo) => {
+                const size = 110;
+                return (
+                  <div
+                    key={`m-${logo.name}`}
+                    className="snap-center shrink-0"
+                    style={{ width: size, height: size }}
+                    title={logo.name}
+                    aria-label={logo.name}
+                  >
+                    <div className="bubble-glass grid h-full w-full place-items-center overflow-hidden rounded-full">
+                      <div
+                        className="flex h-full w-full items-center justify-center text-center"
+                        style={{ padding: `${size * 0.18}px` }}
+                      >
+                        <div className="flex max-h-full max-w-full items-center justify-center [&_svg]:max-h-full [&_svg]:max-w-full [&_img]:max-h-full [&_img]:max-w-full [&_img]:object-contain">
+                          {logo.render()}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
+            <p className="mt-1 text-center text-[11px] uppercase tracking-[0.2em] text-white/50">Swipe →</p>
           </div>
         </Reveal>
 
