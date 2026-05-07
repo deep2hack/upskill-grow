@@ -216,10 +216,9 @@ const Home = () => {
                         loading="lazy"
                         width={1024}
                         height={640}
-                        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-60 transition-opacity duration-500 group-hover:opacity-75"
+                        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25 transition-opacity duration-500 group-hover:opacity-35"
                       />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-background/85 via-background/65 to-background/40" />
-                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background/95 to-transparent" />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/70" />
                     </>
                   )}
                   <CardHeader className="relative">
