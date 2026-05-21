@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useReveal } from "@/hooks/use-reveal";
-import FloatingFinanceIcons from "@/components/FloatingFinanceIcons";
 
 export const SiteLayout = ({ children }: { children: ReactNode }) => {
   const { pathname } = useLocation();
@@ -15,10 +14,9 @@ export const SiteLayout = ({ children }: { children: ReactNode }) => {
   useReveal();
 
   return (
-    <div key={pathname} className="relative flex min-h-screen flex-col">
-      <FloatingFinanceIcons />
+    <div key={pathname} className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="relative z-10 flex-1">{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
     </div>
   );
