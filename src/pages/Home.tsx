@@ -149,6 +149,9 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Course Banners */}
+      <CourseBanners />
+
       {/* USPs */}
       <section className="container py-20">
         <Reveal className="max-w-2xl">
