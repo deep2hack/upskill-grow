@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.jpeg";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -31,8 +32,8 @@ export const Navbar = () => {
     >
       <div className="container flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 group">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-hero text-primary-foreground font-display font-bold shadow-elegant">
-            U
+          <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-secondary ring-2 ring-gold/40 shadow-elegant">
+            <img src={logo} alt="Upskiller Academy" className="h-full w-full object-cover" />
           </span>
           <span className="hidden sm:block">
             <span className="block font-display text-base font-bold leading-tight text-foreground">
