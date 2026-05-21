@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import b1 from "@/assets/banners/banner-1.png";
 import b2 from "@/assets/banners/banner-2.png";
 import b3 from "@/assets/banners/banner-3.png";
@@ -41,7 +41,7 @@ export const CourseBanners = () => {
         </div>
 
         <div className="relative mx-auto max-w-6xl">
-          <div className="relative aspect-[16/7] sm:aspect-[16/6] w-full overflow-hidden rounded-2xl border border-gold/20 bg-black shadow-elegant ring-1 ring-white/5">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gold/20 bg-black shadow-elegant ring-1 ring-white/5">
             {BANNERS.map((src, idx) => {
               const active = idx === i;
               return (
@@ -65,6 +65,20 @@ export const CourseBanners = () => {
               );
             })}
 
+            <button
+              onClick={() => go(i - 1)}
+              aria-label="Previous banner"
+              className="absolute left-3 top-1/2 z-10 -translate-y-1/2 grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-full bg-black/40 text-white backdrop-blur-md border border-white/15 hover:bg-gold hover:text-secondary hover:border-gold transition-all"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={() => go(i + 1)}
+              aria-label="Next banner"
+              className="absolute right-3 top-1/2 z-10 -translate-y-1/2 grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-full bg-black/40 text-white backdrop-blur-md border border-white/15 hover:bg-gold hover:text-secondary hover:border-gold transition-all"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
 
             <div className="absolute bottom-3 sm:bottom-4 left-1/2 z-10 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/40 backdrop-blur-md px-3 py-1.5 border border-white/10">
               {BANNERS.map((_, idx) => (
