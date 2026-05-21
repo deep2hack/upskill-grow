@@ -41,7 +41,7 @@ export const CourseBanners = () => {
         </div>
 
         <div className="relative mx-auto max-w-6xl">
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gold/20 bg-black shadow-elegant ring-1 ring-white/5">
+          <div className="relative aspect-[16/7] sm:aspect-[16/6] w-full overflow-hidden rounded-2xl border border-gold/20 bg-black shadow-elegant ring-1 ring-white/5">
             {BANNERS.map((src, idx) => {
               const active = idx === i;
               return (
