@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+
 import b1 from "@/assets/banners/banner-1.png";
 import b2 from "@/assets/banners/banner-2.png";
 import b3 from "@/assets/banners/banner-3.png";
