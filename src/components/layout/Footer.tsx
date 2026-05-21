@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Instagram, Youtube, Linkedin, Facebook } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/data/site";
 import { courses } from "@/data/courses";
+import logo from "@/assets/logo.jpeg";
 
 export const Footer = () => {
   return (
@@ -9,8 +10,8 @@ export const Footer = () => {
       <div className="container py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link to="/" className="flex items-center gap-2">
-            <span className="grid h-10 w-10 place-items-center rounded-md bg-gold text-secondary font-display font-bold">
-              U
+            <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-white ring-2 ring-gold/50">
+              <img src={logo} alt="Upskiller Academy" className="h-full w-full object-cover" />
             </span>
             <span className="font-display text-lg font-bold">
               Upskiller <span className="text-gold">Academy</span>

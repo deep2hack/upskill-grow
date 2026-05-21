@@ -18,6 +18,7 @@ import SectionDivider from "@/components/SectionDivider";
 import BooksByFounder from "@/components/BooksByFounder";
 import LimitedTimeOffer from "@/components/LimitedTimeOffer";
 import CareerPath from "@/components/CareerPath";
+import CourseBanners from "@/components/CourseBanners";
 import Reveal from "@/components/Reveal";
 import courseBgTrader from "@/assets/course-bg-trader.jpg";
 import courseBgAnalysis from "@/assets/course-bg-analysis.jpg";
@@ -147,6 +148,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Course Banners */}
+      <CourseBanners />
 
       {/* USPs */}
       <section className="container py-20">
