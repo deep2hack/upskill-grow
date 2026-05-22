@@ -1,9 +1,9 @@
 import { Briefcase, Building2, Mic, BookOpen, GraduationCap, Award, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Reveal from "@/components/Reveal";
 import founderPortrait from "@/assets/founder-prabjot.webp";
+import ReloadLink from "@/components/ReloadLink";
 
 const cards = [
   { icon: Briefcase, title: "Entrepreneur", desc: "Building ventures since 2008" },
@@ -73,12 +73,12 @@ export const FounderSection = () => {
 
         <Reveal delay={200} className="mt-12 flex flex-wrap items-center justify-center gap-3">
           <Button asChild variant="premium" size="lg">
-            <Link to="/founder">
+            <ReloadLink to="/founder">
               Meet the Founder <ArrowRight className="ml-1" />
-            </Link>
+            </ReloadLink>
           </Button>
           <Button asChild size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground">
-            <Link to="/courses">Explore Courses</Link>
+            <ReloadLink to="/courses">Explore Courses</ReloadLink>
           </Button>
         </Reveal>
       </div>
