@@ -9,8 +9,18 @@ import { courses, formatINR } from "@/data/courses";
 
 const levels = ["All", "Beginner", "Intermediate", "Advanced"] as const;
 
-const CourseCard = ({ slug, title, tagline, level, duration, mode, price, mrp }: typeof courses[number]) => (
-  <Card className="group flex flex-col border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all">
+const CourseCard = ({ slug, title, tagline, level, duration, mode, price, mrp, image }: typeof courses[number]) => (
+  <Card className="group flex flex-col overflow-hidden border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all">
+    {image && (
+      <Link to={`/courses/${slug}`} className="block overflow-hidden bg-secondary">
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </Link>
+    )}
     <CardHeader>
       <div className="flex items-center justify-between">
         <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/10">{level}</Badge>
