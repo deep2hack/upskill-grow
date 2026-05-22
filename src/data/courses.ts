@@ -279,6 +279,7 @@ export const courses: Course[] = [
   },
   {
     slug: "forex-trading-program",
+    image: forexImg,
     title: "Professional Forex Trading Program",
     shortTitle: "Forex Trading",
     tagline: "Master Smart Money Concepts, liquidity & prop firm strategies for modern Forex trading.",
@@ -327,6 +328,7 @@ export const courses: Course[] = [
   },
   {
     slug: "chartered-stock-fundamental-analysis",
+    image: charteredImg,
     title: "Chartered Stock Market Fundamental Analysis & Investing Strategy",
     shortTitle: "Fundamental Analysis",
     tagline: "Read the Janam Kundli of companies — multibagger investing & financial analysis mastery.",
@@ -370,6 +372,7 @@ export const courses: Course[] = [
   },
   {
     slug: "crypto-mastery-complete-course",
+    image: cryptoImg,
     title: "Crypto Mastery Complete Course",
     shortTitle: "Crypto Mastery",
     tagline: "From scratch to advanced — the complete crypto trading university.",
@@ -414,6 +417,7 @@ export const courses: Course[] = [
   },
   {
     slug: "market-mastery-pro-trader",
+    image: marketMasteryImg,
     title: "Market Mastery — Pro Trader Program (Zero to Hero)",
     shortTitle: "Market Mastery Pro",
     tagline: "India's complete real-time trading & investing transformation program.",
@@ -457,6 +461,7 @@ export const courses: Course[] = [
   },
   {
     slug: "intraday-trading-strategies",
+    image: intradayImg,
     title: "Intraday Trading Strategies for Index & Stocks",
     shortTitle: "Intraday Strategies",
     tagline: "India's 1st complete intraday crash course at a limited price — decode, execute, profit.",
@@ -498,6 +503,7 @@ export const courses: Course[] = [
   },
   {
     slug: "candlestick-pattern-strategy",
+    image: candlestickImg,
     title: "Candlestick Pattern Trading Strategy Program",
     shortTitle: "Candlestick Mastery",
     tagline: "Decode every candle — accurate entries, confident trades, consistent profits.",
@@ -539,6 +545,7 @@ export const courses: Course[] = [
   },
   {
     slug: "options-trader-strategy-program",
+    image: optionImg,
     title: "Options Trader Strategy Program",
     shortTitle: "Options Mastery",
     tagline: "Master option buying, Greeks, IV & institutional setups — profit in any market.",
