@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Target, TrendingUp, Heart, Award, BookOpen, Mic, Users, ShieldCheck, Star, Quote, MessageCircle, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,6 +13,7 @@ import speaking from "@/assets/founder-speaking.jpg";
 import bookMoment from "@/assets/founder-book-moment.jpg";
 import media from "@/assets/founder-media.jpg";
 import bookCover from "@/assets/mind-over-markets-book.png";
+import ReloadLink from "@/components/ReloadLink";
 
 const differentiators = [
   { icon: Target, t: "Outcome-First Mentorship", d: "Every session is engineered for career transformation, not just content delivery." },
@@ -83,7 +83,7 @@ const Founder = () => {
             <Reveal delay={220}>
               <div className="flex flex-wrap gap-3">
                 <Button asChild variant="premium" size="lg">
-                  <Link to="/courses">Learn from the Founder <ArrowRight className="ml-1" /></Link>
+                  <ReloadLink to="/courses">Learn from the Founder <ArrowRight className="ml-1" /></ReloadLink>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground">
                   <a href={buildWhatsAppUrl("Hi, I'd like a free consultation with the founder's team.")} target="_blank" rel="noreferrer">
@@ -323,7 +323,7 @@ const Founder = () => {
               </div>
               <div className="flex flex-wrap gap-3">
                 <Button asChild variant="premium" size="lg">
-                  <Link to="/courses">Explore Courses <ArrowRight className="ml-1" /></Link>
+                  <ReloadLink to="/courses">Explore Courses <ArrowRight className="ml-1" /></ReloadLink>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground">
                   <a href={buildWhatsAppUrl("Hi, I'd like a free consultation.")} target="_blank" rel="noreferrer">
