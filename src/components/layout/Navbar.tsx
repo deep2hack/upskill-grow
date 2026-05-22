@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/data/site";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.jpeg";
+import ReloadLink from "@/components/ReloadLink";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -31,7 +32,7 @@ export const Navbar = () => {
       )}
     >
       <div className="container flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2 group">
+        <ReloadLink to="/" className="flex items-center gap-2 group">
           <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-secondary ring-2 ring-gold/40 shadow-elegant">
             <img src={logo} alt="Upskiller Academy" className="h-full w-full object-cover" />
           </span>
@@ -43,25 +44,22 @@ export const Navbar = () => {
               Markets · Finance · Career
             </span>
           </span>
-        </Link>
+        </ReloadLink>
 
         <nav className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((l) => (
-            <NavLink
+            <ReloadLink
               key={l.to}
               to={l.to}
-              end={l.to === "/"}
-              className={({ isActive }) =>
-                cn(
-                  "px-3 py-2 text-sm font-medium rounded-md transition-colors",
-                  isActive
-                    ? "text-primary"
-                    : "text-foreground/75 hover:text-primary hover:bg-muted"
-                )
-              }
+              className={cn(
+                "px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                pathname === l.to
+                  ? "text-primary"
+                  : "text-foreground/75 hover:text-primary hover:bg-muted"
+              )}
             >
               {l.label}
-            </NavLink>
+            </ReloadLink>
           ))}
         </nav>
 
@@ -90,19 +88,16 @@ export const Navbar = () => {
         <div className="lg:hidden border-t border-border bg-background animate-fade-in">
           <nav className="container py-3 grid gap-1">
             {NAV_LINKS.map((l) => (
-              <NavLink
+              <ReloadLink
                 key={l.to}
                 to={l.to}
-                end={l.to === "/"}
-                className={({ isActive }) =>
-                  cn(
-                    "px-3 py-2.5 rounded-md text-sm font-medium",
-                    isActive ? "bg-muted text-primary" : "text-foreground/80"
-                  )
-                }
+                className={cn(
+                  "px-3 py-2.5 rounded-md text-sm font-medium",
+                  pathname === l.to ? "bg-muted text-primary" : "text-foreground/80"
+                )}
               >
                 {l.label}
-              </NavLink>
+              </ReloadLink>
             ))}
             <div className="grid gap-2 pt-2">
               <Button asChild variant="premium">
