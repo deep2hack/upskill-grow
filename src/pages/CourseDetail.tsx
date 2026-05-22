@@ -75,6 +75,24 @@ const CourseDetail = () => {
         </div>
       </section>
 
+      {/* COURSE POSTER */}
+      {course.image && (
+        <section className="bg-secondary">
+          <div className="container py-10">
+            <div className="rounded-2xl overflow-hidden ring-1 ring-gold/30 shadow-elegant bg-background">
+              <img
+                src={course.image}
+                alt={`${course.title} poster`}
+                loading="lazy"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
+
+
       {/* OVERVIEW */}
       <section className="container py-16 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
         <div>
