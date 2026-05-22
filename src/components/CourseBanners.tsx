@@ -30,7 +30,7 @@ export const CourseBanners = () => {
       onMouseLeave={() => setPaused(false)}
       aria-label="Featured course banners"
     >
-      <div className="relative w-full overflow-hidden aspect-[16/7] sm:aspect-[16/6] lg:aspect-[21/8] max-h-[78vh]">
+      <div className="relative w-full overflow-hidden aspect-[2048/1279] max-h-[85vh]">
         {/* Sliding track */}
         <div
           className="flex h-full w-full transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
