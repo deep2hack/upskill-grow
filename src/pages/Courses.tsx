@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Clock, BookOpen, ArrowRight, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,20 +5,21 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import SEO from "@/components/SEO";
 import { courses, formatINR } from "@/data/courses";
+import ReloadLink from "@/components/ReloadLink";
 
 const levels = ["All", "Beginner", "Intermediate", "Advanced"] as const;
 
 const CourseCard = ({ slug, title, tagline, level, duration, mode, price, mrp, image }: typeof courses[number]) => (
   <Card className="group flex flex-col overflow-hidden border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all">
     {image && (
-      <Link to={`/courses/${slug}`} className="block overflow-hidden bg-secondary">
+      <ReloadLink to={`/courses/${slug}`} className="block overflow-hidden bg-secondary">
         <img
           src={image}
           alt={title}
           loading="lazy"
           className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
         />
-      </Link>
+      </ReloadLink>
     )}
     <CardHeader>
       <div className="flex items-center justify-between">
@@ -40,7 +40,7 @@ const CourseCard = ({ slug, title, tagline, level, duration, mode, price, mrp, i
           <p className="font-display text-2xl text-primary">{formatINR(price)}</p>
         </div>
         <Button asChild variant="premium" size="sm">
-          <Link to={`/courses/${slug}`}>View Course <ArrowRight /></Link>
+          <ReloadLink to={`/courses/${slug}`}>View Course <ArrowRight /></ReloadLink>
         </Button>
       </div>
     </CardContent>
