@@ -53,11 +53,11 @@ const Home = () => {
         canonical="https://www.upskilleracademy.com/"
       />
 
-      {/* TOP HERO BANNER */}
-      <CourseBanners />
-
       {/* LIVE TICKER */}
       <StockTicker />
+
+      {/* TOP HERO BANNER */}
+      <CourseBanners />
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-hero text-primary-foreground">
