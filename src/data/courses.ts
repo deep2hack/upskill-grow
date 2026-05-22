@@ -1,3 +1,11 @@
+import forexImg from "@/assets/courses/forex-trading.png";
+import charteredImg from "@/assets/courses/chartered-stock.png";
+import cryptoImg from "@/assets/courses/crypto-mastery.png";
+import marketMasteryImg from "@/assets/courses/market-mastery.png";
+import intradayImg from "@/assets/courses/intraday-trading.png";
+import candlestickImg from "@/assets/courses/candlestick-pattern.png";
+import optionImg from "@/assets/courses/option-mastery.png";
+
 export type Course = {
   slug: string;
   title: string;
@@ -18,6 +26,7 @@ export type Course = {
   syllabus: { module: string; topics: string[] }[];
   faqs: { q: string; a: string }[];
   featured?: boolean;
+  image?: string;
 };
 
 export const formatINR = (n: number) =>
