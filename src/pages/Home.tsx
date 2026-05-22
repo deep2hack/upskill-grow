@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ArrowRight, BadgeCheck, Award, Clock, Users, GraduationCap, LineChart, ShieldCheck, Star, TrendingUp, BookOpen, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -20,6 +19,7 @@ import LimitedTimeOffer from "@/components/LimitedTimeOffer";
 import CareerPath from "@/components/CareerPath";
 import CourseBanners from "@/components/CourseBanners";
 import Reveal from "@/components/Reveal";
+import ReloadLink from "@/components/ReloadLink";
 
 const stats = [
   { k: "10,000+", v: "Learners trained" },
@@ -82,7 +82,7 @@ const Home = () => {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                <Link to="/courses">Explore Courses</Link>
+                <ReloadLink to="/courses">Explore Courses</ReloadLink>
               </Button>
             </div>
             <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm text-primary-foreground/70">
@@ -194,7 +194,7 @@ const Home = () => {
               <p className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Programs</p>
               <h2 className="mt-2 font-display text-3xl sm:text-4xl">Featured Certifications</h2>
             </div>
-            <Button asChild variant="outlineGold"><Link to="/courses">View all courses <ArrowRight /></Link></Button>
+            <Button asChild variant="outlineGold"><ReloadLink to="/courses">View all courses <ArrowRight /></ReloadLink></Button>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((c, i) => (
@@ -232,7 +232,7 @@ const Home = () => {
                         <p className="font-display text-2xl text-gold-deep">{formatINR(c.price)}</p>
                       </div>
                       <Button asChild variant="premium" size="sm">
-                        <Link to={`/courses/${c.slug}`}>Details</Link>
+                        <ReloadLink to={`/courses/${c.slug}`}>Details</ReloadLink>
                       </Button>
                     </div>
                   </CardContent>
@@ -294,7 +294,7 @@ const Home = () => {
             ))}
           </div>
           <div className="mt-8">
-            <Button asChild variant="outlineGold"><Link to="/testimonials">Read more stories <ArrowRight /></Link></Button>
+            <Button asChild variant="outlineGold"><ReloadLink to="/testimonials">Read more stories <ArrowRight /></ReloadLink></Button>
           </div>
         </div>
       </section>
