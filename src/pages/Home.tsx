@@ -20,17 +20,6 @@ import LimitedTimeOffer from "@/components/LimitedTimeOffer";
 import CareerPath from "@/components/CareerPath";
 import CourseBanners from "@/components/CourseBanners";
 import Reveal from "@/components/Reveal";
-import courseBgTrader from "@/assets/course-bg-trader.jpg";
-import courseBgAnalysis from "@/assets/course-bg-analysis.jpg";
-import courseBgFinancial from "@/assets/course-bg-financial.jpg";
-import courseBgResearch from "@/assets/course-bg-research.jpg";
-
-const COURSE_BG: Record<string, string> = {
-  "pro-trader-program": courseBgTrader,
-  "chartered-stock-analysis-program": courseBgAnalysis,
-  "financial-analysis-certifications": courseBgFinancial,
-  "certification-finance-market-research": courseBgResearch,
-};
 
 const stats = [
   { k: "10,000+", v: "Learners trained" },
@@ -211,12 +200,11 @@ const Home = () => {
             {featured.map((c, i) => (
               <Reveal key={c.slug} delay={i * 130}>
                 <Card className="group relative flex h-full flex-col overflow-hidden border-border/60 hover:border-gold/60 hover:shadow-elegant transition-all tilt-3d">
-                  {COURSE_BG[c.slug] && (
+                  {c.image && (
                     <>
                       <img
-                        src={COURSE_BG[c.slug]}
-                        alt=""
-                        aria-hidden
+                        src={c.image}
+                        alt={c.title}
                         loading="lazy"
                         width={1024}
                         height={640}
