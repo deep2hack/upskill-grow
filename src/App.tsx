@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { LeadPopup } from "@/components/LeadPopup";
 import SiteLayout from "@/components/layout/SiteLayout";
+import PageLoader from "@/components/PageLoader";
 
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
@@ -33,6 +34,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <WhatsAppProvider>
+          <PageLoader />
           <SiteLayout>
             <Routes>
               <Route path="/" element={<Home />} />
