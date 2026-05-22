@@ -53,6 +53,9 @@ const Home = () => {
         canonical="https://www.upskilleracademy.com/"
       />
 
+      {/* TOP HERO BANNER */}
+      <CourseBanners />
+
       {/* LIVE TICKER */}
       <StockTicker />
 
@@ -137,9 +140,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Course Banners */}
-      <CourseBanners />
 
       {/* USPs */}
       <section className="container py-20">
