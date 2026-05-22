@@ -3,9 +3,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useReveal } from "@/hooks/use-reveal";
-
-const PAGE_RELOAD_EVENT = "upskiller:navigation-start";
-const PAGE_RELOAD_FLAG = "upskiller:pending-page-reload";
+import { PAGE_RELOAD_EVENT, PAGE_RELOAD_FLAG } from "@/lib/page-transition";
 
 export const SiteLayout = ({ children }: { children: ReactNode }) => {
   const { pathname } = useLocation();
