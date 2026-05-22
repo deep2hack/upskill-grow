@@ -1,3 +1,11 @@
+import forexImg from "@/assets/courses/forex-trading.png";
+import charteredImg from "@/assets/courses/chartered-stock.png";
+import cryptoImg from "@/assets/courses/crypto-mastery.png";
+import marketMasteryImg from "@/assets/courses/market-mastery.png";
+import intradayImg from "@/assets/courses/intraday-trading.png";
+import candlestickImg from "@/assets/courses/candlestick-pattern.png";
+import optionImg from "@/assets/courses/option-mastery.png";
+
 export type Course = {
   slug: string;
   title: string;
@@ -18,6 +26,7 @@ export type Course = {
   syllabus: { module: string; topics: string[] }[];
   faqs: { q: string; a: string }[];
   featured?: boolean;
+  image?: string;
 };
 
 export const formatINR = (n: number) =>
@@ -270,6 +279,7 @@ export const courses: Course[] = [
   },
   {
     slug: "forex-trading-program",
+    image: forexImg,
     title: "Professional Forex Trading Program",
     shortTitle: "Forex Trading",
     tagline: "Master Smart Money Concepts, liquidity & prop firm strategies for modern Forex trading.",
@@ -318,6 +328,7 @@ export const courses: Course[] = [
   },
   {
     slug: "chartered-stock-fundamental-analysis",
+    image: charteredImg,
     title: "Chartered Stock Market Fundamental Analysis & Investing Strategy",
     shortTitle: "Fundamental Analysis",
     tagline: "Read the Janam Kundli of companies — multibagger investing & financial analysis mastery.",
@@ -361,6 +372,7 @@ export const courses: Course[] = [
   },
   {
     slug: "crypto-mastery-complete-course",
+    image: cryptoImg,
     title: "Crypto Mastery Complete Course",
     shortTitle: "Crypto Mastery",
     tagline: "From scratch to advanced — the complete crypto trading university.",
@@ -405,6 +417,7 @@ export const courses: Course[] = [
   },
   {
     slug: "market-mastery-pro-trader",
+    image: marketMasteryImg,
     title: "Market Mastery — Pro Trader Program (Zero to Hero)",
     shortTitle: "Market Mastery Pro",
     tagline: "India's complete real-time trading & investing transformation program.",
@@ -448,6 +461,7 @@ export const courses: Course[] = [
   },
   {
     slug: "intraday-trading-strategies",
+    image: intradayImg,
     title: "Intraday Trading Strategies for Index & Stocks",
     shortTitle: "Intraday Strategies",
     tagline: "India's 1st complete intraday crash course at a limited price — decode, execute, profit.",
@@ -489,6 +503,7 @@ export const courses: Course[] = [
   },
   {
     slug: "candlestick-pattern-strategy",
+    image: candlestickImg,
     title: "Candlestick Pattern Trading Strategy Program",
     shortTitle: "Candlestick Mastery",
     tagline: "Decode every candle — accurate entries, confident trades, consistent profits.",
@@ -530,6 +545,7 @@ export const courses: Course[] = [
   },
   {
     slug: "options-trader-strategy-program",
+    image: optionImg,
     title: "Options Trader Strategy Program",
     shortTitle: "Options Mastery",
     tagline: "Master option buying, Greeks, IV & institutional setups — profit in any market.",
