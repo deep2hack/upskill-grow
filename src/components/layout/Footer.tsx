@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Instagram, Youtube, Linkedin, Facebook } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/data/site";
 import { courses } from "@/data/courses";
 import logo from "@/assets/logo.jpeg";
+import ReloadLink from "@/components/ReloadLink";
 
 export const Footer = () => {
   return (
     <footer className="mt-16 bg-secondary text-secondary-foreground">
       <div className="container py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Link to="/" className="flex items-center gap-2">
+          <ReloadLink to="/" className="flex items-center gap-2">
             <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-white ring-2 ring-gold/50">
               <img src={logo} alt="Upskiller Academy" className="h-full w-full object-cover" />
             </span>
             <span className="font-display text-lg font-bold">
               Upskiller <span className="text-gold">Academy</span>
             </span>
-          </Link>
+          </ReloadLink>
           <p className="mt-4 text-sm text-secondary-foreground/70 leading-relaxed">
             India's premier training institute for stock markets, derivatives and
             financial analysis — mentor-led, outcome-focused.
@@ -34,7 +34,7 @@ export const Footer = () => {
           <ul className="mt-4 space-y-2 text-sm">
             {NAV_LINKS.map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="text-secondary-foreground/75 hover:text-gold">{l.label}</Link>
+                <ReloadLink to={l.to} className="text-secondary-foreground/75 hover:text-gold">{l.label}</ReloadLink>
               </li>
             ))}
           </ul>
@@ -45,9 +45,9 @@ export const Footer = () => {
           <ul className="mt-4 space-y-2 text-sm">
             {courses.map((c) => (
               <li key={c.slug}>
-                <Link to={`/courses/${c.slug}`} className="text-secondary-foreground/75 hover:text-gold">
+                <ReloadLink to={`/courses/${c.slug}`} className="text-secondary-foreground/75 hover:text-gold">
                   {c.shortTitle}
-                </Link>
+                </ReloadLink>
               </li>
             ))}
           </ul>
@@ -61,8 +61,8 @@ export const Footer = () => {
             <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-0.5 text-gold" /><span>{SITE.address}</span></li>
           </ul>
           <div className="mt-5 text-xs flex flex-wrap gap-x-4 gap-y-1 text-secondary-foreground/60">
-            <Link to="/privacy" className="hover:text-gold">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-gold">Terms & Conditions</Link>
+            <ReloadLink to="/privacy" className="hover:text-gold">Privacy Policy</ReloadLink>
+            <ReloadLink to="/terms" className="hover:text-gold">Terms & Conditions</ReloadLink>
           </div>
         </div>
       </div>

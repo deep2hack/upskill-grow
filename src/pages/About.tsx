@@ -2,9 +2,9 @@ import { Award, Target, Users, Heart, Building2, ShieldCheck } from "lucide-reac
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import ReloadLink from "@/components/ReloadLink";
 
 const About = () => (
   <>
@@ -108,7 +108,7 @@ const About = () => (
           <Button asChild variant="premium" size="lg">
             <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
           </Button>
-          <Button asChild variant="outlineGold" size="lg"><Link to="/courses">View Courses</Link></Button>
+          <Button asChild variant="outlineGold" size="lg"><ReloadLink to="/courses">View Courses</ReloadLink></Button>
         </div>
       </div>
     </section>

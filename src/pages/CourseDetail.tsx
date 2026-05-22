@@ -1,4 +1,4 @@
-import { Link, useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { Clock, Users, Languages, Award, BookOpen, CheckCircle2, ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +9,7 @@ import { courses, formatINR, getCourse } from "@/data/courses";
 import { buildWhatsAppUrl, courseEnquiryMessage } from "@/lib/whatsapp";
 import { useSetWhatsAppCourse } from "@/contexts/WhatsAppContext";
 import { SITE } from "@/data/site";
+import ReloadLink from "@/components/ReloadLink";
 
 const CourseDetail = () => {
   const { slug = "" } = useParams();
@@ -33,9 +34,9 @@ const CourseDetail = () => {
         <div className="container py-16 lg:py-20 grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-start">
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <Link to="/courses" className="text-xs uppercase tracking-[0.18em] text-gold/90 hover:text-gold">
+              <ReloadLink to="/courses" className="text-xs uppercase tracking-[0.18em] text-gold/90 hover:text-gold">
                 ← Back to Courses
-              </Link>
+              </ReloadLink>
             </div>
             <Badge className="mt-4 bg-gold/20 text-gold border-gold/30 hover:bg-gold/20">{course.level}</Badge>
             <h1 className="mt-3 font-display text-4xl sm:text-5xl">{course.title}</h1>
@@ -182,7 +183,7 @@ const CourseDetail = () => {
                   <h3 className="mt-3 font-display text-lg">{c.title}</h3>
                   <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{c.tagline}</p>
                   <Button asChild variant="link" className="mt-3 px-0">
-                    <Link to={`/courses/${c.slug}`}>View course <ArrowRight /></Link>
+                    <ReloadLink to={`/courses/${c.slug}`}>View course <ArrowRight /></ReloadLink>
                   </Button>
                 </CardContent>
               </Card>
