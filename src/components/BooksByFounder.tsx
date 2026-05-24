@@ -61,7 +61,7 @@ export const BooksByFounder = () => {
                     src={mmbCover}
                     alt="Market Mastery Bible — The Complete Trading University by Upskiller Academy"
                     loading="lazy"
-                    className="relative h-full w-auto object-contain drop-shadow-[0_25px_60px_rgba(255,200,80,0.35)] animate-float transition-transform duration-500 ease-out group-hover:-translate-y-3 group-hover:scale-[1.04]"
+                    className="relative h-full w-auto object-contain drop-shadow-[0_25px_60px_rgba(255,200,80,0.35)] float-y transition-transform duration-500 ease-out group-hover:-translate-y-3 group-hover:scale-[1.04]"
                   />
                 </div>
 
