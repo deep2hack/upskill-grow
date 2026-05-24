@@ -61,8 +61,8 @@ const Home = () => {
       {/* HERO */}
       <section className="relative overflow-hidden bg-hero text-primary-foreground">
         <div className="absolute inset-0 opacity-30 [background:radial-gradient(70%_60%_at_80%_10%,hsl(var(--gold)/0.35),transparent_60%),radial-gradient(50%_50%_at_10%_90%,hsl(var(--primary-glow)/0.5),transparent_60%)]" />
-        <div className="absolute inset-0 hidden lg:block opacity-70">
-          <HeroScene />
+        <div className="absolute inset-0 opacity-80">
+          <TradingBackdrop />
         </div>
         <div className="container relative py-20 lg:py-28 grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="space-y-6 animate-fade-up">
