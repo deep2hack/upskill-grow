@@ -19,6 +19,7 @@ import CareerPath from "@/components/CareerPath";
 import CourseBanners from "@/components/CourseBanners";
 import Reveal from "@/components/Reveal";
 import ReloadLink from "@/components/ReloadLink";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 const stats = [
   { k: "10,000+", v: "Learners trained" },
