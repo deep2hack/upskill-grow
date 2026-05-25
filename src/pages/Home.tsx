@@ -275,31 +275,20 @@ const Home = () => {
       </section>
 
       {/* Testimonials preview */}
-      <section className="bg-muted/40 py-20">
-        <div className="container">
+      <section className="relative overflow-hidden bg-[hsl(220_30%_5%)] py-20 text-white">
+        <div className="pointer-events-none absolute -top-40 left-1/4 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 right-1/4 h-96 w-96 rounded-full bg-gold/15 blur-3xl" />
+        <div className="container relative">
           <Reveal className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Testimonials</p>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl">Trusted by learners across India.</h2>
+            <p className="text-xs uppercase tracking-[0.28em] text-gold font-semibold">Testimonials</p>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl">
+              Trusted by learners <span className="bg-gold-gradient bg-clip-text text-transparent">across India</span>.
+            </h2>
+            <p className="mt-3 text-white/65">Real stories from traders, analysts and students who upskilled with us.</p>
           </Reveal>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[
-              { n: "Rohit S.", r: "The Pro Trader Program completely changed my approach. Risk-first, process-led — finally consistent." },
-              { n: "Aisha K.", r: "I cracked an analyst role within 3 months of finishing the Financial Analysis certification." },
-              { n: "Vikram P.", r: "Mentors are real practitioners. Their live trade rooms are pure gold." },
-            ].map((t, i) => (
-              <Reveal key={t.n} delay={i * 130}>
-                <Card className="h-full border-border/60">
-                  <CardContent className="p-6">
-                    <div className="flex gap-0.5 text-gold">
-                      {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-foreground/85">"{t.r}"</p>
-                    <p className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">{t.n}</p>
-                  </CardContent>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={120} className="mt-10">
+            <TestimonialsCarousel />
+          </Reveal>
           <div className="mt-8">
             <Button asChild variant="outlineGold"><ReloadLink to="/testimonials">Read more stories <ArrowRight /></ReloadLink></Button>
           </div>
