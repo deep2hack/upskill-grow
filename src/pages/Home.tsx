@@ -58,17 +58,94 @@ const Home = () => {
       {/* TOP HERO BANNER */}
       <CourseBanners />
 
-      {/* HERO VIDEO */}
-      <section className="relative w-full overflow-hidden bg-secondary">
+      {/* HERO VIDEO with overlay content */}
+      <section className="relative w-full overflow-hidden bg-secondary text-primary-foreground">
         <video
           src="/hero-bg.mp4"
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-auto block"
+          className="absolute inset-0 w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 via-secondary/55 to-secondary/85" />
+        <div className="absolute inset-0 opacity-40 [background:radial-gradient(70%_60%_at_80%_10%,hsl(var(--gold)/0.35),transparent_60%),radial-gradient(50%_50%_at_10%_90%,hsl(var(--primary-glow)/0.5),transparent_60%)]" />
+
+        <div className="container relative py-20 lg:py-28 grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="space-y-6 animate-fade-up">
+            <Badge className="bg-gold/20 text-gold border-gold/30 hover:bg-gold/20">
+              ★ Trusted by 10,000+ learners
+            </Badge>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05]">
+              Build a <span className="text-gold">winning</span> career in markets & finance.
+            </h1>
+            <p className="text-lg text-primary-foreground/85 max-w-xl">
+              Practitioner-led certifications in trading, derivatives, equity research
+              and financial analysis. Learn the way professionals actually work.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild variant="premium" size="lg">
+                <a href={buildWhatsAppUrl()} target="_blank" rel="noreferrer">
+                  Enroll on WhatsApp <ArrowRight className="ml-1" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="bg-transparent text-primary-foreground border-primary-foreground/40 hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                <ReloadLink to="/courses">Explore Courses</ReloadLink>
+              </Button>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-sm text-primary-foreground/80">
+              <span className="flex items-center gap-2"><BadgeCheck className="h-4 w-4 text-gold" /> Live mentor sessions</span>
+              <span className="flex items-center gap-2"><BadgeCheck className="h-4 w-4 text-gold" /> Lifetime recordings</span>
+              <span className="flex items-center gap-2"><BadgeCheck className="h-4 w-4 text-gold" /> Industry-recognised</span>
+            </div>
+          </div>
+
+          <div className="relative animate-fade-up">
+            <div className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/10 backdrop-blur-md p-6 shadow-elegant">
+              <div className="flex items-center justify-between">
+                <p className="text-xs uppercase tracking-[0.2em] text-gold">Next Live Batch</p>
+                <Badge variant="secondary" className="bg-gold text-secondary hover:bg-gold">Limited Seats</Badge>
+              </div>
+              <h3 className="mt-3 font-display text-2xl">Pro Trader Program</h3>
+              <p className="mt-1 text-sm text-primary-foreground/80">
+                6-month flagship mentorship — price action, options, risk & live execution.
+              </p>
+              <div className="mt-5 grid grid-cols-3 gap-3 text-center">
+                {[{ i: Clock, t: "6 months" }, { i: Users, t: "Live cohort" }, { i: TrendingUp, t: "Live trades" }].map(({ i: I, t }) => (
+                  <div key={t} className="rounded-lg border border-primary-foreground/15 bg-primary-foreground/5 p-3">
+                    <I className="h-5 w-5 mx-auto text-gold" />
+                    <p className="mt-1 text-xs text-primary-foreground/85">{t}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 flex items-end justify-between">
+                <div>
+                  <p className="text-xs text-primary-foreground/60 line-through">{formatINR(90000)}</p>
+                  <p className="font-display text-3xl text-gold">{formatINR(80000)}</p>
+                </div>
+                <Button asChild variant="premium">
+                  <a href={buildWhatsAppUrl(courseEnquiryMessage("Pro Trader Program"))} target="_blank" rel="noreferrer">
+                    Reserve Seat
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats strip */}
+        <div className="container relative pb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 rounded-xl border border-primary-foreground/15 bg-primary-foreground/10 backdrop-blur-md p-5">
+            {stats.map((s) => (
+              <div key={s.v} className="text-center">
+                <p className="font-display text-2xl text-gold">{s.k}</p>
+                <p className="text-xs text-primary-foreground/80 mt-1">{s.v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
+
 
 
       {/* USPs */}
