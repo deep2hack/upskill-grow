@@ -32,18 +32,18 @@ const Card = ({ t }: { t: Testimonial }) => (
     <Quote className="absolute right-5 top-5 h-10 w-10 text-gold/15 group-hover:text-gold/30 transition-colors" />
 
     <div className="relative flex items-center gap-4">
-      <div className="relative">
-        <div className="absolute inset-0 -m-0.5 rounded-full bg-gradient-to-br from-gold via-primary to-gold opacity-80 blur-[2px]" />
-        <div className="relative h-14 w-14 overflow-hidden rounded-full ring-2 ring-gold/60 bg-gradient-to-br from-primary/40 to-gold/30 flex items-center justify-center text-white font-semibold">
+      <div className="relative shrink-0">
+        <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-gold via-primary to-gold opacity-70 blur-md" />
+        <div className="relative h-16 w-16 overflow-hidden rounded-full ring-2 ring-gold/70 ring-offset-2 ring-offset-[hsl(220_30%_8%)] bg-gradient-to-br from-primary/40 to-gold/30 flex items-center justify-center text-white font-semibold">
           {t.avatar ? (
             <img
               src={t.avatar}
               alt={`${t.name} — Upskiller Academy student`}
               loading="lazy"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-top scale-110"
             />
           ) : (
-            <span className="text-sm">{initials(t.name)}</span>
+            <span className="text-base">{initials(t.name)}</span>
           )}
         </div>
       </div>
