@@ -16,13 +16,14 @@ export const SITE = {
 };
 
 export const NAV_LINKS = [
+export const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/courses", label: "Courses" },
   { to: "/about", label: "About" },
   { to: "/founder", label: "Founder" },
   { to: "/mentors", label: "Mentors" },
+  { to: "/placements", label: "Placements" },
   { to: "/testimonials", label: "Testimonials" },
-  { to: "/blog", label: "Blog" },
-  { to: "/gallery", label: "Gallery" },
+  { to: "/gallery-insights", label: "Gallery & Insights" },
   { to: "/contact", label: "Contact" },
 ];
