@@ -16,7 +16,7 @@ export const SITE = {
 };
 
 export const NAV_LINKS = [
-export const NAV_LINKS = [
+
   { to: "/", label: "Home" },
   { to: "/courses", label: "Courses" },
   { to: "/about", label: "About" },
