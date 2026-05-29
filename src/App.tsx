@@ -14,11 +14,12 @@ import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import CourseDetail from "./pages/CourseDetail";
 import About from "./pages/About";
+
 import Founder from "./pages/Founder";
 import Mentors from "./pages/Mentors";
 import Testimonials from "./pages/Testimonials";
-import Blog from "./pages/Blog";
-import Gallery from "./pages/Gallery";
+import GalleryInsights from "./pages/GalleryInsights";
+import Placements from "./pages/Placements";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -44,13 +45,16 @@ const App = () => (
               <Route path="/founder" element={<Founder />} />
               <Route path="/mentors" element={<Mentors />} />
               <Route path="/testimonials" element={<Testimonials />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/gallery-insights" element={<GalleryInsights />} />
+              <Route path="/gallery" element={<GalleryInsights />} />
+              <Route path="/blog" element={<GalleryInsights />} />
+              <Route path="/placements" element={<Placements />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
+
             </Routes>
           </SiteLayout>
           <FloatingWhatsApp />
