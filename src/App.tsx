@@ -14,10 +14,7 @@ import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import CourseDetail from "./pages/CourseDetail";
 import About from "./pages/About";
-import Home from "./pages/Home";
-import Courses from "./pages/Courses";
-import CourseDetail from "./pages/CourseDetail";
-import About from "./pages/About";
+
 import Founder from "./pages/Founder";
 import Mentors from "./pages/Mentors";
 import Testimonials from "./pages/Testimonials";
@@ -48,9 +45,11 @@ const App = () => (
               <Route path="/founder" element={<Founder />} />
               <Route path="/mentors" element={<Mentors />} />
               <Route path="/testimonials" element={<Testimonials />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/testimonials" element={<Testimonials />} />
+              <Route path="/gallery-insights" element={<GalleryInsights />} />
+              <Route path="/gallery" element={<GalleryInsights />} />
+              <Route path="/blog" element={<GalleryInsights />} />
+              <Route path="/placements" element={<Placements />} />
+
               <Route path="/gallery-insights" element={<GalleryInsights />} />
               <Route path="/gallery" element={<GalleryInsights />} />
               <Route path="/blog" element={<GalleryInsights />} />
