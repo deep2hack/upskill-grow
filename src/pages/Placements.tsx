@@ -207,7 +207,7 @@ const Placements = () => {
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold/40 via-primary/30 to-gold/40 opacity-70 blur-2xl transition-opacity group-hover:opacity-100" />
               <div className="relative overflow-hidden rounded-3xl border-2 border-gold/40 bg-black shadow-[0_30px_80px_-20px_hsl(43_95%_55%/0.4)]">
                 <video
-                  src={placementVideo.url}
+                  src={(placementVideo as any).url}
                   controls
                   playsInline
                   preload="metadata"
