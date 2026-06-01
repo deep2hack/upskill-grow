@@ -23,16 +23,17 @@ type GalleryItem = {
   src: string;
 };
 
+const url = (a: { url: string }) => a.url;
 const gallery: GalleryItem[] = [
-  { id: 1, title: "Campus Seminar — Stock Market Awareness", category: "Event", span: "tall", src: g1.url },
-  { id: 2, title: "Live NSE Walkthrough Workshop", category: "Workshop", span: "wide", src: g2.url },
-  { id: 3, title: "Investor Awareness Drive", category: "Activity", span: "square", src: g3.url },
-  { id: 4, title: "Cohort Graduation Group Photo", category: "Success", span: "square", src: g4.url },
-  { id: 5, title: "Keynote — Markets in a Connected World", category: "Workshop", span: "tall", src: g5.url },
-  { id: 6, title: "SRM University Felicitation", category: "Event", span: "square", src: g6.url },
-  { id: 7, title: "Guest Lecture — Personal Finance", category: "Workshop", span: "wide", src: g7.url },
-  { id: 8, title: "Live Stock Analysis Session", category: "Activity", span: "square", src: g8.url },
-  { id: 9, title: "Trading Strategies Bootcamp", category: "Workshop", span: "square", src: g9.url },
+  { id: 1, title: "Campus Seminar — Stock Market Awareness", category: "Event", span: "tall", src: url(g1) },
+  { id: 2, title: "Live NSE Walkthrough Workshop", category: "Workshop", span: "wide", src: url(g2) },
+  { id: 3, title: "Investor Awareness Drive", category: "Activity", span: "square", src: url(g3) },
+  { id: 4, title: "Cohort Graduation Group Photo", category: "Success", span: "square", src: url(g4) },
+  { id: 5, title: "Keynote — Markets in a Connected World", category: "Workshop", span: "tall", src: url(g5) },
+  { id: 6, title: "SRM University Felicitation", category: "Event", span: "square", src: url(g6) },
+  { id: 7, title: "Guest Lecture — Personal Finance", category: "Workshop", span: "wide", src: url(g7) },
+  { id: 8, title: "Live Stock Analysis Session", category: "Activity", span: "square", src: url(g8) },
+  { id: 9, title: "Trading Strategies Bootcamp", category: "Workshop", span: "square", src: url(g9) },
 ];
 
 const posts = [
