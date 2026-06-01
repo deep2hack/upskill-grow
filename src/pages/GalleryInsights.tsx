@@ -23,7 +23,7 @@ type GalleryItem = {
   src: string;
 };
 
-const url = (a: { url: string }) => a.url;
+const url = (a: any) => a.url as string;
 const gallery: GalleryItem[] = [
   { id: 1, title: "Campus Seminar — Stock Market Awareness", category: "Event", span: "tall", src: url(g1) },
   { id: 2, title: "Live NSE Walkthrough Workshop", category: "Workshop", span: "wide", src: url(g2) },
