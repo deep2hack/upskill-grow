@@ -6,7 +6,7 @@ import {
   TrendingUp, BarChart3, LineChart, BookOpen, Bitcoin, ShieldCheck, Brain, Search,
   PieChart, MessageSquare, Database, Briefcase, Award, FileText, Linkedin, Users,
   Bell, Target, ClipboardList, GraduationCap, Mic, Building2, CheckCircle2,
-  ArrowRight, Star, Quote, Play, Sparkles, Trophy, Rocket,
+  ArrowRight, Star, Quote, Play, Sparkles, Trophy, Rocket, ShieldCheck as Shield,
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
@@ -15,6 +15,7 @@ import TradingBackdrop from "@/components/TradingBackdrop";
 import PlacementCompanies from "@/components/PlacementCompanies";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
+import placementVideo from "@/assets/placement-guarantee.mp4.asset.json";
 
 const heroStats = [
   { end: 8500, suffix: "+", label: "Students Trained" },
@@ -163,6 +164,61 @@ const Placements = () => {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 100% Placement Guarantee Video */}
+      <section className="relative overflow-hidden bg-[hsl(222_85%_6%)] py-20 text-primary-foreground">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(43_95%_55%/0.18),transparent_55%),radial-gradient(circle_at_85%_80%,hsl(222_75%_45%/0.25),transparent_55%)]" />
+        <div className="container relative grid items-center gap-10 lg:grid-cols-2">
+          <Reveal>
+            <Badge className="bg-gold/20 text-gold border-gold/30 hover:bg-gold/20 gap-1">
+              <Shield className="h-3.5 w-3.5" /> Our Promise
+            </Badge>
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-[1.05]">
+              <span className="bg-gold-gradient bg-clip-text text-transparent">100% Placement</span>
+              <br />Guarantee.
+            </h2>
+            <p className="mt-5 text-primary-foreground/80 max-w-lg">
+              Train with us, finish your capstone and we guarantee placement support until you land your first finance role. No fine print — just real career outcomes.
+            </p>
+            <ul className="mt-6 space-y-3 text-sm">
+              {[
+                "Dedicated placement cell with 120+ hiring partners",
+                "Unlimited mock interviews until you crack one",
+                "Lifetime career mentorship & job alerts",
+                "Resume + LinkedIn + Naukri optimization included",
+              ].map((p) => (
+                <li key={p} className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                  <span className="text-primary-foreground/85">{p}</span>
+                </li>
+              ))}
+            </ul>
+            <Button asChild variant="premium" size="lg" className="mt-7">
+              <a href={buildWhatsAppUrl("Hi, I want to know about the 100% placement guarantee.")} target="_blank" rel="noreferrer">
+                Claim Your Seat <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </Button>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="relative group">
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold/40 via-primary/30 to-gold/40 opacity-70 blur-2xl transition-opacity group-hover:opacity-100" />
+              <div className="relative overflow-hidden rounded-3xl border-2 border-gold/40 bg-black shadow-[0_30px_80px_-20px_hsl(43_95%_55%/0.4)]">
+                <video
+                  src={placementVideo.url}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="aspect-[9/16] w-full object-cover sm:aspect-video"
+                />
+                <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-gold/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(222_85%_12%)] shadow-lg">
+                  <Shield className="h-3 w-3" /> 100% Guarantee
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

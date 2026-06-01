@@ -87,7 +87,7 @@ export const SiteLayout = ({ children }: { children: ReactNode }) => {
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,hsl(222_75%_22%/0.18),transparent_55%),radial-gradient(circle_at_85%_85%,hsl(43_95%_55%/0.12),transparent_55%)]" />
         <div
-          className="absolute left-1/2 top-1/2 h-[60vmin] w-[60vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.04] blur-[1px]"
+          className="absolute left-1/2 top-1/2 h-[65vmin] w-[65vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.14] blur-[0.5px]"
           style={{ backgroundImage: `url(${logo})`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}
         />
       </div>

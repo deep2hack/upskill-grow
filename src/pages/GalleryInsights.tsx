@@ -5,27 +5,34 @@ import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles } from "lucide-
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
 import { cn } from "@/lib/utils";
+import g1 from "@/assets/gallery/g1.jpg.asset.json";
+import g2 from "@/assets/gallery/g2.jpg.asset.json";
+import g3 from "@/assets/gallery/g3.jpg.asset.json";
+import g4 from "@/assets/gallery/g4.jpg.asset.json";
+import g5 from "@/assets/gallery/g5.jpg.asset.json";
+import g6 from "@/assets/gallery/g6.jpg.asset.json";
+import g7 from "@/assets/gallery/g7.jpg.asset.json";
+import g8 from "@/assets/gallery/g8.jpg.asset.json";
+import g9 from "@/assets/gallery/g9.jpg.asset.json";
 
 type GalleryItem = {
   id: number;
   title: string;
   category: "Activity" | "Event" | "Success" | "Workshop" | "Update";
   span: "tall" | "wide" | "square";
+  src: string;
 };
 
 const gallery: GalleryItem[] = [
-  { id: 1, title: "Live Trading Cohort", category: "Activity", span: "tall" },
-  { id: 2, title: "Investor Summit '26", category: "Event", span: "wide" },
-  { id: 3, title: "Mentor AMA", category: "Workshop", span: "square" },
-  { id: 4, title: "Capstone Day", category: "Event", span: "square" },
-  { id: 5, title: "Aditi → Equity Analyst", category: "Success", span: "tall" },
-  { id: 6, title: "Strategy Lab", category: "Workshop", span: "square" },
-  { id: 7, title: "Convocation 2026", category: "Event", span: "wide" },
-  { id: 8, title: "Trading Floor Visit", category: "Activity", span: "square" },
-  { id: 9, title: "Mayank → Forex Desk", category: "Success", span: "square" },
-  { id: 10, title: "Academy Update — New Lab", category: "Update", span: "tall" },
-  { id: 11, title: "Smart Money Bootcamp", category: "Workshop", span: "square" },
-  { id: 12, title: "Alumni Meet", category: "Event", span: "wide" },
+  { id: 1, title: "Campus Seminar — Stock Market Awareness", category: "Event", span: "tall", src: g1.url },
+  { id: 2, title: "Live NSE Walkthrough Workshop", category: "Workshop", span: "wide", src: g2.url },
+  { id: 3, title: "Investor Awareness Drive", category: "Activity", span: "square", src: g3.url },
+  { id: 4, title: "Cohort Graduation Group Photo", category: "Success", span: "square", src: g4.url },
+  { id: 5, title: "Keynote — Markets in a Connected World", category: "Workshop", span: "tall", src: g5.url },
+  { id: 6, title: "SRM University Felicitation", category: "Event", span: "square", src: g6.url },
+  { id: 7, title: "Guest Lecture — Personal Finance", category: "Workshop", span: "wide", src: g7.url },
+  { id: 8, title: "Live Stock Analysis Session", category: "Activity", span: "square", src: g8.url },
+  { id: 9, title: "Trading Strategies Bootcamp", category: "Workshop", span: "square", src: g9.url },
 ];
 
 const posts = [
