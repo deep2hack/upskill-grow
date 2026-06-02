@@ -14,11 +14,21 @@ import g6 from "@/assets/gallery/g6.jpg.asset.json";
 import g7 from "@/assets/gallery/g7.jpg.asset.json";
 import g8 from "@/assets/gallery/g8.jpg.asset.json";
 import g9 from "@/assets/gallery/g9.jpg.asset.json";
+import c1 from "@/assets/gallery/c1.jpg.asset.json";
+import c2 from "@/assets/gallery/c2.jpg.asset.json";
+import c3 from "@/assets/gallery/c3.jpg.asset.json";
+import c4 from "@/assets/gallery/c4.jpg.asset.json";
+import c5 from "@/assets/gallery/c5.jpg.asset.json";
+import c6 from "@/assets/gallery/c6.jpg.asset.json";
+import c7 from "@/assets/gallery/c7.jpg.asset.json";
+import c8 from "@/assets/gallery/c8.jpg.asset.json";
+import c9 from "@/assets/gallery/c9.jpg.asset.json";
+import c10 from "@/assets/gallery/c10.jpg.asset.json";
 
 type GalleryItem = {
   id: number;
   title: string;
-  category: "Activity" | "Event" | "Success" | "Workshop" | "Update";
+  category: "Activity" | "Event" | "Success" | "Workshop" | "Update" | "Campus";
   span: "tall" | "wide" | "square";
   src: string;
 };
@@ -34,6 +44,16 @@ const gallery: GalleryItem[] = [
   { id: 7, title: "Guest Lecture — Personal Finance", category: "Workshop", span: "wide", src: url(g7) },
   { id: 8, title: "Live Stock Analysis Session", category: "Activity", span: "square", src: url(g8) },
   { id: 9, title: "Trading Strategies Bootcamp", category: "Workshop", span: "square", src: url(g9) },
+  { id: 10, title: "Premium Classroom — Smart Board Setup", category: "Campus", span: "wide", src: url(c1) },
+  { id: 11, title: "Acoustic Lecture Hall", category: "Campus", span: "square", src: url(c2) },
+  { id: 12, title: "Live Streaming Studio Classroom", category: "Campus", span: "tall", src: url(c3) },
+  { id: 13, title: "Interactive Smart Display", category: "Campus", span: "square", src: url(c4) },
+  { id: 14, title: "Premium Seating — Training Room", category: "Campus", span: "square", src: url(c5) },
+  { id: 15, title: "Founder's Cabin — Bull & Bear Wall", category: "Campus", span: "wide", src: url(c6) },
+  { id: 16, title: "Cohort Classroom — Side View", category: "Campus", span: "square", src: url(c7) },
+  { id: 17, title: "Hikvision Interactive Panel", category: "Campus", span: "square", src: url(c8) },
+  { id: 18, title: "Full Classroom Walkthrough", category: "Campus", span: "tall", src: url(c9) },
+  { id: 19, title: "Reception & Wall of Fame", category: "Campus", span: "wide", src: url(c10) },
 ];
 
 const posts = [
@@ -45,7 +65,7 @@ const posts = [
   { t: "DCF that actually makes sense", d: "Build your first three-statement model and DCF without copying templates.", date: "Mar 20, 2026", read: "11 min", tag: "Valuation" },
 ];
 
-const categories = ["All", "Activity", "Event", "Success", "Workshop", "Update"] as const;
+const categories = ["All", "Campus", "Activity", "Event", "Success", "Workshop", "Update"] as const;
 
 const spanClasses: Record<GalleryItem["span"], string> = {
   tall: "row-span-2",
@@ -59,6 +79,7 @@ const categoryGradient: Record<GalleryItem["category"], string> = {
   Success: "from-[hsl(43_85%_45%)] to-[hsl(28_75%_30%)]",
   Workshop: "from-[hsl(200_70%_35%)] to-[hsl(222_85%_18%)]",
   Update: "from-[hsl(222_60%_22%)] to-[hsl(222_85%_12%)]",
+  Campus: "from-[hsl(28_80%_45%)] to-[hsl(222_85%_18%)]",
 };
 
 const GalleryInsights = () => {
