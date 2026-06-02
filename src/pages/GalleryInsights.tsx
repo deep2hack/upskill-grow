@@ -9,7 +9,7 @@ import g1 from "@/assets/gallery/g1.jpg.asset.json";
 import g2 from "@/assets/gallery/g2.jpg.asset.json";
 import g3 from "@/assets/gallery/g3.jpg.asset.json";
 import g4 from "@/assets/gallery/g4.jpg.asset.json";
-import g5 from "@/assets/gallery/g5.jpg.asset.json";
+
 import g6 from "@/assets/gallery/g6.jpg.asset.json";
 import g7 from "@/assets/gallery/g7.jpg.asset.json";
 import g8 from "@/assets/gallery/g8.jpg.asset.json";
