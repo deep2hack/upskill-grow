@@ -29,7 +29,7 @@ const gallery: GalleryItem[] = [
   { id: 2, title: "Live NSE Walkthrough Workshop", category: "Workshop", span: "wide", src: url(g2) },
   { id: 3, title: "Investor Awareness Drive", category: "Activity", span: "square", src: url(g3) },
   { id: 4, title: "Cohort Graduation Group Photo", category: "Success", span: "square", src: url(g4) },
-  { id: 5, title: "Keynote — Markets in a Connected World", category: "Workshop", span: "tall", src: url(g1) },
+  { id: 5, title: "Keynote — Markets in a Connected World", category: "Workshop", span: "tall", src: url(g5) },
   { id: 6, title: "SRM University Felicitation", category: "Event", span: "square", src: url(g6) },
   { id: 7, title: "Guest Lecture — Personal Finance", category: "Workshop", span: "wide", src: url(g7) },
   { id: 8, title: "Live Stock Analysis Session", category: "Activity", span: "square", src: url(g8) },
