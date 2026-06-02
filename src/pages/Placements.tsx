@@ -16,6 +16,7 @@ import PlacementCompanies from "@/components/PlacementCompanies";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import placementVideo from "@/assets/placement-guarantee.mp4.asset.json";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 const heroStats = [
   { end: 8500, suffix: "+", label: "Students Trained" },
@@ -203,16 +204,10 @@ const Placements = () => {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="relative group">
+            <div className="relative group mx-auto w-full max-w-[360px]">
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold/40 via-primary/30 to-gold/40 opacity-70 blur-2xl transition-opacity group-hover:opacity-100" />
               <div className="relative overflow-hidden rounded-3xl border-2 border-gold/40 bg-black shadow-[0_30px_80px_-20px_hsl(43_95%_55%/0.4)]">
-                <video
-                  src={(placementVideo as any).url}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="aspect-[9/16] w-full object-cover sm:aspect-video"
-                />
+                <AutoplayVideo src={(placementVideo as any).url} />
                 <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-gold/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(222_85%_12%)] shadow-lg">
                   <Shield className="h-3 w-3" /> 100% Guarantee
                 </div>
@@ -463,16 +458,10 @@ const Placements = () => {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {videos.map((v, i) => (
             <Reveal key={v.t} delay={i * 70}>
-              <div className="group relative aspect-[3/4] cursor-pointer overflow-hidden rounded-2xl border border-border/60 transition-all hover:border-gold/60 hover:shadow-elegant">
-                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(222_85%_18%)] via-[hsl(222_60%_25%)] to-[hsl(222_85%_10%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(43_95%_55%/0.3),transparent_55%)]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                <div className="absolute inset-0 grid place-items-center">
-                  <span className="grid h-16 w-16 place-items-center rounded-full bg-gold text-[hsl(222_85%_12%)] shadow-[0_0_30px_hsl(43_95%_55%/0.7)] transition-transform group-hover:scale-110">
-                    <Play className="ml-1 h-6 w-6 fill-current" />
-                  </span>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 p-5">
+              <div className="group relative aspect-[9/16] overflow-hidden rounded-2xl border border-border/60 bg-black transition-all hover:border-gold/60 hover:shadow-elegant">
+                <AutoplayVideo src={(placementVideo as any).url} controls={false} className="absolute inset-0" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5">
                   <span className="inline-flex rounded-full bg-gold/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold backdrop-blur">
                     {v.k}
                   </span>
