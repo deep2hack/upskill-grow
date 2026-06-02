@@ -9,7 +9,7 @@ import g1 from "@/assets/gallery/g1.jpg.asset.json";
 import g2 from "@/assets/gallery/g2.jpg.asset.json";
 import g3 from "@/assets/gallery/g3.jpg.asset.json";
 import g4 from "@/assets/gallery/g4.jpg.asset.json";
-import g5 from "@/assets/gallery/g5.jpg.asset.json";
+
 import g6 from "@/assets/gallery/g6.jpg.asset.json";
 import g7 from "@/assets/gallery/g7.jpg.asset.json";
 import g8 from "@/assets/gallery/g8.jpg.asset.json";
@@ -29,7 +29,7 @@ const gallery: GalleryItem[] = [
   { id: 2, title: "Live NSE Walkthrough Workshop", category: "Workshop", span: "wide", src: url(g2) },
   { id: 3, title: "Investor Awareness Drive", category: "Activity", span: "square", src: url(g3) },
   { id: 4, title: "Cohort Graduation Group Photo", category: "Success", span: "square", src: url(g4) },
-  { id: 5, title: "Keynote — Markets in a Connected World", category: "Workshop", span: "tall", src: url(g5) },
+  { id: 5, title: "Keynote — Markets in a Connected World", category: "Workshop", span: "tall", src: url(g1) },
   { id: 6, title: "SRM University Felicitation", category: "Event", span: "square", src: url(g6) },
   { id: 7, title: "Guest Lecture — Personal Finance", category: "Workshop", span: "wide", src: url(g7) },
   { id: 8, title: "Live Stock Analysis Session", category: "Activity", span: "square", src: url(g8) },
