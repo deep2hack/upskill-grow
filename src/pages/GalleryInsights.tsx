@@ -79,6 +79,7 @@ const categoryGradient: Record<GalleryItem["category"], string> = {
   Success: "from-[hsl(43_85%_45%)] to-[hsl(28_75%_30%)]",
   Workshop: "from-[hsl(200_70%_35%)] to-[hsl(222_85%_18%)]",
   Update: "from-[hsl(222_60%_22%)] to-[hsl(222_85%_12%)]",
+  Campus: "from-[hsl(28_80%_45%)] to-[hsl(222_85%_18%)]",
 };
 
 const GalleryInsights = () => {
