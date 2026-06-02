@@ -135,9 +135,13 @@ const GalleryInsights = () => {
                 spanClasses[g.span]
               )}
             >
-              <div className={cn("absolute inset-0 bg-gradient-to-br opacity-90 transition-transform duration-700 group-hover:scale-110", categoryGradient[g.category])} />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(0_0%_100%/0.18),transparent_60%)]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <img
+                src={g.src}
+                alt={g.title}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-4">
                 <span className="inline-flex rounded-full bg-gold/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold backdrop-blur">
                   {g.category}
