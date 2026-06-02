@@ -9,7 +9,7 @@ import g1 from "@/assets/gallery/g1.jpg.asset.json";
 import g2 from "@/assets/gallery/g2.jpg.asset.json";
 import g3 from "@/assets/gallery/g3.jpg.asset.json";
 import g4 from "@/assets/gallery/g4.jpg.asset.json";
-
+import g5 from "@/assets/gallery/g5.jpg.asset.json";
 import g6 from "@/assets/gallery/g6.jpg.asset.json";
 import g7 from "@/assets/gallery/g7.jpg.asset.json";
 import g8 from "@/assets/gallery/g8.jpg.asset.json";
@@ -29,7 +29,7 @@ const gallery: GalleryItem[] = [
   { id: 2, title: "Live NSE Walkthrough Workshop", category: "Workshop", span: "wide", src: url(g2) },
   { id: 3, title: "Investor Awareness Drive", category: "Activity", span: "square", src: url(g3) },
   { id: 4, title: "Cohort Graduation Group Photo", category: "Success", span: "square", src: url(g4) },
-  { id: 5, title: "Keynote — Markets in a Connected World", category: "Workshop", span: "tall", src: url(g1) },
+  { id: 5, title: "Keynote — Markets in a Connected World", category: "Workshop", span: "tall", src: url(g5) },
   { id: 6, title: "SRM University Felicitation", category: "Event", span: "square", src: url(g6) },
   { id: 7, title: "Guest Lecture — Personal Finance", category: "Workshop", span: "wide", src: url(g7) },
   { id: 8, title: "Live Stock Analysis Session", category: "Activity", span: "square", src: url(g8) },
@@ -135,9 +135,13 @@ const GalleryInsights = () => {
                 spanClasses[g.span]
               )}
             >
-              <div className={cn("absolute inset-0 bg-gradient-to-br opacity-90 transition-transform duration-700 group-hover:scale-110", categoryGradient[g.category])} />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(0_0%_100%/0.18),transparent_60%)]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <img
+                src={g.src}
+                alt={g.title}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-4">
                 <span className="inline-flex rounded-full bg-gold/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold backdrop-blur">
                   {g.category}
