@@ -16,6 +16,7 @@ import PlacementCompanies from "@/components/PlacementCompanies";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import placementVideo from "@/assets/placement-guarantee.mp4.asset.json";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 const heroStats = [
   { end: 8500, suffix: "+", label: "Students Trained" },
