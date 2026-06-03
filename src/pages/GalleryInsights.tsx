@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles } from "lucide-react";
+import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles, Award } from "lucide-react";
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
+import AutoplayVideo from "@/components/AutoplayVideo";
+import chairmanVideo from "@/assets/chairman.mp4.asset.json";
 import { cn } from "@/lib/utils";
+
 import g1 from "@/assets/gallery/g1.jpg.asset.json";
 import g2 from "@/assets/gallery/g2.jpg.asset.json";
 import g3 from "@/assets/gallery/g3.jpg.asset.json";
@@ -122,7 +125,43 @@ const GalleryInsights = () => {
       </section>
 
       {/* Gallery (masonry) */}
+      {/* Featured: Chairman — Municipal Affairs Committee */}
+      <section className="container pt-16">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <Reveal>
+            <Badge className="bg-gold/15 text-gold border-gold/30 hover:bg-gold/15 gap-1">
+              <Award className="h-3.5 w-3.5" /> Civic Leadership
+            </Badge>
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl">
+              Chairman —{" "}
+              <span className="bg-gold-gradient bg-clip-text text-transparent">Municipal Affairs Committee</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground max-w-lg">
+              A proud moment from our founder's civic journey — appointed Chairman of the Municipal Affairs Committee, contributing leadership beyond classrooms to community and public policy.
+            </p>
+            <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-gold" /> Civic recognition & honor</li>
+              <li className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-gold" /> Community-led leadership</li>
+              <li className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-gold" /> A milestone for the academy family</li>
+            </ul>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="relative group mx-auto w-full max-w-[360px]">
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold/40 via-primary/30 to-gold/40 opacity-70 blur-2xl transition-opacity group-hover:opacity-100" />
+              <div className="relative overflow-hidden rounded-3xl border-2 border-gold/40 bg-black shadow-[0_30px_80px_-20px_hsl(43_95%_55%/0.4)]">
+                <AutoplayVideo src={(chairmanVideo as any).url} />
+                <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-gold/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(222_85%_12%)] shadow-lg">
+                  <Award className="h-3 w-3" /> Chairman
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Gallery (masonry) */}
       <section className="container py-16">
+
         <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-gold font-semibold">Inside the academy</p>
