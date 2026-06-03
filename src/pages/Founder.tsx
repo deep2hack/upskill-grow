@@ -19,6 +19,9 @@ import training from "@/assets/founder-training.jpg";
 import speaking from "@/assets/founder-speaking.jpg";
 import bookMoment from "@/assets/founder-book-moment.jpg";
 import media from "@/assets/founder-media.jpg";
+import mediaPrint1 from "@/assets/media/media-print1.jpg.asset.json";
+import mediaPrint2 from "@/assets/media/media-print2.jpg.asset.json";
+import mediaPrint3 from "@/assets/media/media-print3.jpg.asset.json";
 import mindOverMarkets from "@/assets/mind-over-markets-cover.png";
 import marketMasteryBible from "@/assets/market-mastery-bible-cover.png";
 import beyondTheCandle from "@/assets/beyond-the-candle-cover.png";
@@ -94,6 +97,9 @@ const mediaItems = [
   { src: media, t: "Amar Ujala Feature", tag: "Print Media", d: "Honoured on International Women's Day for empowering youth and shaping careers." },
   { src: speaking, t: "Skill India Summit", tag: "Keynote", d: "National voice on employability, skill-based education and women in finance." },
   { src: bookMoment, t: "Author Recognition", tag: "Books", d: "Featured for contributions to youth financial literacy and trading psychology." },
+  { src: mediaPrint3.url, t: "Amar Ujala Aparajita", tag: "Print Media", d: "जॉब के लिए युवाओं को कर रहीं तैयार — featured on International Women's Day as a 'Karobar Ki Maharathi'." },
+  { src: mediaPrint1.url, t: "Stock Market Workshop Coverage", tag: "Print Media", d: "साक्षात्कार के लिए उपयोगी स्टॉक मार्केट शब्दजाल पर कार्यशाला — Hindi daily coverage of the Sherwood College workshop." },
+  { src: mediaPrint2.url, t: "Sherwood College Workshop", tag: "Print Media", d: "Workshop on Understanding 50+ Stock Market Jargons for Clearing Interviews — featured as resource person & expert." },
 ];
 
 /* ────────────────  Page  ──────────────── */
