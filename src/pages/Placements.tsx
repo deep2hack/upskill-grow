@@ -65,11 +65,133 @@ const timeline = [
   { icon: Trophy, t: "Job Placement Support", d: "Onboarding readiness and 90-day post-joining mentorship." },
 ];
 
-const jobRoles = [
-  "Financial Analyst", "Equity Research Analyst", "Market Research Analyst",
-  "Investment Analyst", "Trading Analyst", "Business Analyst",
-  "Risk Analyst", "Research Associate", "Data Analyst",
-  "Portfolio Analyst", "Wealth Management Associate", "Financial Consultant",
+type Role = {
+  name: string;
+  icon: any;
+  salary: string;
+  growth: string;
+  hot?: boolean;
+};
+
+type RoleCategory = {
+  key: string;
+  title: string;
+  emoji: string;
+  accent: string;
+  roles: Role[];
+};
+
+const roleCategories: RoleCategory[] = [
+  {
+    key: "finance",
+    title: "Finance & Investment Roles",
+    emoji: "📊",
+    accent: "from-[hsl(222_75%_30%)] to-[hsl(222_85%_18%)]",
+    roles: [
+      { name: "Credit Analyst", icon: ShieldCheck, salary: "₹4–9 LPA", growth: "+18%" },
+      { name: "Financial Analyst", icon: LineChart, salary: "₹5–12 LPA", growth: "+24%", hot: true },
+      { name: "Investment Banking Analyst", icon: Landmark, salary: "₹8–22 LPA", growth: "+28%", hot: true },
+      { name: "Financial Modelling Analyst", icon: BarChart3, salary: "₹6–14 LPA", growth: "+22%" },
+      { name: "Merger & Acquisition Analyst", icon: Layers, salary: "₹9–20 LPA", growth: "+26%" },
+      { name: "Fund Manager", icon: Wallet, salary: "₹12–35 LPA", growth: "+30%", hot: true },
+      { name: "Wealth Analyst", icon: Banknote, salary: "₹5–13 LPA", growth: "+20%" },
+    ],
+  },
+  {
+    key: "stock",
+    title: "Stock Market & Trading Roles",
+    emoji: "📈",
+    accent: "from-[hsl(43_85%_45%)] to-[hsl(28_75%_28%)]",
+    roles: [
+      { name: "Stock Market Analyst", icon: TrendingUp, salary: "₹5–14 LPA", growth: "+25%", hot: true },
+      { name: "Technical Analyst", icon: Activity, salary: "₹4–11 LPA", growth: "+21%" },
+      { name: "Derivative Analyst", icon: BarChart, salary: "₹6–15 LPA", growth: "+23%" },
+      { name: "Commodity Analyst", icon: Coins, salary: "₹4–10 LPA", growth: "+17%" },
+    ],
+  },
+  {
+    key: "research",
+    title: "Research & Strategy Roles",
+    emoji: "🔍",
+    accent: "from-[hsl(200_70%_35%)] to-[hsl(222_85%_18%)]",
+    roles: [
+      { name: "Research Analyst", icon: Search, salary: "₹5–12 LPA", growth: "+22%", hot: true },
+      { name: "Market Research Analyst", icon: PieChart, salary: "₹4–10 LPA", growth: "+19%" },
+      { name: "Business Analyst", icon: Briefcase, salary: "₹6–16 LPA", growth: "+27%", hot: true },
+    ],
+  },
+];
+
+type CapstoneCategory = {
+  key: string;
+  title: string;
+  emoji: string;
+  icon: any;
+  accent: string;
+  projects: string[];
+};
+
+const capstoneCategories: CapstoneCategory[] = [
+  {
+    key: "fin",
+    title: "Financial Analytics Module",
+    emoji: "📊",
+    icon: LineChart,
+    accent: "from-[hsl(222_75%_30%)] to-[hsl(222_85%_18%)]",
+    projects: [
+      "Credit Risk Analysis for Loan Portfolio",
+      "Valuation of Listed Companies Using DCF Model",
+      "Bank Performance Analysis Using CAMEL Framework",
+      "Stock Market Prediction Using Financial Ratios",
+      "Earnings Manipulation Detection Using Beneish M-Score",
+      "FinTech Adoption Analysis in Tier-2 Cities",
+      "Portfolio Optimization Using Sharpe Ratio",
+    ],
+  },
+  {
+    key: "mr",
+    title: "Market Research Module",
+    emoji: "📈",
+    icon: Search,
+    accent: "from-[hsl(43_85%_45%)] to-[hsl(28_75%_28%)]",
+    projects: [
+      "Consumer Behaviour Study for Digital Banking",
+      "Demand Forecasting for Electric Two-Wheelers",
+      "Competitor Analysis for EdTech Startups",
+      "Customer Retention Analysis for a Mobile Operator",
+      "Market Entry Strategy for a Global Brand in India",
+      "Study of ESG Awareness Among Urban Investors",
+      "Mystery Shopping Audit for Financial Services",
+    ],
+  },
+  {
+    key: "tableau",
+    title: "Tableau & Data Visualization",
+    emoji: "📉",
+    icon: Presentation,
+    accent: "from-[hsl(200_70%_35%)] to-[hsl(222_85%_18%)]",
+    projects: [
+      "Interactive Dashboard for Mutual Fund Performance",
+      "Bank Branch-Wise Profitability Dashboard",
+      "Financial KPI Dashboard",
+      "Stock Market Trend Analysis Dashboard",
+      "Market Research Insights Dashboard",
+      "Customer Analytics Dashboard",
+    ],
+  },
+];
+
+const projectImpactSkills = [
+  "Financial Analysis", "Equity Research", "Market Research", "Business Analytics",
+  "Tableau & Data Visualization", "Investment Research", "Banking & FinTech Analysis",
+];
+
+const projectImpactOutcomes = [
+  { icon: FileText, t: "Strong Resume" },
+  { icon: Mic, t: "Interview Readiness" },
+  { icon: Building2, t: "Industry Experience" },
+  { icon: FolderKanban, t: "Portfolio Showcase" },
+  { icon: Trophy, t: "Job Placement Confidence" },
 ];
 
 const demandingJobs = [
