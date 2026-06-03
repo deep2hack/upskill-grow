@@ -7,6 +7,8 @@ import {
   PieChart, MessageSquare, Database, Briefcase, Award, FileText, Linkedin, Users,
   Bell, Target, ClipboardList, GraduationCap, Mic, Building2, CheckCircle2,
   ArrowRight, Star, Quote, Play, Sparkles, Trophy, Rocket, ShieldCheck as Shield,
+  Banknote, Coins, Wallet, Activity, Layers, Landmark, Flame, FolderKanban,
+  BarChart, GanttChart, Presentation,
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
