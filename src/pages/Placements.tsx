@@ -426,27 +426,184 @@ const Placements = () => {
         </div>
       </section>
 
-      {/* Job Roles */}
-      <section className="bg-hero py-20 text-primary-foreground">
-        <div className="container">
+      {/* Career Opportunities & Job Roles */}
+      <section className="relative overflow-hidden bg-hero py-20 text-primary-foreground">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,hsl(43_95%_55%/0.18),transparent_55%),radial-gradient(circle_at_85%_90%,hsl(222_75%_45%/0.25),transparent_55%)]" />
+        <div className="container relative">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-xs uppercase tracking-[0.28em] text-gold font-semibold">Job Roles Offered</p>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl">Roles our learners step into</h2>
+            <Badge className="bg-gold/20 text-gold border-gold/30 hover:bg-gold/20">💼 Career Opportunities</Badge>
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl">
+              High-growth <span className="bg-gold-gradient bg-clip-text text-transparent">job roles</span> after Upskiller
+            </h2>
+            <p className="mt-3 text-primary-foreground/75">
+              Across finance, capital markets, research and strategy — the roles our learners actively step into.
+            </p>
           </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {jobRoles.map((r, i) => (
-              <Reveal key={r} delay={i * 40}>
-                <div className="group flex items-center gap-3 rounded-xl border border-gold/20 bg-white/5 p-4 backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-gold/60 hover:bg-white/10">
-                  <span className="grid h-9 w-9 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/30">
-                    <Briefcase className="h-4 w-4" />
+
+          <div className="mt-14 space-y-14">
+            {roleCategories.map((cat) => (
+              <div key={cat.key}>
+                <Reveal className="flex flex-wrap items-end justify-between gap-3">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.28em] text-gold font-bold">{cat.emoji} Category</p>
+                    <h3 className="mt-1 font-display text-2xl sm:text-3xl">{cat.title}</h3>
+                  </div>
+                  <span className="rounded-full border border-gold/30 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gold backdrop-blur">
+                    {cat.roles.length} Roles
                   </span>
-                  <span className="font-display">{r}</span>
+                </Reveal>
+
+                <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {cat.roles.map((r, i) => (
+                    <Reveal key={r.name} delay={i * 80}>
+                      <div
+                        className={cn(
+                          "group relative h-full overflow-hidden rounded-2xl border border-gold/20 bg-white/[0.04] p-6 backdrop-blur-xl transition-all duration-500",
+                          "hover:-translate-y-2 hover:[transform:perspective(900px)_rotateX(2deg)_translateY(-8px)] hover:border-gold/70",
+                          "hover:shadow-[0_25px_60px_-15px_hsl(43_95%_55%/0.45),0_0_0_1px_hsl(43_95%_55%/0.35)_inset]"
+                        )}
+                      >
+                        {/* gradient glow */}
+                        <div className={cn("pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-gradient-to-br opacity-30 blur-2xl transition-opacity duration-500 group-hover:opacity-70", cat.accent)} />
+                        <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 [background:linear-gradient(135deg,hsl(43_95%_55%/0.08),transparent_60%)]" />
+
+                        <div className="relative flex items-start justify-between">
+                          <span className="grid h-12 w-12 place-items-center rounded-xl bg-gold/15 text-gold ring-1 ring-gold/30 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                            <r.icon className="h-6 w-6" />
+                          </span>
+                          {r.hot && (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[hsl(222_85%_12%)] shadow-[0_0_18px_hsl(43_95%_55%/0.55)]">
+                              <Flame className="h-3 w-3" /> Most Demanding
+                            </span>
+                          )}
+                        </div>
+
+                        <h4 className="relative mt-5 font-display text-lg leading-tight">{r.name}</h4>
+                        <p className="relative mt-1 text-[11px] uppercase tracking-[0.18em] text-primary-foreground/55">
+                          {cat.title.split(" ")[0]} • Industry
+                        </p>
+
+                        <div className="relative mt-5 grid grid-cols-2 gap-3 border-t border-white/10 pt-4 text-xs">
+                          <div>
+                            <p className="text-[10px] uppercase tracking-wider text-primary-foreground/55">Salary</p>
+                            <p className="mt-0.5 font-display text-sm text-gold">{r.salary}</p>
+                          </div>
+                          <div>
+                            <p className="text-[10px] uppercase tracking-wider text-primary-foreground/55">Growth</p>
+                            <p className="mt-0.5 inline-flex items-center gap-1 font-display text-sm text-emerald-400">
+                              <TrendingUp className="h-3 w-3" /> {r.growth}
+                            </p>
+                          </div>
+                        </div>
+
+                        <span className="absolute right-4 bottom-4 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-300 ring-1 ring-emerald-400/30">
+                          High Demand
+                        </span>
+                      </div>
+                    </Reveal>
+                  ))}
                 </div>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Live Industry & Capstone Projects */}
+      <section className="container py-20">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <Badge className="bg-gold/15 text-gold border-gold/30 hover:bg-gold/15">🚀 Live Industry Projects</Badge>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl">
+            Capstone projects that build a{" "}
+            <span className="bg-gold-gradient bg-clip-text text-transparent">portfolio-ready</span> resume
+          </h2>
+          <p className="mt-3 text-muted-foreground">
+            Real-world projects you'll execute during the program — practical skills, recruiter-ready outcomes.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {capstoneCategories.map((cat, ci) => (
+            <Reveal key={cat.key} delay={ci * 100}>
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-gold/20 bg-gradient-to-br from-[hsl(222_85%_12%)] via-[hsl(222_70%_16%)] to-[hsl(222_85%_10%)] p-7 text-primary-foreground shadow-elegant transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/60 hover:shadow-[0_30px_70px_-20px_hsl(43_95%_55%/0.4)]">
+                <div className={cn("pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gradient-to-br opacity-25 blur-3xl transition-opacity duration-500 group-hover:opacity-60", cat.accent)} />
+
+                <div className="relative flex items-center gap-3">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-gold/15 text-gold ring-1 ring-gold/30">
+                    <cat.icon className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.24em] text-gold font-bold">{cat.emoji} Module</p>
+                    <h3 className="font-display text-lg leading-tight">{cat.title}</h3>
+                  </div>
+                </div>
+
+                <ul className="relative mt-6 space-y-2.5">
+                  {cat.projects.map((p, i) => (
+                    <li
+                      key={p}
+                      className="group/item flex items-start gap-3 rounded-lg border border-white/5 bg-white/[0.03] p-3 text-sm transition-all hover:border-gold/40 hover:bg-white/[0.07]"
+                    >
+                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md bg-gold/15 text-[10px] font-bold text-gold ring-1 ring-gold/30">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-primary-foreground/85 leading-snug">{p}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="relative mt-5 flex items-center justify-between border-t border-white/10 pt-4 text-[10px] uppercase tracking-[0.2em]">
+                  <span className="text-primary-foreground/55">{cat.projects.length} Projects</span>
+                  <span className="text-gold font-bold">Capstone Ready ✓</span>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Why These Projects Matter */}
+        <Reveal delay={120} className="mt-14">
+          <div className="relative overflow-hidden rounded-3xl border border-gold/25 bg-gradient-to-br from-[hsl(222_85%_12%)] to-[hsl(222_70%_20%)] p-8 sm:p-12 text-primary-foreground">
+            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/15 blur-3xl" />
+            <div className="absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-[hsl(222_75%_45%/0.25)] blur-3xl" />
+            <div className="relative grid gap-10 lg:grid-cols-2">
+              <div>
+                <Badge className="bg-gold/20 text-gold border-gold/30 hover:bg-gold/20">💼 Career Impact</Badge>
+                <h3 className="mt-3 font-display text-3xl sm:text-4xl">
+                  Why these projects <span className="bg-gold-gradient bg-clip-text text-transparent">matter</span>
+                </h3>
+                <p className="mt-3 text-primary-foreground/80 max-w-lg">
+                  Students gain hands-on, recruiter-relevant exposure across the modern finance & analytics stack.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {projectImpactSkills.map((s) => (
+                    <span key={s} className="rounded-full border border-gold/30 bg-white/5 px-3 py-1.5 text-xs backdrop-blur">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.28em] text-gold font-bold">Projects help you build</p>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {projectImpactOutcomes.map((o, i) => (
+                    <Reveal key={o.t} delay={i * 70}>
+                      <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-gold/50 hover:bg-white/[0.08]">
+                        <span className="grid h-10 w-10 place-items-center rounded-lg bg-gold/15 text-gold ring-1 ring-gold/30">
+                          <o.icon className="h-5 w-5" />
+                        </span>
+                        <span className="font-display text-sm">{o.t}</span>
+                      </div>
+                    </Reveal>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
 
       {/* Certifications */}
       <section className="container py-20">
