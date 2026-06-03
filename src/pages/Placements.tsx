@@ -331,7 +331,7 @@ const Placements = () => {
             <div className="relative group mx-auto w-full max-w-[360px]">
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold/40 via-primary/30 to-gold/40 opacity-70 blur-2xl transition-opacity group-hover:opacity-100" />
               <div className="relative overflow-hidden rounded-3xl border-2 border-gold/40 bg-black shadow-[0_30px_80px_-20px_hsl(43_95%_55%/0.4)]">
-                <AutoplayVideo src={(placementVideo as any).url} />
+                <AutoplayVideo src={(placementVideo as any).url} muted={false} />
                 <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-gold/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(222_85%_12%)] shadow-lg">
                   <Shield className="h-3 w-3" /> 100% Guarantee
                 </div>
