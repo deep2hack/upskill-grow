@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles } from "lucide-react";
+import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles, Award } from "lucide-react";
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
+import AutoplayVideo from "@/components/AutoplayVideo";
+import chairmanVideo from "@/assets/chairman.mp4.asset.json";
 import { cn } from "@/lib/utils";
+
 import g1 from "@/assets/gallery/g1.jpg.asset.json";
 import g2 from "@/assets/gallery/g2.jpg.asset.json";
 import g3 from "@/assets/gallery/g3.jpg.asset.json";
