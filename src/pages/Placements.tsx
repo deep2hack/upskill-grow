@@ -18,6 +18,7 @@ import PlacementCompanies from "@/components/PlacementCompanies";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import placementVideo from "@/assets/placement-guarantee.mp4.asset.json";
+import certificateSample from "@/assets/certificate-sample.jpg.asset.json";
 import AutoplayVideo from "@/components/AutoplayVideo";
 
 const heroStats = [
