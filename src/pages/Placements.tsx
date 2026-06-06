@@ -18,6 +18,7 @@ import PlacementCompanies from "@/components/PlacementCompanies";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import placementVideo from "@/assets/placement-guarantee.mp4.asset.json";
+import certificateSample from "@/assets/certificate-sample.jpg.asset.json";
 import AutoplayVideo from "@/components/AutoplayVideo";
 
 const heroStats = [
@@ -823,6 +824,60 @@ const Placements = () => {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Certificate Sample */}
+      <section className="relative overflow-hidden bg-[hsl(222_85%_6%)] py-20 text-primary-foreground">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,hsl(43_95%_55%/0.18),transparent_55%),radial-gradient(circle_at_15%_85%,hsl(222_75%_45%/0.22),transparent_55%)]" />
+        <div className="container relative grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <Badge className="bg-gold/20 text-gold border-gold/30 hover:bg-gold/20 gap-1">
+              <Award className="h-3.5 w-3.5" /> Government-Recognized Certification
+            </Badge>
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.05]">
+              Earn an{" "}
+              <span className="bg-gold-gradient bg-clip-text text-transparent">Industry-Valued Certificate</span>
+            </h2>
+            <p className="mt-5 text-primary-foreground/80 max-w-lg">
+              Every graduate receives a co-branded Certificate of Achievement from Upskiller Academy & Magnum Educorporates — recognized by the Ministry of MSME, Government of India.
+            </p>
+            <ul className="mt-6 space-y-3 text-sm">
+              {[
+                "Co-branded with MSME (Ministry of Micro, Small & Medium Enterprises)",
+                "Includes Live Projects, Assignments & Assessments",
+                "Unique Student Code for lifetime verification",
+                "Grade-based achievement (A / A+) on capstone",
+              ].map((p) => (
+                <li key={p} className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                  <span className="text-primary-foreground/85">{p}</span>
+                </li>
+              ))}
+            </ul>
+            <Button asChild variant="premium" size="lg" className="mt-7">
+              <a href={buildWhatsAppUrl("Hi, I want details about the certification program.")} target="_blank" rel="noreferrer">
+                Get Certified <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </Button>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="relative group">
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-gold/40 via-primary/30 to-gold/40 opacity-60 blur-2xl transition-opacity group-hover:opacity-100" />
+              <div className="relative overflow-hidden rounded-2xl border-2 border-gold/40 bg-white shadow-[0_30px_80px_-20px_hsl(43_95%_55%/0.5)] transition-transform duration-500 group-hover:-rotate-1 group-hover:scale-[1.02]">
+                <img
+                  src={(certificateSample as any).url}
+                  alt="Sample Certificate of Achievement — Chartered Stock Analysis Program"
+                  loading="lazy"
+                  className="block w-full h-auto"
+                />
+                <div className="pointer-events-none absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-gold/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[hsl(222_85%_12%)] shadow-lg">
+                  <Award className="h-3 w-3" /> Sample Certificate
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
