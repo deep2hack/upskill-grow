@@ -61,6 +61,9 @@ const gallery: GalleryItem[] = [
   { id: 17, title: "Hikvision Interactive Panel", category: "Campus", span: "square", src: url(c8) },
   { id: 18, title: "Full Classroom Walkthrough", category: "Campus", span: "tall", src: url(c9) },
   { id: 19, title: "Reception & Wall of Fame", category: "Campus", span: "wide", src: url(c10) },
+  { id: 20, title: "Media Feature — Print Coverage", category: "Media", span: "tall", src: url(mediaPrint1) },
+  { id: 21, title: "Media Feature — Press Highlight", category: "Media", span: "square", src: url(mediaPrint2) },
+  { id: 22, title: "Media Feature — Newspaper Spotlight", category: "Media", span: "wide", src: url(mediaPrint3) },
 ];
 
 const posts = [
@@ -72,7 +75,7 @@ const posts = [
   { t: "DCF that actually makes sense", d: "Build your first three-statement model and DCF without copying templates.", date: "Mar 20, 2026", read: "11 min", tag: "Valuation" },
 ];
 
-const categories = ["All", "Campus", "Activity", "Event", "Success", "Workshop", "Update"] as const;
+const categories = ["All", "Campus", "Media", "Activity", "Event", "Success", "Workshop", "Update"] as const;
 
 const spanClasses: Record<GalleryItem["span"], string> = {
   tall: "row-span-2",
@@ -87,11 +90,26 @@ const categoryGradient: Record<GalleryItem["category"], string> = {
   Workshop: "from-[hsl(200_70%_35%)] to-[hsl(222_85%_18%)]",
   Update: "from-[hsl(222_60%_22%)] to-[hsl(222_85%_12%)]",
   Campus: "from-[hsl(28_80%_45%)] to-[hsl(222_85%_18%)]",
+  Media: "from-[hsl(355_70%_40%)] to-[hsl(222_85%_18%)]",
 };
 
 const GalleryInsights = () => {
   const [filter, setFilter] = useState<(typeof categories)[number]>("All");
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const filtered = filter === "All" ? gallery : gallery.filter((g) => g.category === filter);
+  const activeItem = lightboxIdx !== null ? filtered[lightboxIdx] : null;
+
+  useEffect(() => {
+    if (lightboxIdx === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxIdx(null);
+      if (e.key === "ArrowRight") setLightboxIdx((i) => (i === null ? null : (i + 1) % filtered.length));
+      if (e.key === "ArrowLeft") setLightboxIdx((i) => (i === null ? null : (i - 1 + filtered.length) % filtered.length));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightboxIdx, filtered.length]);
+
 
   return (
     <>
