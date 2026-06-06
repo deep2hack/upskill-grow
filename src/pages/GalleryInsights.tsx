@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles, Award } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles, Award, Newspaper, X } from "lucide-react";
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
 import AutoplayVideo from "@/components/AutoplayVideo";
