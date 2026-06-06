@@ -28,11 +28,14 @@ import c7 from "@/assets/gallery/c7.jpg.asset.json";
 import c8 from "@/assets/gallery/c8.jpg.asset.json";
 import c9 from "@/assets/gallery/c9.jpg.asset.json";
 import c10 from "@/assets/gallery/c10.jpg.asset.json";
+import mediaPrint1 from "@/assets/media/media-print1.jpg.asset.json";
+import mediaPrint2 from "@/assets/media/media-print2.jpg.asset.json";
+import mediaPrint3 from "@/assets/media/media-print3.jpg.asset.json";
 
 type GalleryItem = {
   id: number;
   title: string;
-  category: "Activity" | "Event" | "Success" | "Workshop" | "Update" | "Campus";
+  category: "Activity" | "Event" | "Success" | "Workshop" | "Update" | "Campus" | "Media";
   span: "tall" | "wide" | "square";
   src: string;
 };
