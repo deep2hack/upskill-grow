@@ -21,7 +21,7 @@ export const NAV_LINKS = [
   { to: "/courses", label: "Courses" },
   { to: "/about", label: "About" },
   { to: "/founder", label: "Founder" },
-  { to: "/mentors", label: "Mentors" },
+  
   { to: "/placements", label: "Placements" },
   { to: "/testimonials", label: "Testimonials" },
   { to: "/gallery-insights", label: "Gallery & Insights" },

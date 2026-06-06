@@ -16,7 +16,7 @@ import CourseDetail from "./pages/CourseDetail";
 import About from "./pages/About";
 
 import Founder from "./pages/Founder";
-import Mentors from "./pages/Mentors";
+
 import Testimonials from "./pages/Testimonials";
 import GalleryInsights from "./pages/GalleryInsights";
 import Placements from "./pages/Placements";
@@ -43,7 +43,7 @@ const App = () => (
               <Route path="/courses/:slug" element={<CourseDetail />} />
               <Route path="/about" element={<About />} />
               <Route path="/founder" element={<Founder />} />
-              <Route path="/mentors" element={<Mentors />} />
+              
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/gallery-insights" element={<GalleryInsights />} />
               <Route path="/gallery" element={<GalleryInsights />} />
