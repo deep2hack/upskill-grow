@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles, Award } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles, Award, Newspaper, X } from "lucide-react";
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
 import AutoplayVideo from "@/components/AutoplayVideo";
@@ -27,11 +28,14 @@ import c7 from "@/assets/gallery/c7.jpg.asset.json";
 import c8 from "@/assets/gallery/c8.jpg.asset.json";
 import c9 from "@/assets/gallery/c9.jpg.asset.json";
 import c10 from "@/assets/gallery/c10.jpg.asset.json";
+import mediaPrint1 from "@/assets/media/media-print1.jpg.asset.json";
+import mediaPrint2 from "@/assets/media/media-print2.jpg.asset.json";
+import mediaPrint3 from "@/assets/media/media-print3.jpg.asset.json";
 
 type GalleryItem = {
   id: number;
   title: string;
-  category: "Activity" | "Event" | "Success" | "Workshop" | "Update" | "Campus";
+  category: "Activity" | "Event" | "Success" | "Workshop" | "Update" | "Campus" | "Media";
   span: "tall" | "wide" | "square";
   src: string;
 };
@@ -57,6 +61,9 @@ const gallery: GalleryItem[] = [
   { id: 17, title: "Hikvision Interactive Panel", category: "Campus", span: "square", src: url(c8) },
   { id: 18, title: "Full Classroom Walkthrough", category: "Campus", span: "tall", src: url(c9) },
   { id: 19, title: "Reception & Wall of Fame", category: "Campus", span: "wide", src: url(c10) },
+  { id: 20, title: "Media Feature — Print Coverage", category: "Media", span: "tall", src: url(mediaPrint1) },
+  { id: 21, title: "Media Feature — Press Highlight", category: "Media", span: "square", src: url(mediaPrint2) },
+  { id: 22, title: "Media Feature — Newspaper Spotlight", category: "Media", span: "wide", src: url(mediaPrint3) },
 ];
 
 const posts = [
@@ -68,7 +75,7 @@ const posts = [
   { t: "DCF that actually makes sense", d: "Build your first three-statement model and DCF without copying templates.", date: "Mar 20, 2026", read: "11 min", tag: "Valuation" },
 ];
 
-const categories = ["All", "Campus", "Activity", "Event", "Success", "Workshop", "Update"] as const;
+const categories = ["All", "Campus", "Media", "Activity", "Event", "Success", "Workshop", "Update"] as const;
 
 const spanClasses: Record<GalleryItem["span"], string> = {
   tall: "row-span-2",
@@ -83,11 +90,26 @@ const categoryGradient: Record<GalleryItem["category"], string> = {
   Workshop: "from-[hsl(200_70%_35%)] to-[hsl(222_85%_18%)]",
   Update: "from-[hsl(222_60%_22%)] to-[hsl(222_85%_12%)]",
   Campus: "from-[hsl(28_80%_45%)] to-[hsl(222_85%_18%)]",
+  Media: "from-[hsl(355_70%_40%)] to-[hsl(222_85%_18%)]",
 };
 
 const GalleryInsights = () => {
   const [filter, setFilter] = useState<(typeof categories)[number]>("All");
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const filtered = filter === "All" ? gallery : gallery.filter((g) => g.category === filter);
+  const activeItem = lightboxIdx !== null ? filtered[lightboxIdx] : null;
+
+  useEffect(() => {
+    if (lightboxIdx === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxIdx(null);
+      if (e.key === "ArrowRight") setLightboxIdx((i) => (i === null ? null : (i + 1) % filtered.length));
+      if (e.key === "ArrowLeft") setLightboxIdx((i) => (i === null ? null : (i - 1 + filtered.length) % filtered.length));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightboxIdx, filtered.length]);
+
 
   return (
     <>
@@ -190,28 +212,75 @@ const GalleryInsights = () => {
             <Reveal
               key={g.id}
               delay={i * 60}
-              className={cn(
-                "group relative overflow-hidden rounded-2xl border border-border/60 transition-all hover:border-gold/50 hover:shadow-elegant",
-                spanClasses[g.span]
-              )}
+              className={cn("group", spanClasses[g.span])}
             >
-              <img
-                src={g.src}
-                alt={g.title}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-4">
-                <span className="inline-flex rounded-full bg-gold/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold backdrop-blur">
-                  {g.category}
-                </span>
-                <p className="mt-2 font-display text-base leading-tight text-white drop-shadow">{g.title}</p>
-              </div>
+              <button
+                type="button"
+                onClick={() => setLightboxIdx(i)}
+                className="relative h-full w-full overflow-hidden rounded-2xl border border-border/60 transition-all hover:border-gold/50 hover:shadow-elegant focus:outline-none focus:ring-2 focus:ring-gold cursor-zoom-in"
+                aria-label={`Open ${g.title}`}
+              >
+                <img
+                  src={g.src}
+                  alt={g.title}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4 text-left">
+                  <span className="inline-flex rounded-full bg-gold/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold backdrop-blur">
+                    {g.category}
+                  </span>
+                  <p className="mt-2 font-display text-base leading-tight text-white drop-shadow">{g.title}</p>
+                </div>
+              </button>
             </Reveal>
           ))}
         </div>
       </section>
+
+      {/* Lightbox */}
+      <Dialog open={lightboxIdx !== null} onOpenChange={(o) => !o && setLightboxIdx(null)}>
+        <DialogContent className="max-w-[95vw] sm:max-w-5xl p-0 border-gold/30 bg-black/95 overflow-hidden [&>button]:hidden">
+          {activeItem && (
+            <div className="relative">
+              <img
+                src={activeItem.src}
+                alt={activeItem.title}
+                className="block w-full max-h-[85vh] object-contain bg-black"
+              />
+              <button
+                onClick={() => setLightboxIdx(null)}
+                className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-black/70 text-white ring-1 ring-white/20 hover:bg-black hover:ring-gold"
+                aria-label="Close"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              <button
+                onClick={() => setLightboxIdx((i) => (i === null ? null : (i - 1 + filtered.length) % filtered.length))}
+                className="absolute left-3 top-1/2 -translate-y-1/2 grid h-11 w-11 place-items-center rounded-full bg-black/60 text-white ring-1 ring-white/20 hover:bg-black hover:ring-gold text-2xl"
+                aria-label="Previous"
+              >
+                ‹
+              </button>
+              <button
+                onClick={() => setLightboxIdx((i) => (i === null ? null : (i + 1) % filtered.length))}
+                className="absolute right-3 top-1/2 -translate-y-1/2 grid h-11 w-11 place-items-center rounded-full bg-black/60 text-white ring-1 ring-white/20 hover:bg-black hover:ring-gold text-2xl"
+                aria-label="Next"
+              >
+                ›
+              </button>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-5 text-white">
+                <span className="inline-flex rounded-full bg-gold/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold">
+                  {activeItem.category}
+                </span>
+                <p className="mt-2 font-display text-lg">{activeItem.title}</p>
+                <p className="mt-1 text-xs text-white/60">{(lightboxIdx ?? 0) + 1} / {filtered.length}</p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* Insights / Blog */}
       <section className="bg-muted/30 py-16">

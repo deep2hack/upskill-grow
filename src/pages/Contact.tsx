@@ -45,6 +45,7 @@ const Contact = () => {
         <div className="space-y-4">
           {[
             { i: Phone, t: "Phone", v: SITE.phone, h: SITE.phoneHref },
+            { i: Phone, t: "Alternate Phone", v: SITE.phoneAlt, h: SITE.phoneAltHref },
             { i: MessageCircle, t: "WhatsApp", v: "Chat with an advisor", h: buildWhatsAppUrl() },
             { i: Mail, t: "Email", v: SITE.email, h: SITE.emailHref },
             { i: MapPin, t: "Address", v: SITE.address },
