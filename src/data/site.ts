@@ -25,6 +25,7 @@ export const NAV_LINKS = [
   { to: "/founder", label: "Founder" },
   
   { to: "/placements", label: "Placements" },
+  { to: "/franchise", label: "Franchise" },
   { to: "/testimonials", label: "Testimonials" },
   { to: "/gallery-insights", label: "Gallery & Insights" },
   { to: "/contact", label: "Contact" },

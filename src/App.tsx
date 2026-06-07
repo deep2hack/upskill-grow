@@ -20,6 +20,7 @@ import Founder from "./pages/Founder";
 import Testimonials from "./pages/Testimonials";
 import GalleryInsights from "./pages/GalleryInsights";
 import Placements from "./pages/Placements";
+import Franchise from "./pages/Franchise";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -49,6 +50,7 @@ const App = () => (
               <Route path="/gallery" element={<GalleryInsights />} />
               <Route path="/blog" element={<GalleryInsights />} />
               <Route path="/placements" element={<Placements />} />
+              <Route path="/franchise" element={<Franchise />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
