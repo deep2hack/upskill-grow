@@ -30,15 +30,17 @@ export const LeadPopup = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.sessionStorage.getItem(STORAGE_KEY)) return;
-    if (window.localStorage.getItem(SUBMITTED_KEY)) return;
-    const t = setTimeout(() => setOpen(true), 12000);
-    return () => clearTimeout(t);
+    // First open within 10s after load/refresh, then re-open every 2 minutes.
+    const firstTimer = setTimeout(() => setOpen(true), 10000);
+    const interval = setInterval(() => setOpen(true), 2 * 60 * 1000);
+    return () => {
+      clearTimeout(firstTimer);
+      clearInterval(interval);
+    };
   }, []);
 
   const handleClose = (v: boolean) => {
     setOpen(v);
-    if (!v) window.sessionStorage.setItem(STORAGE_KEY, "1");
   };
 
   const onSubmit = async (e: React.FormEvent) => {
