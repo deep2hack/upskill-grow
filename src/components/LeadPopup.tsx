@@ -8,13 +8,7 @@ import { courses } from "@/data/courses";
 import { toast } from "@/hooks/use-toast";
 import { Sparkles, CheckCircle2, Loader2 } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-
-const STORAGE_KEY = "upskiller_lead_popup_v1";
-const SUBMITTED_KEY = "upskiller_lead_submitted_v1";
-
-// Web3Forms access key — replace with your own from https://web3forms.com (free, no backend).
-// The key is safe to expose on the client.
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+import { submitToSheets } from "@/lib/sheets";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^[+]?[\d\s-]{10,15}$/;
@@ -27,10 +21,10 @@ export const LeadPopup = () => {
   const [course, setCourse] = useState<string>(courses[0].title);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [lastSubmit, setLastSubmit] = useState(0);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // First open within 10s after load/refresh, then re-open every 2 minutes.
     const firstTimer = setTimeout(() => setOpen(true), 10000);
     const interval = setInterval(() => setOpen(true), 2 * 60 * 1000);
     return () => {
@@ -39,13 +33,23 @@ export const LeadPopup = () => {
     };
   }, []);
 
-  const handleClose = (v: boolean) => {
-    setOpen(v);
+  const resetForm = () => {
+    setName("");
+    setPhone("");
+    setEmail("");
+    setCourse(courses[0].title);
   };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (loading) return;
+
+    // Prevent duplicate rapid submissions (15s throttle)
+    const now = Date.now();
+    if (now - lastSubmit < 15000) {
+      toast({ title: "Please wait", description: "You just submitted — give us a moment." });
+      return;
+    }
 
     const trimmedName = name.trim();
     const trimmedPhone = phone.trim();
@@ -70,50 +74,37 @@ export const LeadPopup = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New Enquiry — ${trimmedName} (${course})`,
-          from_name: "Upskiller Academy Website",
-          name: trimmedName,
-          phone: trimmedPhone,
-          email: trimmedEmail,
-          course,
-          page: typeof window !== "undefined" ? window.location.href : "",
-        }),
+      await submitToSheets({
+        formType: "lead",
+        name: trimmedName,
+        phone: trimmedPhone,
+        email: trimmedEmail,
+        course,
+        page: typeof window !== "undefined" ? window.location.href : "",
       });
 
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.success) {
-        throw new Error(data?.message || "Submission failed");
-      }
-
-      window.sessionStorage.setItem(STORAGE_KEY, "1");
-      window.localStorage.setItem(SUBMITTED_KEY, "1");
+      setLastSubmit(Date.now());
       setSubmitted(true);
-      toast({ title: "Thank you!", description: "We will contact you soon." });
+      toast({ title: "Thank you!", description: "Our team will contact you shortly." });
 
-      // Optional: redirect to WhatsApp after a brief success view
+      // Redirect to WhatsApp + close popup
       setTimeout(() => {
         const msg = `Hi, I just submitted an enquiry.\nName: ${trimmedName}\nPhone: ${trimmedPhone}\nEmail: ${trimmedEmail}\nCourse: ${course}`;
         window.open(buildWhatsAppUrl(msg), "_blank", "noopener,noreferrer");
         setOpen(false);
-      }, 2000);
+        resetForm();
+        setTimeout(() => setSubmitted(false), 500);
+      }, 1800);
     } catch (err) {
       console.error("Lead submission failed", err);
-      toast({
-        title: "Could not submit",
-        description: "Please try again or contact us on WhatsApp.",
-      });
+      toast({ title: "Could not submit", description: "Please try again or contact us on WhatsApp." });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <Dialog open={open} onOpenChange={handleClose}>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-md p-0 overflow-hidden border-0 shadow-elegant">
         <div className="bg-hero text-primary-foreground p-6">
           <div className="inline-flex items-center gap-2 rounded-full bg-gold/20 px-3 py-1 text-xs font-medium text-gold">
@@ -134,7 +125,7 @@ export const LeadPopup = () => {
             <div className="grid h-14 w-14 place-items-center rounded-full bg-gold/15 text-gold">
               <CheckCircle2 className="h-8 w-8" />
             </div>
-            <h3 className="font-display text-xl">Thank you, we will contact you soon</h3>
+            <h3 className="font-display text-xl">Thank you! Our team will contact you shortly.</h3>
             <p className="text-sm text-muted-foreground">Redirecting you to WhatsApp…</p>
           </div>
         ) : (
