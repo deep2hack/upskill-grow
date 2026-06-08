@@ -182,6 +182,10 @@ const GalleryInsights = () => {
         </div>
       </section>
 
+      {/* In The Spotlight — Media Highlights */}
+      <SpotlightMedia />
+
+
       {/* Gallery (masonry) */}
       <section className="container py-16">
 

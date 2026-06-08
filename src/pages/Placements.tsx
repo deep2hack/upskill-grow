@@ -342,6 +342,10 @@ const Placements = () => {
         </div>
       </section>
 
+      {/* Alumni Success Story Shorts */}
+      <AlumniShorts />
+
+
       {/* Skills */}
       <section className="container py-20">
         <Reveal className="mx-auto max-w-2xl text-center">
