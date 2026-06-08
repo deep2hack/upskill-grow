@@ -91,9 +91,9 @@ const Bubble = ({ c, i, sizeOverride }: { c: Company; i: number; sizeOverride?: 
   const dur = 10 + ((i * 7) % 11);
   const delay = -((i * 1.3) % dur);
   const size = sizeOverride ?? sizeClasses[POSITIONS[i]?.s ?? 1];
-  const logoUrl = `https://logo.clearbit.com/${c.domain}`;
+  const primaryLogo = `https://logo.clearbit.com/${c.domain}`;
+  const fallbackLogo = `https://www.google.com/s2/favicons?domain=${c.domain}&sz=128`;
   const siteUrl = `https://${c.domain}`;
-  const initials = c.short.split(/\s+/).map((w) => w[0]).join("").slice(0, 3).toUpperCase();
   return (
     <a
       href={siteUrl}
@@ -110,29 +110,19 @@ const Bubble = ({ c, i, sizeOverride }: { c: Company; i: number; sizeOverride?: 
       >
         <span className="pointer-events-none absolute left-3 top-2.5 h-4 w-7 rounded-full bg-white/60 blur-md z-10" />
         <img
-          src={logoUrl}
+          src={primaryLogo}
           alt={`${c.name} logo`}
           loading="lazy"
-          className="relative z-[1] max-h-[60%] max-w-[75%] object-contain transition-all duration-500 group-hover:scale-105"
+          className="relative z-[1] max-h-[62%] max-w-[78%] object-contain transition-all duration-500 group-hover:scale-110"
           onError={(e) => {
             const img = e.currentTarget;
-            img.style.display = "none";
-            const fb = img.nextElementSibling as HTMLElement | null;
-            if (fb) fb.style.display = "flex";
+            if (img.dataset.fb !== "1") {
+              img.dataset.fb = "1";
+              img.src = fallbackLogo;
+            }
           }}
         />
-        <div className="relative z-[1] hidden flex-col items-center justify-center px-2 text-center leading-tight">
-          <span className="font-display font-bold text-[hsl(222_75%_22%)] text-sm">{initials}</span>
-          <span className="mt-0.5 text-[8px] font-bold uppercase tracking-wider text-[hsl(43_95%_40%)]">
-            {c.short}
-          </span>
-        </div>
       </div>
-      {c.tag && (
-        <span className="pointer-events-none absolute -bottom-2 left-1/2 -translate-x-1/2 text-[9px] font-bold uppercase tracking-wider text-gold/90 bg-[hsl(222_75%_12%/0.85)] rounded-full px-2 py-0.5 whitespace-nowrap border border-gold/30">
-          {c.tag}
-        </span>
-      )}
     </a>
   );
 };
