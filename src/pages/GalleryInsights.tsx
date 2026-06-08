@@ -6,6 +6,7 @@ import { Calendar, Clock, Camera, BookOpen, TrendingUp, Sparkles, Award, Newspap
 import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
 import AutoplayVideo from "@/components/AutoplayVideo";
+import SpotlightMedia from "@/components/SpotlightMedia";
 import chairmanVideo from "@/assets/chairman.mp4.asset.json";
 import { cn } from "@/lib/utils";
 
@@ -180,6 +181,10 @@ const GalleryInsights = () => {
           </Reveal>
         </div>
       </section>
+
+      {/* In The Spotlight — Media Highlights */}
+      <SpotlightMedia />
+
 
       {/* Gallery (masonry) */}
       <section className="container py-16">
