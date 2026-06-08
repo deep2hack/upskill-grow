@@ -41,7 +41,7 @@ const SpotlightMedia = () => {
 
         {/* News ticker */}
         <Reveal delay={120} className="mt-8 overflow-hidden rounded-full border border-gold/30 bg-black/40 backdrop-blur">
-          <div className="flex animate-[ticker_40s_linear_infinite] whitespace-nowrap py-2 text-xs text-gold/90">
+          <div className="flex min-w-max animate-marquee whitespace-nowrap py-2 text-xs text-gold/90">
             {[...HEADLINES, ...HEADLINES].map((h, i) => (
               <span key={i} className="mx-6 inline-flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
