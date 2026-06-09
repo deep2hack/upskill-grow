@@ -121,45 +121,50 @@ export const LeadPopup = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[hsl(222_85%_8%)] to-transparent" />
           </div>
 
-          {/* CENTER FORM */}
-          <div className="relative bg-gradient-to-b from-white/95 to-white/90 md:bg-white/[0.04] md:backdrop-blur-2xl md:border-x md:border-gold/20 animate-[lp-fade-in_0.6s_ease-out_0.15s_both]">
+          {/* CENTER FORM — Royal Blue glassmorphism */}
+          <div className="relative bg-[hsl(222_85%_10%)]/60 backdrop-blur-2xl md:border-x border-gold/25 animate-[lp-fade-in_0.6s_ease-out_0.15s_both]">
+            {/* Trading chart pattern backdrop */}
+            <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background:linear-gradient(hsl(48_100%_70%/1)_1px,transparent_1px),linear-gradient(90deg,hsl(48_100%_70%/1)_1px,transparent_1px)] [background-size:24px_24px]" />
+            <div className="pointer-events-none absolute -top-20 -right-16 h-56 w-56 rounded-full bg-gold/20 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-20 -left-16 h-56 w-56 rounded-full bg-primary-glow/30 blur-3xl" />
+
             <div className="relative p-6 sm:p-7">
-              <div className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-3 py-1 text-[11px] font-medium text-gold-deep md:text-gold ring-1 ring-gold/30">
+              <div className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-3 py-1 text-[11px] font-medium text-gold ring-1 ring-gold/40">
                 <Sparkles className="h-3.5 w-3.5" /> Limited Seats — Live Batch
               </div>
-              <DialogTitle className="mt-3 font-display text-2xl text-foreground md:text-primary-foreground">
+              <DialogTitle className="mt-3 font-display text-2xl text-white">
                 Speak With Our Course Advisor
               </DialogTitle>
-              <DialogDescription className="mt-1 text-sm text-muted-foreground md:text-primary-foreground/75">
+              <DialogDescription className="mt-1 text-sm text-white/70">
                 Get course details, fees, placements, certifications and upcoming batch information.
               </DialogDescription>
 
               {submitted ? (
                 <div className="mt-6 grid place-items-center text-center gap-3 py-6">
-                  <div className="grid h-14 w-14 place-items-center rounded-full bg-gold/15 text-gold ring-1 ring-gold/30">
+                  <div className="grid h-14 w-14 place-items-center rounded-full bg-gold/15 text-gold ring-1 ring-gold/40">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h3 className="font-display text-xl text-foreground md:text-primary-foreground">Thank you!</h3>
-                  <p className="text-sm text-muted-foreground md:text-primary-foreground/70">Redirecting you to WhatsApp…</p>
+                  <h3 className="font-display text-xl text-white">Thank you!</h3>
+                  <p className="text-sm text-white/70">Redirecting you to WhatsApp…</p>
                 </div>
               ) : (
                 <form onSubmit={onSubmit} className="mt-5 grid gap-3.5">
                   <div className="grid gap-1.5">
-                    <Label htmlFor="lp-name" className="md:text-primary-foreground/90">Full Name</Label>
-                    <Input id="lp-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" maxLength={100} required disabled={loading} className="md:bg-white/10 md:border-white/20 md:text-primary-foreground md:placeholder:text-white/40" />
+                    <Label htmlFor="lp-name" className="text-white/90">Full Name</Label>
+                    <Input id="lp-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" maxLength={100} required disabled={loading} className="bg-white/[0.06] border-white/20 text-white placeholder:text-white/40 focus-visible:ring-gold/60 focus-visible:border-gold/60 focus-visible:shadow-[0_0_0_3px_hsl(43_95%_55%/0.25)] transition-shadow" />
                   </div>
                   <div className="grid gap-1.5">
-                    <Label htmlFor="lp-phone" className="md:text-primary-foreground/90">Mobile Number</Label>
-                    <Input id="lp-phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="10-digit mobile" inputMode="tel" maxLength={20} required disabled={loading} className="md:bg-white/10 md:border-white/20 md:text-primary-foreground md:placeholder:text-white/40" />
+                    <Label htmlFor="lp-phone" className="text-white/90">Mobile Number</Label>
+                    <Input id="lp-phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="10-digit mobile" inputMode="tel" maxLength={20} required disabled={loading} className="bg-white/[0.06] border-white/20 text-white placeholder:text-white/40 focus-visible:ring-gold/60 focus-visible:border-gold/60 focus-visible:shadow-[0_0_0_3px_hsl(43_95%_55%/0.25)] transition-shadow" />
                   </div>
                   <div className="grid gap-1.5">
-                    <Label htmlFor="lp-email" className="md:text-primary-foreground/90">Email Address</Label>
-                    <Input id="lp-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" maxLength={255} required disabled={loading} className="md:bg-white/10 md:border-white/20 md:text-primary-foreground md:placeholder:text-white/40" />
+                    <Label htmlFor="lp-email" className="text-white/90">Email Address</Label>
+                    <Input id="lp-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" maxLength={255} required disabled={loading} className="bg-white/[0.06] border-white/20 text-white placeholder:text-white/40 focus-visible:ring-gold/60 focus-visible:border-gold/60 focus-visible:shadow-[0_0_0_3px_hsl(43_95%_55%/0.25)] transition-shadow" />
                   </div>
                   <div className="grid gap-1.5">
-                    <Label className="md:text-primary-foreground/90">Interested Program</Label>
+                    <Label className="text-white/90">Interested Program</Label>
                     <Select value={course} onValueChange={setCourse} disabled={loading}>
-                      <SelectTrigger className="md:bg-white/10 md:border-white/20 md:text-primary-foreground"><SelectValue /></SelectTrigger>
+                      <SelectTrigger className="bg-white/[0.06] border-white/20 text-white focus:ring-gold/60"><SelectValue /></SelectTrigger>
                       <SelectContent>
                         {courses.map((c) => (
                           <SelectItem key={c.slug} value={c.title}>{c.title}</SelectItem>
@@ -167,10 +172,10 @@ export const LeadPopup = () => {
                       </SelectContent>
                     </Select>
                   </div>
-                  <Button type="submit" variant="premium" className="w-full mt-1 shadow-[0_0_30px_-6px_hsl(43_95%_55%/0.55)]" disabled={loading}>
+                  <Button type="submit" variant="premium" className="w-full mt-1 shadow-[0_0_30px_-6px_hsl(43_95%_55%/0.55)] hover:shadow-[0_0_45px_-4px_hsl(48_100%_70%/0.85)] hover:scale-[1.02] transition-all" disabled={loading}>
                     {loading ? (<><Loader2 className="animate-spin" /> Submitting…</>) : "Get Free Counselling"}
                   </Button>
-                  <p className="text-[11px] text-muted-foreground md:text-primary-foreground/60 text-center">
+                  <p className="text-[11px] text-white/55 text-center">
                     By continuing you agree to our Privacy Policy & Terms.
                   </p>
                 </form>
