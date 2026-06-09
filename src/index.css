@@ -232,3 +232,44 @@
 @media (max-width: 640px) {
   .ticker-track { animation-duration: 45s; }
 }
+
+/* Placement marquee — opposite directions */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Lead popup entrance + idle motion */
+@keyframes lp-slide-in-left {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes lp-slide-in-right {
+  0% { opacity: 0; transform: translateX(40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes lp-fade-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes lp-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+@keyframes lp-float {
+  0%, 100% { transform: translateY(0) scale(1.02); }
+  50% { transform: translateY(-10px) scale(1.04); }
+}
+
+/* Safety: hide any residual third-party editor badges */
+[data-lovable],
+.lovable-badge,
+#lovable-badge,
+[class*="lovable-badge"],
+[id*="lovable-badge"] {
+  display: none !important;
+}
