@@ -8,7 +8,7 @@ import { courses, formatINR } from "@/data/courses";
 import { SITE } from "@/data/site";
 import { buildWhatsAppUrl, courseEnquiryMessage } from "@/lib/whatsapp";
 import TradingBackdrop from "@/components/TradingBackdrop";
-import PlacementCompanies from "@/components/PlacementCompanies";
+import PlacementMarquee from "@/components/PlacementMarquee";
 import StockTicker from "@/components/StockTicker";
 import FounderSection from "@/components/FounderSection";
 import MarketInsights from "@/components/MarketInsights";
@@ -190,8 +190,8 @@ const Home = () => {
       {/* Limited Time Offer */}
       <LimitedTimeOffer />
 
-      {/* Placement Companies */}
-      <PlacementCompanies />
+      {/* Placement Partners */}
+      <PlacementMarquee />
       <SectionDivider fill="hsl(var(--muted) / 0.4)" />
 
       {/* Featured Courses */}

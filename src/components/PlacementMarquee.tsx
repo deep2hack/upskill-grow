@@ -38,27 +38,35 @@ const Bubble = ({ c }: { c: Company }) => {
       rel="noopener noreferrer external"
       title={c.name}
       aria-label={`Visit ${c.name}`}
-      className="group relative shrink-0 mx-3 sm:mx-4"
-      style={{ width: c.size, height: c.size }}
+      className="group relative shrink-0 mx-3 sm:mx-4 flex flex-col items-center"
+      style={{ width: c.size }}
     >
-      <span className="pointer-events-none absolute inset-0 rounded-full bg-gold/30 blur-2xl opacity-50 transition-opacity duration-500 group-hover:opacity-100" />
+      <span className="relative block" style={{ width: c.size, height: c.size }}>
+        <span className="pointer-events-none absolute inset-0 rounded-full bg-gold/30 blur-2xl opacity-50 transition-opacity duration-500 group-hover:opacity-100" />
+        <span
+          className="relative grid h-full w-full place-items-center rounded-full border border-white/30 bg-gradient-to-br from-white/90 via-white/70 to-white/50 backdrop-blur-xl shadow-[inset_0_1px_0_hsl(48_100%_85%/0.5),0_18px_45px_-12px_hsl(43_95%_55%/0.5)] transition-all duration-500 group-hover:scale-110 group-hover:border-gold group-hover:brightness-110 group-hover:shadow-[inset_0_1px_0_hsl(48_100%_85%/0.7),0_25px_60px_-10px_hsl(43_95%_55%/0.85)] overflow-hidden"
+        >
+          <span className="pointer-events-none absolute left-3 top-2.5 h-3 w-6 rounded-full bg-white/60 blur-md z-10" />
+          <img
+            src={primary}
+            alt={`${c.name} logo`}
+            loading="lazy"
+            className="relative z-[1] max-h-[62%] max-w-[78%] object-contain transition-all duration-500 group-hover:scale-110"
+            onError={(e) => {
+              const img = e.currentTarget;
+              if (img.dataset.fb !== "1") {
+                img.dataset.fb = "1";
+                img.src = fallback;
+              }
+            }}
+          />
+        </span>
+      </span>
       <span
-        className="relative grid h-full w-full place-items-center rounded-full border border-white/30 bg-gradient-to-br from-white/90 via-white/70 to-white/50 backdrop-blur-xl shadow-[inset_0_1px_0_hsl(48_100%_85%/0.5),0_18px_45px_-12px_hsl(43_95%_55%/0.5)] transition-all duration-500 group-hover:scale-110 group-hover:border-gold group-hover:brightness-110 group-hover:shadow-[inset_0_1px_0_hsl(48_100%_85%/0.7),0_25px_60px_-10px_hsl(43_95%_55%/0.85)] overflow-hidden"
+        className="mt-3 block w-full text-center text-[12px] sm:text-[13px] font-medium text-white/90 leading-tight transition-colors duration-300 group-hover:text-gold"
+        style={{ maxWidth: c.size }}
       >
-        <span className="pointer-events-none absolute left-3 top-2.5 h-3 w-6 rounded-full bg-white/60 blur-md z-10" />
-        <img
-          src={primary}
-          alt={`${c.name} logo`}
-          loading="lazy"
-          className="relative z-[1] max-h-[62%] max-w-[78%] object-contain transition-all duration-500 group-hover:scale-110"
-          onError={(e) => {
-            const img = e.currentTarget;
-            if (img.dataset.fb !== "1") {
-              img.dataset.fb = "1";
-              img.src = fallback;
-            }
-          }}
-        />
+        {c.name}
       </span>
     </a>
   );
