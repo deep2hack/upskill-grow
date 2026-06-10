@@ -647,7 +647,7 @@ const Placements = () => {
       </section>
 
       {/* Placement Companies — reuse existing floating bubbles */}
-      <PlacementCompanies />
+      
 
       {/* Naukri integration */}
       <section className="container py-20">
