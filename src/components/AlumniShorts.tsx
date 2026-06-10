@@ -11,7 +11,7 @@ const ALUMNI = [
   { id: "g78KnMUlye4", t: "Kolkata Alumni Success Story" },
 ];
 
-const AlumniShorts = () => {
+const AlumniShorts = ({ layout = "row" }: { layout?: "row" | "grid" }) => {
   const scroller = useRef<HTMLDivElement | null>(null);
   const scroll = (dir: 1 | -1) => {
     if (!scroller.current) return;
