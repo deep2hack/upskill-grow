@@ -47,6 +47,9 @@ const Testimonials = () => (
       </div>
     </section>
 
+    <AlumniShorts layout="grid" />
+
+
     {/* Full grid */}
     <section className="relative bg-[hsl(220_30%_5%)] py-16 text-white">
       <div className="container">
