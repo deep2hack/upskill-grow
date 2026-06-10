@@ -14,7 +14,8 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import ReloadLink from "@/components/ReloadLink";
 
 import portrait from "@/assets/founder-prabjot.webp";
-import portraitBW from "@/assets/founder-portrait-bw.jpg";
+import founderAsset from "@/assets/founder.jpg.asset.json";
+const portraitBW = founderAsset.url;
 import training from "@/assets/founder-training.jpg";
 import speaking from "@/assets/founder-speaking.jpg";
 import bookMoment from "@/assets/founder-book-moment.jpg";
