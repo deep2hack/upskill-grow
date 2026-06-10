@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import SEO from "@/components/SEO";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import AlumniShorts from "@/components/AlumniShorts";
 import { testimonials } from "@/data/testimonials";
 import { Quote, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -45,6 +46,9 @@ const Testimonials = () => (
         <TestimonialsCarousel />
       </div>
     </section>
+
+    <AlumniShorts layout="grid" />
+
 
     {/* Full grid */}
     <section className="relative bg-[hsl(220_30%_5%)] py-16 text-white">
