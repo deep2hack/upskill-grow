@@ -40,29 +40,10 @@ const AlumniShorts = ({ layout = "row" }: { layout?: "row" | "grid" }) => {
           </p>
         </Reveal>
 
-        <div className="relative mt-12">
-          {/* arrows */}
-          <button
-            onClick={() => scroll(-1)}
-            aria-label="Previous"
-            className="absolute -left-2 top-1/2 z-10 hidden -translate-y-1/2 md:grid h-11 w-11 place-items-center rounded-full bg-black/70 text-white ring-1 ring-gold/40 hover:bg-black hover:ring-gold transition"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            onClick={() => scroll(1)}
-            aria-label="Next"
-            className="absolute -right-2 top-1/2 z-10 hidden -translate-y-1/2 md:grid h-11 w-11 place-items-center rounded-full bg-black/70 text-white ring-1 ring-gold/40 hover:bg-black hover:ring-gold transition"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-
-          <div
-            ref={scroller}
-            className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory px-1 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
+        {layout === "grid" ? (
+          <div className="mt-12 grid justify-items-center gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {ALUMNI.map((a, i) => (
-              <Reveal key={a.id} delay={i * 90} className="snap-center">
+              <Reveal key={a.id} delay={i * 90}>
                 <div className="flex flex-col items-center">
                   <YouTubeShort videoId={a.id} title={a.t} />
                   <div className="mt-3 text-center">
@@ -75,7 +56,44 @@ const AlumniShorts = ({ layout = "row" }: { layout?: "row" | "grid" }) => {
               </Reveal>
             ))}
           </div>
-        </div>
+        ) : (
+          <div className="relative mt-12">
+            {/* arrows */}
+            <button
+              onClick={() => scroll(-1)}
+              aria-label="Previous"
+              className="absolute -left-2 top-1/2 z-10 hidden -translate-y-1/2 md:grid h-11 w-11 place-items-center rounded-full bg-black/70 text-white ring-1 ring-gold/40 hover:bg-black hover:ring-gold transition"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={() => scroll(1)}
+              aria-label="Next"
+              className="absolute -right-2 top-1/2 z-10 hidden -translate-y-1/2 md:grid h-11 w-11 place-items-center rounded-full bg-black/70 text-white ring-1 ring-gold/40 hover:bg-black hover:ring-gold transition"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            <div
+              ref={scroller}
+              className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory px-1 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {ALUMNI.map((a, i) => (
+                <Reveal key={a.id} delay={i * 90} className="snap-center">
+                  <div className="flex flex-col items-center">
+                    <YouTubeShort videoId={a.id} title={a.t} />
+                    <div className="mt-3 text-center">
+                      <p className="font-display text-sm text-white/90">{a.t}</p>
+                      <p className="mt-1 inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-gold/80">
+                        <Sparkles className="h-3 w-3" /> Verified Placement
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
