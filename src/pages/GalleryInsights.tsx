@@ -287,42 +287,6 @@ const GalleryInsights = () => {
         </DialogContent>
       </Dialog>
 
-      {/* Insights / Blog */}
-      <section className="bg-muted/30 py-16">
-        <div className="container">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-xs uppercase tracking-[0.28em] text-gold font-semibold">Editorial</p>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl">Insights from our mentors</h2>
-            <p className="mt-3 text-muted-foreground">
-              Practical articles on markets, strategy, valuation and careers.
-            </p>
-          </Reveal>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((p, i) => (
-              <Reveal key={p.t} delay={i * 80}>
-                <Card className="group h-full border-border/60 hover:border-gold/60 hover:shadow-card-soft transition-all cursor-pointer overflow-hidden">
-                  <div className="relative aspect-[16/9] bg-hero overflow-hidden">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,hsl(43_95%_55%/0.25),transparent_60%)]" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <span className="absolute left-4 top-4 rounded-full bg-gold/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gold backdrop-blur">
-                      {p.tag}
-                    </span>
-                  </div>
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <span className="inline-flex items-center gap-1"><Calendar className="h-3.5 w-3.5" />{p.date}</span>
-                      <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{p.read}</span>
-                    </div>
-                    <h3 className="mt-3 font-display text-lg group-hover:text-primary transition-colors">{p.t}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{p.d}</p>
-                  </CardContent>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 };
