@@ -741,30 +741,6 @@ const Placements = () => {
         </div>
       </section>
 
-      {/* Videos */}
-      <section className="container py-20">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.28em] text-gold font-semibold">Placement Video Showcase</p>
-          <h2 className="mt-2 font-display text-3xl sm:text-4xl">Stories worth pressing play on</h2>
-        </Reveal>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {videos.map((v, i) => (
-            <Reveal key={v.t} delay={i * 70}>
-              <div className="group relative aspect-[9/16] overflow-hidden rounded-2xl border border-border/60 bg-black transition-all hover:border-gold/60 hover:shadow-elegant">
-                <AutoplayVideo src={(placementVideo as any).url} controls={false} className="absolute inset-0" />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5">
-                  <span className="inline-flex rounded-full bg-gold/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold backdrop-blur">
-                    {v.k}
-                  </span>
-                  <p className="mt-2 font-display text-lg text-white">{v.t}</p>
-                  <p className="text-xs text-white/70">{v.d}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       {/* Banner carousel */}
       <section className="container pb-20">
