@@ -14,7 +14,7 @@ import SEO from "@/components/SEO";
 import Reveal from "@/components/Reveal";
 import Counter from "@/components/Counter";
 import TradingBackdrop from "@/components/TradingBackdrop";
-import PlacementCompanies from "@/components/PlacementCompanies";
+
 import PlacementMarquee from "@/components/PlacementMarquee";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
