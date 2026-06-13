@@ -28,9 +28,29 @@ const ROW_2: Company[] = [
   { name: "India Ratings", domain: "indiaratings.co.in", size: 110 },
 ];
 
+const COLORS = [
+  "linear-gradient(135deg, hsl(350 85% 60%), hsl(15 90% 55%))",
+  "linear-gradient(135deg, hsl(200 85% 55%), hsl(230 80% 50%))",
+  "linear-gradient(135deg, hsl(150 70% 45%), hsl(180 75% 40%))",
+  "linear-gradient(135deg, hsl(280 70% 55%), hsl(320 75% 55%))",
+  "linear-gradient(135deg, hsl(43 95% 55%), hsl(25 90% 50%))",
+  "linear-gradient(135deg, hsl(190 80% 50%), hsl(160 75% 45%))",
+  "linear-gradient(135deg, hsl(340 80% 55%), hsl(280 70% 50%))",
+  "linear-gradient(135deg, hsl(50 95% 55%), hsl(85 70% 50%))",
+  "linear-gradient(135deg, hsl(220 75% 55%), hsl(260 70% 55%))",
+  "linear-gradient(135deg, hsl(10 85% 55%), hsl(345 80% 50%))",
+];
+
+const hashIdx = (s: string) => {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return Math.abs(h) % COLORS.length;
+};
+
 const Bubble = ({ c }: { c: Company }) => {
   const primary = `https://logo.clearbit.com/${c.domain}`;
   const fallback = `https://www.google.com/s2/favicons?domain=${c.domain}&sz=128`;
+  const bg = COLORS[hashIdx(c.name)];
   return (
     <a
       href={`https://${c.domain}`}
@@ -44,22 +64,25 @@ const Bubble = ({ c }: { c: Company }) => {
       <span className="relative block" style={{ width: c.size, height: c.size }}>
         <span className="pointer-events-none absolute inset-0 rounded-full bg-gold/30 blur-2xl opacity-50 transition-opacity duration-500 group-hover:opacity-100" />
         <span
-          className="relative grid h-full w-full place-items-center rounded-full border border-white/30 bg-gradient-to-br from-white/90 via-white/70 to-white/50 backdrop-blur-xl shadow-[inset_0_1px_0_hsl(48_100%_85%/0.5),0_18px_45px_-12px_hsl(43_95%_55%/0.5)] transition-all duration-500 group-hover:scale-110 group-hover:border-gold group-hover:brightness-110 group-hover:shadow-[inset_0_1px_0_hsl(48_100%_85%/0.7),0_25px_60px_-10px_hsl(43_95%_55%/0.85)] overflow-hidden"
+          className="relative grid h-full w-full place-items-center rounded-full border border-white/40 backdrop-blur-xl shadow-[inset_0_1px_0_hsl(0_0%_100%/0.4),0_18px_45px_-12px_hsl(43_95%_55%/0.5)] transition-all duration-500 group-hover:scale-110 group-hover:border-gold group-hover:brightness-110 group-hover:shadow-[inset_0_1px_0_hsl(0_0%_100%/0.55),0_25px_60px_-10px_hsl(43_95%_55%/0.85)] overflow-hidden"
+          style={{ backgroundImage: bg }}
         >
           <span className="pointer-events-none absolute left-3 top-2.5 h-3 w-6 rounded-full bg-white/60 blur-md z-10" />
-          <img
-            src={primary}
-            alt={`${c.name} logo`}
-            loading="lazy"
-            className="relative z-[1] max-h-[62%] max-w-[78%] object-contain transition-all duration-500 group-hover:scale-110"
-            onError={(e) => {
-              const img = e.currentTarget;
-              if (img.dataset.fb !== "1") {
-                img.dataset.fb = "1";
-                img.src = fallback;
-              }
-            }}
-          />
+          <span className="absolute inset-[10%] rounded-full bg-white/90 grid place-items-center overflow-hidden">
+            <img
+              src={primary}
+              alt={`${c.name} logo`}
+              loading="lazy"
+              className="max-h-[80%] max-w-[80%] object-contain transition-all duration-500 group-hover:scale-110"
+              onError={(e) => {
+                const img = e.currentTarget;
+                if (img.dataset.fb !== "1") {
+                  img.dataset.fb = "1";
+                  img.src = fallback;
+                }
+              }}
+            />
+          </span>
         </span>
       </span>
       <span
