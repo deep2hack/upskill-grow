@@ -27,8 +27,8 @@ export const LeadPopup = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const firstTimer = setTimeout(() => setOpen(true), 10000);
-    const interval = setInterval(() => setOpen(true), 2 * 60 * 1000);
+    const firstTimer = setTimeout(() => setOpen(true), 3 * 60 * 1000);
+    const interval = setInterval(() => setOpen(true), 3 * 60 * 1000);
     return () => {
       clearTimeout(firstTimer);
       clearInterval(interval);
