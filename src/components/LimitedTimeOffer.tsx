@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Flame, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -22,18 +21,18 @@ const useCountdown = (target: number) => {
 
 const TimeBox = ({ value, label }: { value: number; label: string }) => (
   <div className="flex flex-col items-center">
-    <div className="relative grid h-16 w-16 sm:h-20 sm:w-20 place-items-center rounded-xl border border-gold/40 bg-black/60 backdrop-blur-md shadow-[0_0_30px_-5px_hsl(var(--gold)/0.5)]">
-      <div className="absolute inset-0 rounded-xl bg-gold/5 animate-pulse" />
-      <span className="relative font-display text-2xl sm:text-3xl font-bold text-gold tabular-nums">
+    <div className="w-full aspect-square flex items-center justify-center rounded-xl bg-neutral-800/50 border border-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+      <span className="font-display text-2xl md:text-4xl font-bold text-gold tabular-nums">
         {String(value).padStart(2, "0")}
       </span>
     </div>
-    <span className="mt-2 text-[0.65rem] sm:text-xs uppercase tracking-[0.2em] text-white/60">{label}</span>
+    <span className="mt-2 text-[10px] md:text-xs uppercase tracking-widest text-neutral-500 font-medium">
+      {label}
+    </span>
   </div>
 );
 
 export const LimitedTimeOffer = () => {
-  // Offer ends 7 days from now (rolling)
   const target = (() => {
     const t = new Date();
     t.setDate(t.getDate() + 7);
@@ -43,36 +42,63 @@ export const LimitedTimeOffer = () => {
   const { days, hours, mins, secs } = useCountdown(target);
 
   return (
-    <section className="relative overflow-hidden bg-[hsl(220_22%_4%)] py-16 text-white">
-      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(60%_60%_at_50%_50%,hsl(var(--gold)/0.18),transparent_60%)]" />
-      <div className="pointer-events-none absolute -inset-1 opacity-30 [background:linear-gradient(90deg,transparent,hsl(var(--gold)/0.4),transparent)] blur-2xl animate-pulse" />
-
-      <div className="container relative">
+    <section className="relative overflow-hidden bg-[#050505] px-4 py-20 text-white">
+      <div className="container">
         <Reveal>
-          <div className="mx-auto max-w-3xl rounded-2xl border border-gold/30 bg-gradient-to-br from-black/70 via-black/50 to-black/70 p-8 sm:p-10 text-center backdrop-blur-md shadow-[0_30px_80px_-20px_hsl(var(--gold)/0.45)]">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-gold">
-              <Flame className="h-3.5 w-3.5 animate-pulse" /> Limited Time Offer
-            </div>
-            <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl">
-              Get <span className="bg-gold-gradient bg-clip-text text-transparent">50% OFF</span> on All Programs
-            </h2>
-            <p className="mt-3 text-white/70">
-              Hurry! Offer ends soon — secure your seat in the next live cohort at half the price.
-            </p>
+          <div className="relative w-full max-w-4xl mx-auto">
+            {/* Ambient radial gold glow behind the card */}
+            <div className="pointer-events-none absolute -inset-16 rounded-full bg-gold/15 blur-[120px] opacity-70" />
+            <div className="pointer-events-none absolute inset-0 rounded-full bg-gold/10 blur-3xl opacity-60" />
 
-            <div className="mt-8 flex justify-center gap-3 sm:gap-5">
-              <TimeBox value={days} label="Days" />
-              <TimeBox value={hours} label="Hours" />
-              <TimeBox value={mins} label="Minutes" />
-              <TimeBox value={secs} label="Seconds" />
-            </div>
+            {/* Main Offer Card */}
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-neutral-900 to-black p-8 md:p-14 text-center shadow-2xl">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/5 text-xs font-semibold uppercase tracking-widest text-gold mb-8">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
+                </span>
+                Limited Time Offer
+              </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Button asChild variant="premium" size="lg">
-                <a href={buildWhatsAppUrl("I'd like to claim the 50% limited time offer.")} target="_blank" rel="noreferrer">
-                  Enroll Now <ArrowRight className="ml-1" />
-                </a>
-              </Button>
+              <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-6">
+                Get{" "}
+                <span className="bg-gradient-to-r from-yellow-200 via-gold to-yellow-200 bg-clip-text text-transparent drop-shadow-sm">
+                  50% OFF
+                </span>{" "}
+                on All Programs
+              </h2>
+
+              <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto mb-12">
+                Hurry! Offer ends soon — secure your seat in the next live cohort at half the price.
+              </p>
+
+              {/* Countdown */}
+              <div className="grid grid-cols-4 gap-3 md:gap-6 max-w-lg mx-auto mb-12">
+                <TimeBox value={days} label="Days" />
+                <TimeBox value={hours} label="Hours" />
+                <TimeBox value={mins} label="Minutes" />
+                <TimeBox value={secs} label="Seconds" />
+              </div>
+
+              {/* CTA */}
+              <a
+                href={buildWhatsAppUrl("I'd like to claim the 50% limited time offer.")}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-b from-yellow-400 to-yellow-600 rounded-full text-black font-bold text-lg shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.55)] transition-all transform hover:-translate-y-0.5 active:scale-95"
+              >
+                Enroll Now
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </a>
+
+              {/* Corner decorations */}
+              <div className="pointer-events-none absolute top-0 right-0 p-4 opacity-10">
+                <div className="w-24 h-24 border-r-2 border-t-2 border-gold rounded-tr-3xl" />
+              </div>
+              <div className="pointer-events-none absolute bottom-0 left-0 p-4 opacity-10">
+                <div className="w-24 h-24 border-l-2 border-b-2 border-gold rounded-bl-3xl" />
+              </div>
             </div>
           </div>
         </Reveal>
