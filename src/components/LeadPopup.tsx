@@ -27,11 +27,16 @@ export const LeadPopup = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const firstTimer = setTimeout(() => setOpen(true), 30 * 1000);
-    const interval = setInterval(() => setOpen(true), 3 * 60 * 1000);
+    const firstTimer = window.setTimeout(() => setOpen(true), 15 * 1000);
+    const interval = window.setInterval(() => setOpen(true), 3 * 60 * 1000);
+    const onExit = (e: MouseEvent) => {
+      if (e.clientY <= 0) setOpen(true);
+    };
+    document.addEventListener("mouseleave", onExit);
     return () => {
-      clearTimeout(firstTimer);
-      clearInterval(interval);
+      window.clearTimeout(firstTimer);
+      window.clearInterval(interval);
+      document.removeEventListener("mouseleave", onExit);
     };
   }, []);
 
