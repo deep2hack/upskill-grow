@@ -2,7 +2,7 @@
 //
 // HOW TO SET UP (one-time, ~3 minutes):
 // 1. Open the Google Sheet you want leads to land in (logged in as
-//    1nt23is071.deepak@nmit.ac.in or whichever account owns the sheet).
+//    magnumeducorporateresearch@gmail.com — the account that owns the sheet).
 // 2. Extensions → Apps Script. Paste the script below, save, then Deploy →
 //    "New deployment" → Type: Web app → Execute as: Me, Who has access: Anyone.
 //    Copy the deployed Web app URL.
