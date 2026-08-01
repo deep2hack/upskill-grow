@@ -38,7 +38,7 @@
 // -----------------------------------------------------------------------------
 
 export const SHEETS_WEBHOOK_URL =
-  "https://script.google.com/macros/s/AKfycbw9CNEbaHdz6URvqFr3meEb8g_dw6Tj9CCNOASHKf-pX0W7mFXq-GdD1Qib8hSI94sl/exec";
+  "https://script.google.com/macros/s/AKfycbx6SCcgNh3MpmvPJrvwmPb0mnq7E4hTYT-qDvvSUKCzvXigx45w9loAwaYlQtZ6529g/exec";
 
 export type SheetsPayload = Record<string, string>;
 
