@@ -14,6 +14,7 @@ import rightPhoto from "@/assets/popup/popup-right.png.asset.json";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^[+]?[\d\s-]{10,15}$/;
+const LEAD_DONE_KEY = "ua_lead_submitted";
 
 export const LeadPopup = () => {
   const [open, setOpen] = useState(false);
