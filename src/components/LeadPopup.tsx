@@ -87,6 +87,7 @@ export const LeadPopup = () => {
         page: typeof window !== "undefined" ? window.location.href : "",
       });
       setLastSubmit(Date.now());
+      try { localStorage.setItem(LEAD_DONE_KEY, "1"); } catch { /* ignore */ }
       setSubmitted(true);
       toast({ title: "Thank you!", description: "Our team will contact you shortly." });
       setTimeout(() => {
