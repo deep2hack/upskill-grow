@@ -27,10 +27,14 @@ export const LeadPopup = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (localStorage.getItem(LEAD_DONE_KEY) === "1") return;
     const firstTimer = window.setTimeout(() => setOpen(true), 15 * 1000);
-    const interval = window.setInterval(() => setOpen(true), 3 * 60 * 1000);
+    const interval = window.setInterval(() => {
+      if (localStorage.getItem(LEAD_DONE_KEY) === "1") return;
+      setOpen(true);
+    }, 3 * 60 * 1000);
     const onExit = (e: MouseEvent) => {
-      if (e.clientY <= 0) setOpen(true);
+      if (e.clientY <= 0 && localStorage.getItem(LEAD_DONE_KEY) !== "1") setOpen(true);
     };
     document.addEventListener("mouseleave", onExit);
     return () => {
