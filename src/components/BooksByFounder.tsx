@@ -7,7 +7,7 @@ import bookCover from "@/assets/mind-over-markets-cover.png";
 import mmbCover from "@/assets/market-mastery-bible-cover.png";
 
 const AMAZON_URL = "https://www.amazon.in/MIND-OVER-MARKETS-PRABHJOT-SINGH/dp/9367833865";
-const MMB_BUY_URL = "#";
+const MMB_BUY_URL = "https://www.amazon.in/MIND-OVER-MARKETS-PRABHJOT-SINGH/dp/9367833865";
 
 const mmbHighlights = [
   "Stock Market",
