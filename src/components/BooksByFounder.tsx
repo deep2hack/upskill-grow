@@ -42,6 +42,51 @@ export const BooksByFounder = () => {
           </p>
         </Reveal>
 
+        {/* === Existing: Mind Over Markets === */}
+        <Reveal delay={180}>
+          <div className="mx-auto mt-14 max-w-3xl">
+            <div className="group relative rounded-3xl border border-gold/30 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8 sm:p-12 backdrop-blur-md shadow-[0_30px_80px_-20px_hsl(var(--gold)/0.35)] transition-all duration-500 hover:border-gold/60 hover:shadow-[0_40px_100px_-20px_hsl(var(--gold)/0.5)]">
+              <div className="grid gap-8 sm:grid-cols-[auto_1fr] sm:items-center">
+                <div className="relative mx-auto flex h-72 sm:h-80 items-end justify-center">
+                  <div className="absolute -inset-6 rounded-full bg-gold/20 blur-3xl opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
+                  <img
+                    src={bookCover}
+                    alt="Mind Over Markets — book by Prabjot Singh"
+                    loading="lazy"
+                    className="relative h-full w-auto object-contain drop-shadow-2xl transition-transform duration-500 ease-out group-hover:-translate-y-2 group-hover:scale-110"
+                  />
+                </div>
+
+                <div className="text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-2">
+                    <span className="rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-[0.65rem] uppercase tracking-wider text-gold">
+                      Bestseller
+                    </span>
+                    <div className="flex items-center gap-1 text-gold">
+                      <Star className="h-3.5 w-3.5 fill-current" />
+                      <span className="text-xs font-semibold">4.9</span>
+                    </div>
+                  </div>
+                  <h3 className="mt-3 font-display text-2xl sm:text-3xl text-gold">Mind Over Markets</h3>
+                  <p className="mt-1 text-sm text-white/60">by Prabjot Singh</p>
+                  <p className="mt-4 text-white/75 leading-relaxed">
+                    A practical, mindset-driven approach to mastering price action trading — from basics to brilliance.
+                    Learn to read markets, make high-probability decisions, and trade with confidence.
+                  </p>
+
+                  <div className="mt-6 flex justify-center sm:justify-start">
+                    <Button asChild variant="premium" size="lg">
+                      <a href={AMAZON_URL} target="_blank" rel="noreferrer">
+                        Buy on Amazon <ExternalLink className="ml-1 h-4 w-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
         {/* === FEATURED: Market Mastery Bible === */}
         <Reveal delay={100}>
           <div className="relative mx-auto mt-14 max-w-5xl">
@@ -128,51 +173,6 @@ export const BooksByFounder = () => {
           </div>
         </Reveal>
 
-        {/* === Existing: Mind Over Markets === */}
-        <Reveal delay={180}>
-          <div className="mx-auto mt-14 max-w-3xl">
-            <div className="group relative rounded-3xl border border-gold/30 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8 sm:p-12 backdrop-blur-md shadow-[0_30px_80px_-20px_hsl(var(--gold)/0.35)] transition-all duration-500 hover:border-gold/60 hover:shadow-[0_40px_100px_-20px_hsl(var(--gold)/0.5)]">
-              <div className="grid gap-8 sm:grid-cols-[auto_1fr] sm:items-center">
-                <div className="relative mx-auto flex h-72 sm:h-80 items-end justify-center">
-                  <div className="absolute -inset-6 rounded-full bg-gold/20 blur-3xl opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
-                  <img
-                    src={bookCover}
-                    alt="Mind Over Markets — book by Prabjot Singh"
-                    loading="lazy"
-                    className="relative h-full w-auto object-contain drop-shadow-2xl transition-transform duration-500 ease-out group-hover:-translate-y-2 group-hover:scale-110"
-                  />
-                </div>
-
-                <div className="text-center sm:text-left">
-                  <div className="flex items-center justify-center sm:justify-start gap-2">
-                    <span className="rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-[0.65rem] uppercase tracking-wider text-gold">
-                      Bestseller
-                    </span>
-                    <div className="flex items-center gap-1 text-gold">
-                      <Star className="h-3.5 w-3.5 fill-current" />
-                      <span className="text-xs font-semibold">4.9</span>
-                    </div>
-                  </div>
-                  <h3 className="mt-3 font-display text-2xl sm:text-3xl text-gold">Mind Over Markets</h3>
-                  <p className="mt-1 text-sm text-white/60">by Prabjot Singh</p>
-                  <p className="mt-4 text-white/75 leading-relaxed">
-                    A practical, mindset-driven approach to mastering price action trading — from basics to brilliance.
-                    Learn to read markets, make high-probability decisions, and trade with confidence.
-                  </p>
-
-                  <div className="mt-6 flex justify-center sm:justify-start">
-                    <Button asChild variant="premium" size="lg">
-                      <a href={AMAZON_URL} target="_blank" rel="noreferrer">
-                        Buy on Amazon <ExternalLink className="ml-1 h-4 w-4" />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </div>
     </section>
   );
 };
