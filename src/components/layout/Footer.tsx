@@ -75,7 +75,7 @@ export const Footer = () => {
           <p className="text-[12px] sm:text-[13px] text-secondary-foreground/55 font-display">
             Website designed & developed by{" "}
             <a
-              href="https://www.linkedin.com/in/deepak-singh-395b97383?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              href="https://www.linkedin.com/in/deepak-kumar-395b97383/"
               target="_blank"
               rel="noreferrer"
               className="font-medium text-secondary-foreground/80 transition-colors duration-200 hover:text-gold underline-offset-2 hover:underline"
