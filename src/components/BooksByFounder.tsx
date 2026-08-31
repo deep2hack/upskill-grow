@@ -153,7 +153,7 @@ export const BooksByFounder = () => {
                   {/* CTAs */}
                   <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-3">
                     <Button asChild variant="premium" size="lg">
-                      <a href={MMB_BUY_URL}>
+                      <a href={MMB_BUY_URL} target="_blank" rel="noreferrer">
                         Buy Now <ExternalLink className="ml-1 h-4 w-4" />
                       </a>
                     </Button>
@@ -163,7 +163,7 @@ export const BooksByFounder = () => {
                       size="lg"
                       className="bg-transparent text-white border-gold/40 hover:bg-gold/10 hover:text-gold hover:border-gold/70"
                     >
-                      <a href={MMB_BUY_URL}>View Details</a>
+                      <a href={MMB_BUY_URL} target="_blank" rel="noreferrer">View Details</a>
                     </Button>
                   </div>
                 </div>
