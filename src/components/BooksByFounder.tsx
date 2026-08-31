@@ -86,7 +86,6 @@ export const BooksByFounder = () => {
             </div>
           </div>
         </Reveal>
-      </div>
         {/* === FEATURED: Market Mastery Bible === */}
         <Reveal delay={100}>
           <div className="relative mx-auto mt-14 max-w-5xl">
@@ -172,6 +171,7 @@ export const BooksByFounder = () => {
             </div>
           </div>
         </Reveal>
+      </div>
 
     </section>
   );
