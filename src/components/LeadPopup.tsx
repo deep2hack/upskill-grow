@@ -14,6 +14,7 @@ import rightPhoto from "@/assets/popup/popup-right.png.asset.json";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^[+]?[\d\s-]{10,15}$/;
+const LEAD_DONE_KEY = "ua_lead_submitted";
 
 export const LeadPopup = () => {
   const [open, setOpen] = useState(false);
@@ -27,10 +28,14 @@ export const LeadPopup = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (localStorage.getItem(LEAD_DONE_KEY) === "1") return;
     const firstTimer = window.setTimeout(() => setOpen(true), 15 * 1000);
-    const interval = window.setInterval(() => setOpen(true), 3 * 60 * 1000);
+    const interval = window.setInterval(() => {
+      if (localStorage.getItem(LEAD_DONE_KEY) === "1") return;
+      setOpen(true);
+    }, 3 * 60 * 1000);
     const onExit = (e: MouseEvent) => {
-      if (e.clientY <= 0) setOpen(true);
+      if (e.clientY <= 0 && localStorage.getItem(LEAD_DONE_KEY) !== "1") setOpen(true);
     };
     document.addEventListener("mouseleave", onExit);
     return () => {
@@ -82,6 +87,7 @@ export const LeadPopup = () => {
         page: typeof window !== "undefined" ? window.location.href : "",
       });
       setLastSubmit(Date.now());
+      try { localStorage.setItem(LEAD_DONE_KEY, "1"); } catch { /* ignore */ }
       setSubmitted(true);
       toast({ title: "Thank you!", description: "Our team will contact you shortly." });
       setTimeout(() => {
