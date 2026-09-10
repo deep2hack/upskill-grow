@@ -10,7 +10,7 @@ const FEATURED_THUMB = `https://img.youtube.com/vi/${FEATURED_ID}/maxresdefault.
 const HEADLINES = [
   { icon: Trophy, tag: "Placements", t: "4200+ Career Placements Powered by Skill-First Training", d: "Marquee finance and consulting firms continue to hire from Upskiller Academy cohorts month after month." },
   { icon: GraduationCap, tag: "Student Success", t: "From Tier-3 Colleges to Global Analytics Floors", d: "Alumni share how live projects and mentorship turned them into recruiter-ready professionals." },
-  { icon: Building2, tag: "Industry Recognition", t: "Magnum Educorporates Recognised as a Rising Edu-Brand", d: "An ecosystem trusted by 120+ hiring partners across India and global markets." },
+  { icon: Building2, tag: "Industry Recognition", t: "Upskiller Educorporates Recognised as a Rising Edu-Brand", d: "An ecosystem trusted by 120+ hiring partners across India and global markets." },
   { icon: TrendingUp, tag: "Career Transformation", t: "Average Packages Climb to ₹8 LPA for Top Performers", d: "Capstone-led research and interview cells driving real outcomes in 2026." },
   { icon: Newspaper, tag: "Financial Education", t: "Investor Awareness Drives Reach 25,000+ Learners", d: "Educational impact extends beyond classrooms into community-led financial literacy." },
   { icon: Award, tag: "Academy Milestones", t: "Chairman Honour — Municipal Affairs Committee", d: "Civic leadership recognition for our founder strengthens the academy's public mission." },
@@ -65,7 +65,7 @@ const SpotlightMedia = () => {
               >
                 <img
                   src={FEATURED_THUMB}
-                  alt="Upskiller Academy & Magnum Educorporates"
+                  alt="Upskiller Academy & Upskiller Educorporates"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   onError={(e) => { (e.currentTarget as HTMLImageElement).src = `https://img.youtube.com/vi/${FEATURED_ID}/hqdefault.jpg`; }}
                 />
@@ -81,7 +81,7 @@ const SpotlightMedia = () => {
               </button>
               <div className="p-6">
                 <h3 className="font-display text-xl sm:text-2xl text-white">
-                  Upskiller Academy & Magnum Educorporates – Success Stories & Achievements
+                  Upskiller Academy & Upskiller Educorporates – Success Stories & Achievements
                 </h3>
                 <p className="mt-2 text-sm text-white/70">
                   A spotlight on placements, milestones and the journey that's powering India's next generation of finance professionals.
@@ -150,7 +150,7 @@ const SpotlightMedia = () => {
             {open && (
               <iframe
                 src={`https://www.youtube.com/embed/${FEATURED_ID}?autoplay=1&rel=0`}
-                title="Upskiller Academy & Magnum Educorporates"
+                title="Upskiller Academy & Upskiller Educorporates"
                 allow="autoplay; encrypted-media; picture-in-picture"
                 allowFullScreen
                 className="h-full w-full"

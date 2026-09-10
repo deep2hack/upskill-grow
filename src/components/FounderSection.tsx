@@ -7,7 +7,7 @@ import ReloadLink from "@/components/ReloadLink";
 
 const cards = [
   { icon: Briefcase, title: "Entrepreneur", desc: "Building ventures since 2008" },
-  { icon: Building2, title: "Founder", desc: "Magnum Educorporates" },
+  { icon: Building2, title: "Founder", desc: "Upskiller Educorporates" },
   { icon: Mic, title: "Content Creator", desc: "Empowering audiences since 2005" },
   { icon: BookOpen, title: "Author", desc: "Mind Over Markets" },
   { icon: GraduationCap, title: "Educator", desc: "Mentor to 10,000+ learners" },

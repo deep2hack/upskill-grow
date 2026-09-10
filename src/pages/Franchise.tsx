@@ -89,7 +89,7 @@ const Franchise = () => {
       setDone(true);
       toast({ title: "Thank you!", description: "Our franchise team will contact you shortly." });
       setTimeout(() => {
-        const msg = `Hi, I'm interested in the Magnum Educorporates & Upskiller Academy franchise.\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nCity: ${f.city}, ${f.state}\nBudget: ${f.budget}\nTimeline: ${f.timeline}`;
+        const msg = `Hi, I'm interested in the Upskiller Educorporates & Upskiller Academy franchise.\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nCity: ${f.city}, ${f.state}\nBudget: ${f.budget}\nTimeline: ${f.timeline}`;
         window.open(buildWhatsAppUrl(msg), "_blank", "noopener,noreferrer");
       }, 1500);
     } catch (err) {
@@ -103,8 +103,8 @@ const Franchise = () => {
   return (
     <>
       <SEO
-        title="Franchise Opportunity — Upskiller Academy & Magnum Educorporates"
-        description="Own a Magnum Educorporates & Upskiller Academy franchise — India's fastest-growing financial education, stock market, research & career training ecosystem."
+        title="Franchise Opportunity — Upskiller Academy & Upskiller Educorporates"
+        description="Own a Upskiller Educorporates & Upskiller Academy franchise — India's fastest-growing financial education, stock market, research & career training ecosystem."
       />
 
       <section className="relative overflow-hidden bg-hero text-primary-foreground">
@@ -135,7 +135,7 @@ const Franchise = () => {
               <h1 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl leading-tight">
                 Build Wealth Through Education —{" "}
                 <span className="bg-gold-gradient bg-clip-text text-transparent">
-                  Own a Magnum Educorporates & Upskiller Academy Franchise
+                  Own a Upskiller Educorporates & Upskiller Academy Franchise
                 </span>
               </h1>
               <p className="mt-5 text-base sm:text-lg text-primary-foreground/80 max-w-xl">

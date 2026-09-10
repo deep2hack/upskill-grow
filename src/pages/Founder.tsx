@@ -69,7 +69,7 @@ const differentiators = [
   { icon: TrendingUp, t: "Real-Time Curriculum", d: "Updated live with AI, market volatility and financial trends — your skills never expire." },
   { icon: Heart, t: "Hybrid Learning, Human Touch", d: "The Million Doubts Resolver model: 1-on-1 resolution, mentorship and emotional intelligence." },
   { icon: Sparkles, t: "Women Leadership with Purpose", d: "A female founder breaking into finance, tech and analytics — a symbol of possibility and power." },
-  { icon: Building2, t: "Trainer-Led Franchise Model", d: "Every Magnum center is built under her personal mentorship — quality-first, scalable." },
+  { icon: Building2, t: "Trainer-Led Franchise Model", d: "Every Upskiller center is built under her personal mentorship — quality-first, scalable." },
 ];
 
 const setApart = [
@@ -108,8 +108,8 @@ const Founder = () => {
   return (
     <>
       <SEO
-        title="Prabjot Singh — Founder & Director, Magnum Educorporates | When Education Meets Revolution"
-        description="Meet Prabjot Singh — Founder & Director of Magnum Educorporates & Upskiller Academy. 15+ years in finance, 10,000+ students mentored, India's first trainer-led, job-first EdTech ecosystem."
+        title="Prabjot Singh — Founder & Director, Upskiller Educorporates | When Education Meets Revolution"
+        description="Meet Prabjot Singh — Founder & Director of Upskiller Educorporates & Upskiller Academy. 15+ years in finance, 10,000+ students mentored, India's first trainer-led, job-first EdTech ecosystem."
         canonical="https://www.upskilleracademy.com/founder"
       />
 
@@ -122,7 +122,7 @@ const Founder = () => {
           <div className="space-y-6">
             <Reveal>
               <Badge className="bg-gold/20 text-gold border-gold/40 hover:bg-gold/20 backdrop-blur">
-                ★ Founder & Director · Magnum Educorporates
+                ★ Founder & Director · Upskiller Educorporates
               </Badge>
             </Reveal>
             <Reveal delay={80}>
@@ -138,7 +138,7 @@ const Founder = () => {
             <Reveal delay={160}>
               <p className="text-lg text-white/80 max-w-xl leading-relaxed">
                 Career Catalyst · National Employability Crusader · Live Mentor to Thousands.
-                The visionary founder of <strong className="text-gold">Magnum Educorporates</strong> &
+                The visionary founder of <strong className="text-gold">Upskiller Educorporates</strong> &
                 <strong className="text-gold"> Upskiller Academy</strong> — India's first trainer-led,
                 job-first education ecosystem.
               </p>
@@ -164,7 +164,7 @@ const Founder = () => {
               <div className="relative overflow-hidden rounded-3xl border border-gold/40 shadow-elegant float-y backdrop-blur-md">
                 <img
                   src={portraitBW}
-                  alt="Prabjot Singh — Founder & Director, Magnum Educorporates"
+                  alt="Prabjot Singh — Founder & Director, Upskiller Educorporates"
                   className="h-[520px] w-full object-cover transition-transform duration-700 hover:scale-105"
                   width={1024}
                   height={1280}
@@ -174,7 +174,7 @@ const Founder = () => {
                 <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/15 bg-white/[0.07] backdrop-blur-xl p-5">
                   <p className="text-[0.65rem] uppercase tracking-[0.28em] text-gold">Founder & Director</p>
                   <p className="mt-1 font-display text-2xl text-white">Prabjot Singh</p>
-                  <p className="text-xs text-white/75">Magnum Educorporates · Upskiller Academy</p>
+                  <p className="text-xs text-white/75">Upskiller Educorporates · Upskiller Academy</p>
                 </div>
               </div>
             </div>
@@ -321,7 +321,7 @@ const Founder = () => {
             <p className="mt-6 font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.2]">
               <span className="text-gold">"</span>
               If your degree didn't give you a job,{" "}
-              <span className="bg-gold-gradient bg-clip-text text-transparent">Magnum will.</span>
+              <span className="bg-gold-gradient bg-clip-text text-transparent">Upskiller will.</span>
               <span className="text-gold">"</span>
             </p>
             <p className="mt-8 text-lg text-primary-foreground/80 max-w-2xl mx-auto italic">
