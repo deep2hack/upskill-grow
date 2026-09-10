@@ -33,7 +33,7 @@ const AlumniShorts = ({ layout = "row" }: { layout?: "row" | "grid" }) => {
             Our <span className="bg-gold-gradient bg-clip-text text-transparent">Successful Placement Alumni</span>
           </h2>
           <p className="mt-4 text-primary-foreground/75">
-            Hear directly from our students who transformed their careers through Upskiller Academy & Magnum Educorporates.
+            Hear directly from our students who transformed their careers through Upskiller Academy & Upskiller Educorporates.
           </p>
           <p className="mt-3 text-sm text-primary-foreground/60">
             Real students. Real careers. Real success stories. Explore how our alumni secured opportunities in leading companies through skill-focused training, live projects, and placement support.

@@ -827,7 +827,7 @@ const Placements = () => {
               <span className="bg-gold-gradient bg-clip-text text-transparent">Industry-Valued Certificate</span>
             </h2>
             <p className="mt-5 text-primary-foreground/80 max-w-lg">
-              Every graduate receives a co-branded Certificate of Achievement from Upskiller Academy & Magnum Educorporates — recognized by the Ministry of MSME, Government of India.
+              Every graduate receives a co-branded Certificate of Achievement from Upskiller Academy & Upskiller Educorporates — recognized by the Ministry of MSME, Government of India.
             </p>
             <ul className="mt-6 space-y-3 text-sm">
               {[
