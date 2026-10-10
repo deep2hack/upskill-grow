@@ -5,11 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO from "@/components/SEO";
-import { courses, formatINR, getCourse } from "@/data/courses";
+import { courses, formatINR, getCourse, astrologyCourse } from "@/data/courses";
 import { buildWhatsAppUrl, courseEnquiryMessage } from "@/lib/whatsapp";
 import { useSetWhatsAppCourse } from "@/contexts/WhatsAppContext";
 import { SITE } from "@/data/site";
 import ReloadLink from "@/components/ReloadLink";
+import AstrologyCourseDetail from "@/components/AstrologyCourseDetail";
 
 const CourseDetail = () => {
   const { slug = "" } = useParams();
@@ -17,6 +18,7 @@ const CourseDetail = () => {
   useSetWhatsAppCourse(course?.title ?? null);
 
   if (!course) return <Navigate to="/courses" replace />;
+  if (course.slug === astrologyCourse.slug) return <AstrologyCourseDetail />;
 
   const enrollHref = buildWhatsAppUrl(courseEnquiryMessage(course.title));
   const related = courses.filter((c) => c.slug !== course.slug).slice(0, 3);
@@ -54,8 +56,8 @@ const CourseDetail = () => {
             <CardContent className="p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-gold">Tuition</p>
               <div className="mt-2 flex items-end gap-3">
-                <p className="font-display text-4xl text-gold">{formatINR(course.price)}</p>
-                <p className="text-sm text-primary-foreground/60 line-through pb-1">{formatINR(course.mrp)}</p>
+                {typeof course.price === "number" && <p className="font-display text-4xl text-gold">{formatINR(course.price)}</p>}
+                {typeof course.mrp === "number" && <p className="text-sm text-primary-foreground/60 line-through pb-1">{formatINR(course.mrp)}</p>}
               </div>
               <ul className="mt-5 space-y-2 text-sm">
                 {course.highlights.slice(0, 4).map((h) => (
