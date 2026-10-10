@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO from "@/components/SEO";
-import { courses, formatINR } from "@/data/courses";
+import { courses, formatINR, astrologyCourse, astrologyImages } from "@/data/courses";
 import { SITE } from "@/data/site";
 import { buildWhatsAppUrl, courseEnquiryMessage } from "@/lib/whatsapp";
 import TradingBackdrop from "@/components/TradingBackdrop";
@@ -58,6 +58,19 @@ const Home = () => {
 
       {/* TOP HERO BANNER */}
       <CourseBanners />
+
+      <section className="bg-gold-soft/20 py-10 sm:py-14">
+        <div className="container max-w-4xl text-center">
+          <p className="text-sm font-semibold text-gold-deep">Featured Course</p>
+          <h2 className="mt-2 font-display text-2xl sm:text-3xl leading-snug tracking-normal">{astrologyCourse.title}</h2>
+          <ReloadLink to={`/courses/${astrologyCourse.slug}`} className="mt-6 block mx-auto max-w-2xl">
+            <img src={astrologyImages[0].src} alt={astrologyImages[0].alt} width={768} height={768} className="w-full h-auto object-contain" />
+          </ReloadLink>
+          <Button asChild variant="premium" size="lg" className="mt-6">
+            <ReloadLink to={`/courses/${astrologyCourse.slug}`}>Explore Course <ArrowRight /></ReloadLink>
+          </Button>
+        </div>
+      </section>
 
       {/* HERO VIDEO with overlay content */}
       <section className="relative w-full overflow-hidden bg-secondary text-primary-foreground">
@@ -236,8 +249,8 @@ const Home = () => {
                     </div>
                     <div className="mt-4 flex items-end justify-between">
                       <div>
-                        <p className="text-xs text-foreground/60 line-through">{formatINR(c.mrp)}</p>
-                        <p className="font-display text-2xl text-gold-deep">{formatINR(c.price)}</p>
+                        {typeof c.mrp === "number" && <p className="text-xs text-foreground/60 line-through">{formatINR(c.mrp)}</p>}
+                        {typeof c.price === "number" && <p className="font-display text-2xl text-gold-deep">{formatINR(c.price)}</p>}
                       </div>
                       <Button asChild variant="premium" size="sm">
                         <ReloadLink to={`/courses/${c.slug}`}>Details</ReloadLink>
