@@ -5,14 +5,16 @@ import marketMasteryImg from "@/assets/courses/market-mastery.png";
 import intradayImg from "@/assets/courses/intraday-trading.png";
 import candlestickImg from "@/assets/courses/candlestick-pattern.png";
 import optionImg from "@/assets/courses/option-mastery.png";
+import astrologyPoster from "@/assets/astrology/masterclass.jpg.asset.json";
+import astrologyBrochure from "@/assets/astrology/brochure.jpg.asset.json";
 
 export type Course = {
   slug: string;
   title: string;
   shortTitle: string;
   tagline: string;
-  price: number;
-  mrp: number;
+  price?: number;
+  mrp?: number;
   duration: string;
   mode: string;
   level: "Beginner" | "Intermediate" | "Advanced" | "All Levels";
@@ -31,6 +33,37 @@ export type Course = {
 
 export const formatINR = (n: number) =>
   new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
+
+export const astrologyImages = [
+  { src: astrologyPoster.url, alt: "Astrology Masterclass – Live Teaching Session poster" },
+  { src: astrologyBrochure.url, alt: "Upskiller Academy astrology brochure — four learning paths and course information" },
+];
+
+export const astrologyCourse: Course = {
+  slug: "advance-complete-vedic-astrology-master-course",
+  title: "ADVANCE COMPLETE VEDIC ASTROLOGY MASTER COURSE",
+  shortTitle: "Vedic Astrology Master Course",
+  image: astrologyBrochure.url,
+  tagline: "Learn Vedic astrology from foundational concepts to professional chart interpretation, predictive techniques, KP astrology, Lo Shu Grid, numerology, and practical case studies.",
+  duration: "180 suggested teaching hours",
+  mode: "Live interactive sessions",
+  level: "All Levels",
+  language: "",
+  certification: "",
+  hero: "From beginner foundations to professional astrology practice.",
+  overview: "A structured learning program covering Vedic astrology from beginner foundations to advanced chart interpretation, predictive astrology, real-life consultation scenarios, and professional practice.",
+  highlights: ["Live interactive sessions", "Recorded classes, where available", "Study materials and e-books", "Real chart examples and case studies", "Doubt-clearing support", "Practical learning and consultation exercises"],
+  whoFor: [],
+  outcomes: ["KP Astrology", "Lo Shu Grid", "Numerology patterns", "Vedic zodiac interpretation", "Birth chart interpretation", "Predictive astrology", "Real-life chart analysis and consultation practice"],
+  syllabus: [
+    { module: "Astrology Foundation", topics: ["Introduction to Jyotish, planets, zodiac signs, houses, birth charts, and Nakshatras."] },
+    { module: "Birth Chart Mastery", topics: ["Planetary aspects, functional benefics and malefics, planetary strength, important Yogas, and divisional charts."] },
+    { module: "Prediction Techniques", topics: ["Vimshottari Dasha, Antardasha, planetary transits, birth-time rectification, Panchanga, Muhurta, and advanced timing methods."] },
+    { module: "Real-Life Consultations", topics: ["Traditional astrological interpretation related to relationships, career, finance, education, family, property, and business."] },
+    { module: "Professional Astrologer Training", topics: ["Traditional remedies, complete Kundali reading, consultation skills, astrology software, research, case studies, and final assessment."] },
+  ],
+  faqs: [],
+};
 
 export const courses: Course[] = [
   {
@@ -342,6 +375,7 @@ export const courses: Course[] = [
       { q: "Is this option buying or selling focused?", a: "Primarily single-legged option buying with strong institutional context." },
     ],
   },
+  astrologyCourse,
 ];
 
 export const getCourse = (slug: string) => courses.find((c) => c.slug === slug);

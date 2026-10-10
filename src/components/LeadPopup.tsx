@@ -11,6 +11,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { submitToSheets } from "@/lib/sheets";
 import leftPhoto from "@/assets/popup/popup-left.png.asset.json";
 import rightPhoto from "@/assets/popup/popup-right.png.asset.json";
+import { LEAD_ENQUIRY_EVENT } from "@/lib/lead-enquiry";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^[+]?[\d\s-]{10,15}$/;
@@ -25,6 +26,19 @@ export const LeadPopup = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [lastSubmit, setLastSubmit] = useState(0);
+
+  useEffect(() => {
+    const onEnquiry = (event: Event) => {
+      if (!(event instanceof CustomEvent)) return;
+      const selected = courses.find((item) => item.title === event.detail?.course);
+      if (!selected) return;
+      setCourse(selected.title);
+      setSubmitted(false);
+      setOpen(true);
+    };
+    window.addEventListener(LEAD_ENQUIRY_EVENT, onEnquiry);
+    return () => window.removeEventListener(LEAD_ENQUIRY_EVENT, onEnquiry);
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -175,7 +189,7 @@ export const LeadPopup = () => {
                   <div className="grid gap-1.5">
                     <Label className="text-white/90">Interested Program</Label>
                     <Select value={course} onValueChange={setCourse} disabled={loading}>
-                      <SelectTrigger className="bg-white/[0.06] border-white/20 text-white focus:ring-gold/60"><SelectValue /></SelectTrigger>
+                      <SelectTrigger className="h-auto min-h-10 text-left [&>span]:min-w-0 [&>span]:whitespace-normal bg-white/[0.06] border-white/20 text-white focus:ring-gold/60"><SelectValue /></SelectTrigger>
                       <SelectContent>
                         {courses.map((c) => (
                           <SelectItem key={c.slug} value={c.title}>{c.title}</SelectItem>

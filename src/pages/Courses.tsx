@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import SEO from "@/components/SEO";
-import { courses, formatINR } from "@/data/courses";
+import { courses, formatINR, astrologyCourse } from "@/data/courses";
 import ReloadLink from "@/components/ReloadLink";
 
 const levels = ["All", "Beginner", "Intermediate", "Advanced"] as const;
@@ -17,7 +17,7 @@ const CourseCard = ({ slug, title, tagline, level, duration, mode, price, mrp, i
           src={image}
           alt={title}
           loading="lazy"
-          className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+          className={slug === astrologyCourse.slug ? "w-full h-auto object-contain" : "w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"}
         />
       </ReloadLink>
     )}
@@ -30,17 +30,17 @@ const CourseCard = ({ slug, title, tagline, level, duration, mode, price, mrp, i
       <CardDescription>{tagline}</CardDescription>
     </CardHeader>
     <CardContent className="mt-auto">
-      <div className="flex items-center gap-3 text-xs text-muted-foreground">
+      <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
         <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{duration}</span>
         <span className="inline-flex items-center gap-1"><BookOpen className="h-3.5 w-3.5" />{mode}</span>
       </div>
-      <div className="mt-4 flex items-end justify-between">
+      <div className="mt-4 flex flex-wrap gap-3 items-end justify-between">
         <div>
-          <p className="text-xs text-muted-foreground line-through">{formatINR(mrp)}</p>
-          <p className="font-display text-2xl text-primary">{formatINR(price)}</p>
+          {typeof mrp === "number" && <p className="text-xs text-muted-foreground line-through">{formatINR(mrp)}</p>}
+          {typeof price === "number" && <p className="font-display text-2xl text-primary">{formatINR(price)}</p>}
         </div>
         <Button asChild variant="premium" size="sm">
-          <ReloadLink to={`/courses/${slug}`}>View Course <ArrowRight /></ReloadLink>
+          <ReloadLink to={`/courses/${slug}`}>{slug === astrologyCourse.slug ? "Explore Course" : "View Course"} <ArrowRight /></ReloadLink>
         </Button>
       </div>
     </CardContent>
